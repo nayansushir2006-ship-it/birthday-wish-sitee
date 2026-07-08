@@ -20,10 +20,14 @@ app.use((req, res, next) => {
 });
 
 // Ensure local folders exist
-//const uploadsDir = path.join(__dirname, 'uploads');
-//if (!fs.existsSync(uploadsDir)) {
-//    fs.mkdirSync(uploadsDir, { recursive: true });
-//}
+const uploadsDir = path.join(__dirname, 'uploads');
+try {
+    if (!fs.existsSync(uploadsDir)) {
+        fs.mkdirSync(uploadsDir, { recursive: true });
+    }
+} catch (e) {
+    console.warn("Could not create uploads directory locally (expected on Serverless hosts):", e.message);
+}
 
 // Database initialization
 const dbPath = path.join(__dirname, 'db.json');
