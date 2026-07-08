@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Wish Surprise | वाढदिवसाच्या हार्दिक शुभेच्छा!</title>
+    <!-- Google Fonts for premium design -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <!-- FontAwesome for modern icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Canvas Confetti Library for celebrations -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <link rel="stylesheet" href="style.css?v=2.0">
+</head>
+<body>
+    <!-- Background Sparkles/Particles Container -->
+    <div id="particle-container"></div>
+    <div id="balloons-container"></div>
+
+    <div id="app">
+        <!-- 1. LANDING SCREEN -->
+        <section id="screen-landing" class="screen active">
+            <div class="landing-card glassmorphic animate-fade-in">
+                <div class="brand">
+                    <i class="fa-solid fa-cake-candles logo-icon"></i>
+                    <h1>Celebrate Love</h1>
+                    <p>एका खास व्यक्तीसाठी एक सुंदर वाढदिवसाचे सरप्राईज!</p>
+                </div>
+                <div class="mode-selectors">
+                    <button class="btn btn-primary" onclick="appController.navigateTo('login-user')">
+                        <i class="fa-solid fa-gift"></i> User Experience (सरप्राईज पहा)
+                    </button>
+                    <button class="btn btn-secondary" onclick="appController.navigateTo('login-admin')">
+                        <i class="fa-solid fa-user-gear"></i> Admin Control Panel
+                    </button>
+                </div>
+                <div class="footer-tag">Made with ❤️ for your special day</div>
+            </div>
+        </section>
+
+        <!-- 2. USER LOGIN SCREEN -->
+        <section id="screen-login-user" class="screen">
+            <button class="btn-back" onclick="appController.navigateTo('landing')">
+                <i class="fa-solid fa-arrow-left"></i> मागे जा
+            </button>
+            <div class="login-card glassmorphic animate-scale-up">
+                <h2>User Login</h2>
+                <p class="subtitle">तुमचे सरप्राईज अनलॉक करण्यासाठी लॉगिन करा</p>
+                
+                <form id="form-user-login" onsubmit="appController.handleUserLogin(event)">
+                    <div class="input-group">
+                        <label for="user-username"><i class="fa-solid fa-user"></i> Username</label>
+                        <input type="text" id="user-username" placeholder="नाव टाका..." required autocomplete="username">
+                    </div>
+                    <div class="input-group">
+                        <label for="user-password"><i class="fa-solid fa-lock"></i> Password</label>
+                        <input type="password" id="user-password" placeholder="पासवर्ड टाका..." required autocomplete="current-password">
+                    </div>
+                    <div class="input-group">
+                        <label for="user-birthdate"><i class="fa-solid fa-calendar-days"></i> Birthdate</label>
+                        <input type="date" id="user-birthdate" required>
+                    </div>
+                    <div id="user-login-error" class="error-msg hide"> चुकीचा युझरनेम, पासवर्ड किंवा जन्मतारीख!</div>
+                    <button type="submit" class="btn btn-primary btn-block">
+                        Unlock Surprise <i class="fa-solid fa-heart-pulse"></i>
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- 3. ADMIN LOGIN SCREEN -->
+        <section id="screen-login-admin" class="screen">
+            <button class="btn-back" onclick="appController.navigateTo('landing')">
+                <i class="fa-solid fa-arrow-left"></i> मागे जा
+            </button>
+            <div class="login-card glassmorphic animate-scale-up">
+                <h2>Admin Access</h2>
+                <p class="subtitle">सिस्टम कंट्रोल करण्यासाठी पासवर्ड टाका</p>
+                
+                <form id="form-admin-login" onsubmit="appController.handleAdminLogin(event)">
+                    <div class="input-group">
+                        <label for="admin-password"><i class="fa-solid fa-lock"></i> Admin Password</label>
+                        <input type="password" id="admin-password" placeholder="पासवर्ड प्रविष्ट करा..." required autocomplete="current-password">
+                    </div>
+                    <div id="admin-login-error" class="error-msg hide">चुकीचा पासवर्ड! (Default: admin123)</div>
+                    <button type="submit" class="btn btn-secondary btn-block">
+                        Access Dashboard <i class="fa-solid fa-shield-halved"></i>
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- 4. USER SURPRISE UNLOCK (GIFT BOX SCREEN) -->
+        <section id="screen-surprise-unlock" class="screen">
+            <div class="unlock-wrapper text-center animate-fade-in">
+                <div class="gift-box-container" onclick="appController.unlockBirthdayExperience()">
+                    <div class="gift-lid"></div>
+                    <div class="gift-ribbon-v"></div>
+                    <div class="gift-ribbon-h"></div>
+                    <div class="gift-box">
+                        <div class="gift-glow"></div>
+                        <i class="fa-solid fa-heart floating-heart-center"></i>
+                    </div>
+                </div>
+                <h1 class="gift-headline">तुमच्यासाठी एक सुंदर भेट! 🎁</h1>
+                <p class="gift-subline">अनलॉक करण्यासाठी गिफ्ट बॉक्सवर क्लिक करा</p>
+            </div>
+        </section>
+
+        <!-- 5. USER MAIN BIRTHDAY EXPERIENCE (DYNAMIC THEMED) -->
+        <section id="screen-user-dashboard" class="screen">
+            <!-- Floating Top Bar -->
+            <div class="user-top-bar glassmorphic">
+                <div class="user-info">
+                    <i class="fa-solid fa-crown user-crown"></i>
+                    <span id="user-display-name">Sanav</span>
+                </div>
+                <div class="music-mini-control">
+                    <div class="disc-wrapper">
+                        <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=150&auto=format&fit=crop&q=60" id="music-vinyl-disc" alt="vinyl disc">
+                    </div>
+                    <span id="music-current-title">Birthday Song</span>
+                    <button class="btn-icon" id="btn-toggle-music" onclick="appController.toggleBackgroundMusic()">
+                        <i class="fa-solid fa-pause"></i>
+                    </button>
+                </div>
+                <button class="btn btn-sm btn-danger" onclick="appController.logoutUser()">
+                    <i class="fa-solid fa-right-from-bracket"></i> Exit
+                </button>
+            </div>
+
+            <!-- Content Grid Layout -->
+            <div class="user-container">
+                <div class="left-hero-panel glassmorphic animate-slide-left">
+                    <div class="cake-display">
+                        <div class="celebration-title">
+                            <h2 class="font-cursive">Happy Birthday</h2>
+                            <h1 id="user-hero-name" class="glow-text">User Name</h1>
+                        </div>
+                        
+                        <!-- Interactive 3D Cake -->
+                        <div class="interactive-cake" id="cake-interactive" onclick="appController.blowCandle()">
+                            <div class="candle">
+                                <div class="flame" id="candle-flame"></div>
+                            </div>
+                            <div class="cake-top"></div>
+                            <div class="cake-middle"></div>
+                            <div class="cake-bottom"></div>
+                        </div>
+                        <p class="cake-instruction" id="cake-instructions">🕯️ मेणबत्ती विझवण्यासाठी केकवर क्लिक करा (Blow Candle!)</p>
+                    </div>
+
+                    <!-- Music Settings Inside experience -->
+                    <div class="music-settings-box">
+                        <h4><i class="fa-solid fa-music"></i> Select Music Vibes</h4>
+                        <div class="music-options-grid" id="user-music-presets">
+                            <!-- Presets dynamically loaded -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="right-tabs-panel glassmorphic animate-slide-right">
+                    <!-- Nav Tabs -->
+                    <div class="tabs-nav">
+                        <button class="tab-btn active" onclick="appController.switchUserTab('tab-wish')">
+                            <i class="fa-solid fa-envelope-open-text"></i> Wish
+                        </button>
+                        <button class="tab-btn" onclick="appController.switchUserTab('tab-gallery')">
+                            <i class="fa-solid fa-images"></i> Memories
+                        </button>
+                        <button class="tab-btn" onclick="appController.switchUserTab('tab-thanks')">
+                            <i class="fa-solid fa-reply"></i> Say Thanks
+                        </button>
+                    </div>
+
+                    <!-- Tab Contents -->
+                    <div class="tabs-content">
+                        <!-- Tab 1: Wish Message -->
+                        <div id="tab-wish" class="tab-pane active">
+                            <div class="wish-letter">
+                                <div class="letter-header">
+                                    <i class="fa-solid fa-quote-left quote-icon"></i>
+                                </div>
+                                <div class="letter-body">
+                                    <p id="user-wish-message" class="wish-text-reading">
+                                        वाढदिवसाच्या हार्दिक शुभेच्छा! तुमचे आयुष्य सुख, समृद्धी आणि आनंदाने भरून जावे हीच ईश्वरचरणी प्रार्थना...
+                                    </p>
+                                </div>
+                                <div class="letter-footer">
+                                    <button class="btn btn-primary btn-speak" onclick="appController.readMessageAloud()">
+                                        <i class="fa-solid fa-volume-high"></i> ऐका (Listen Wish)
+                                    </button>
+                                    <button class="btn btn-secondary btn-speak-pause hide" id="btn-pause-tts" onclick="appController.pauseSpeech()">
+                                        <i class="fa-solid fa-circle-pause"></i> थांबवा
+                                    </button>
+                                    <p class="wish-from">- From Your Admin</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tab 2: Memories Gallery -->
+                        <div id="tab-gallery" class="tab-pane">
+                            <div class="gallery-wrapper">
+                                <h3><i class="fa-solid fa-photo-film"></i> गोड आठवणींचा खजिना</h3>
+                                <p class="gallery-desc">तुमच्यासाठी सजवलेली खास गॅलरी</p>
+                                <div class="gallery-grid" id="user-gallery-grid">
+                                    <!-- Photos/Videos dynamically loaded -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tab 3: Say Thanks -->
+                        <div id="tab-thanks" class="tab-pane">
+                            <div class="thanks-form-box">
+                                <h3><i class="fa-solid fa-paper-plane"></i> Send a Thank You Note</h3>
+                                <p>ज्यांनी तुमच्यासाठी हे सरप्राईज डिझाइन केले त्यांना एक गोड संदेश पाठवा.</p>
+                                <textarea id="thanks-message-input" rows="5" placeholder="थँक्यू मेसेज लिहा... (उदा. खूप छान सरप्राईज आहे, थँक्यू सो मच!)"></textarea>
+                                <div id="thanks-success-msg" class="success-msg hide"><i class="fa-solid fa-circle-check"></i> थँक्यू! तुमचा मेसेज ॲडमीनकडे सेव्ह झाला आहे.</div>
+                                <button class="btn btn-primary" onclick="appController.sendThanksMessage()">
+                                    Send Message <i class="fa-solid fa-paper-plane"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. ADMIN DASHBOARD CONTROL PANEL -->
+        <section id="screen-admin-dashboard" class="screen">
+            <div class="admin-layout">
+                <!-- Sidebar -->
+                <aside class="admin-sidebar">
+                    <div class="sidebar-header">
+                        <i class="fa-solid fa-user-gear admin-icon"></i>
+                        <div>
+                            <h3>Admin Panel</h3>
+                            <span>Website Controller</span>
+                        </div>
+                    </div>
+                    <nav class="sidebar-nav">
+                        <button class="nav-item active" onclick="appController.switchAdminTab('admin-overview')">
+                            <i class="fa-solid fa-chart-pie"></i> Dashboard Overview
+                        </button>
+                        <button class="nav-item" onclick="appController.switchAdminTab('admin-users')">
+                            <i class="fa-solid fa-users"></i> Manage Users
+                        </button>
+                        <button class="nav-item" onclick="appController.switchAdminTab('admin-themes')">
+                            <i class="fa-solid fa-palette"></i> Themes & Message
+                        </button>
+                        <button class="nav-item" onclick="appController.switchAdminTab('admin-gallery')">
+                            <i class="fa-solid fa-images"></i> Media Gallery Manager
+                        </button>
+                        <button class="nav-item" onclick="appController.switchAdminTab('admin-music')">
+                            <i class="fa-solid fa-music"></i> Music Settings
+                        </button>
+                        <button class="nav-item" onclick="appController.switchAdminTab('admin-records')">
+                            <i class="fa-solid fa-list-check"></i> System Logs
+                        </button>
+                        <button class="nav-item" onclick="appController.switchAdminTab('admin-cloudinary')">
+                            <i class="fa-solid fa-cloud-arrow-up"></i> Cloudinary Settings
+                        </button>
+                    </nav>
+                    <div class="sidebar-footer">
+                        <button class="btn btn-sm btn-danger btn-block" onclick="appController.logoutAdmin()">
+                            <i class="fa-solid fa-power-off"></i> Exit Admin
+                        </button>
+                    </div>
+                </aside>
+
+                <!-- Main Admin Content Area -->
+                <main class="admin-content">
+                    
+                    <!-- TAB 1: OVERVIEW -->
+                    <div id="admin-overview" class="admin-tab-pane active">
+                        <header class="content-header">
+                            <h1>Dashboard Overview</h1>
+                            <p>सिस्टममधील महत्त्वाचे अपडेट्स आणि आकडेवारी</p>
+                        </header>
+                        <div class="stats-grid">
+                            <div class="stat-card glassmorphic">
+                                <div class="stat-icon pink-glow"><i class="fa-solid fa-users"></i></div>
+                                <div class="stat-details">
+                                    <h3 id="stat-total-users">0</h3>
+                                    <p>एकूण युझर्स (Total Users)</p>
+                                </div>
+                            </div>
+                            <div class="stat-card glassmorphic">
+                                <div class="stat-icon gold-glow"><i class="fa-solid fa-cake-candles"></i></div>
+                                <div class="stat-details">
+                                    <h3 id="stat-today-birthdays">0</h3>
+                                    <p>आज वाढदिवस असलेले युझर्स</p>
+                                </div>
+                            </div>
+                            <div class="stat-card glassmorphic">
+                                <div class="stat-icon purple-glow"><i class="fa-solid fa-images"></i></div>
+                                <div class="stat-details">
+                                    <h3 id="stat-total-media">0</h3>
+                                    <p>एकूण अपलोडेड मीडिया</p>
+                                </div>
+                            </div>
+                            <div class="stat-card glassmorphic">
+                                <div class="stat-icon green-glow"><i class="fa-solid fa-heart"></i></div>
+                                <div class="stat-details">
+                                    <h3 id="stat-total-thanks">0</h3>
+                                    <p>थँक्यू मेसेजेस (Thank You Notes)</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dashboard-details-grid">
+                            <div class="details-box glassmorphic">
+                                <h3><i class="fa-solid fa-clock-rotate-left"></i> रिसेंट लॉगीन्स (Recent Logins)</h3>
+                                <div class="table-responsive">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>User</th>
+                                                <th>Login Time</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="overview-recent-logins">
+                                            <!-- Dynamic content -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="details-box glassmorphic">
+                                <h3><i class="fa-solid fa-gift"></i> आजचे वाढदिवस (Today's Birthdays)</h3>
+                                <ul class="birthday-list" id="overview-birthdays-list">
+                                    <!-- Dynamic list of today's birthdays -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TAB 2: MANAGE USERS -->
+                    <div id="admin-users" class="admin-tab-pane">
+                        <header class="content-header flex-between">
+                            <div>
+                                <h1>Manage Birthday Users</h1>
+                                <p>वाढदिवस असलेल्या युझर्सची यादी आणि लॉगिन क्रेडेंशियल्स</p>
+                            </div>
+                            <button class="btn btn-primary" onclick="appController.openUserModal('add')">
+                                <i class="fa-solid fa-plus"></i> Add New User
+                            </button>
+                        </header>
+                        <div class="table-container glassmorphic">
+                            <div class="table-responsive">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>नाव (Name)</th>
+                                            <th>Username</th>
+                                            <th>Password</th>
+                                            <th>जन्मतारीख (Birthdate)</th>
+                                            <th>Active Theme</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="admin-users-table-body">
+                                        <!-- User lists -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TAB 3: THEME & MESSAGE -->
+                    <div id="admin-themes" class="admin-tab-pane">
+                        <header class="content-header">
+                            <h1>Themes & Birthday Wish Message</h1>
+                            <p>युझरसाठी सुंदर डिझाइन आणि शुभेच्छांचा मेसेज सेट करा</p>
+                        </header>
+
+                        <div class="form-layout-grid">
+                            <div class="form-card glassmorphic">
+                                <h3>१. युझर निवडा आणि थीम सेट करा</h3>
+                                <div class="input-group">
+                                    <label for="theme-user-select">युझर निवडा</label>
+                                    <select id="theme-user-select" onchange="appController.loadUserDataForTheme(this.value)">
+                                        <!-- Users options dynamic -->
+                                    </select>
+                                </div>
+                                <div class="theme-selector-grid">
+                                    <div class="theme-card-option selected" id="opt-theme-pink-princess" onclick="appController.selectThemeOption('pink-princess')">
+                                        <div class="theme-preview pink-preview"></div>
+                                        <span>Princess Pink</span>
+                                    </div>
+                                    <div class="theme-card-option" id="opt-theme-royal-gold" onclick="appController.selectThemeOption('royal-gold')">
+                                        <div class="theme-preview gold-preview"></div>
+                                        <span>Royal Gold</span>
+                                    </div>
+                                    <div class="theme-card-option" id="opt-theme-cyber-neon" onclick="appController.selectThemeOption('cyber-neon')">
+                                        <div class="theme-preview neon-preview"></div>
+                                        <span>Cyber Neon</span>
+                                    </div>
+                                    <div class="theme-card-option" id="opt-theme-cosmic-dark" onclick="appController.selectThemeOption('cosmic-dark')">
+                                        <div class="theme-preview cosmic-preview"></div>
+                                        <span>Cosmic Dark</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-card glassmorphic">
+                                <h3>२. वाढदिवस शुभेच्छा मेसेज (Birthday Wish)</h3>
+                                <p class="help-text">हा मेसेज युझरला लॉगिन केल्यावर दिसेल आणि ऑडिओद्वारे ऐकूही येईल.</p>
+                                <div class="input-group">
+                                    <label for="admin-wish-text">शुभेच्छा मेसेज (Marathi or English)</label>
+                                    <textarea id="admin-wish-text" rows="8" placeholder="इथे शुभेच्छा मेसेज लिहा..."></textarea>
+                                </div>
+                                <button class="btn btn-primary" onclick="appController.saveThemeAndMessage()">
+                                    Save Theme & Message <i class="fa-solid fa-floppy-disk"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TAB 4: GALLERY MANAGER -->
+                    <div id="admin-gallery" class="admin-tab-pane">
+                        <header class="content-header flex-between">
+                            <div>
+                                <h1>Media Gallery Manager</h1>
+                                <p>आठवणींचे फोटो आणि व्हिडिओ गॅलरीमध्ये जोडा</p>
+                            </div>
+                            <div class="gallery-actions">
+                                <select id="gallery-user-select" class="select-inline" onchange="appController.loadUserGallery(this.value)">
+                                    <!-- Dynamic user select -->
+                                </select>
+                                <button class="btn btn-primary" onclick="appController.openGalleryModal()">
+                                    <i class="fa-solid fa-plus"></i> Add Image/Video
+                                </button>
+                            </div>
+                        </header>
+
+                        <div class="gallery-manager-grid" id="admin-gallery-manager-grid">
+                            <!-- Dynamic images/videos lists with delete options -->
+                        </div>
+                    </div>
+
+                    <!-- TAB 5: MUSIC MANAGER -->
+                    <div id="admin-music" class="admin-tab-pane">
+                        <header class="content-header">
+                            <h1>Background Music Manager</h1>
+                            <p>युझरच्या वाढदिवसाच्या स्क्रीनवर वाजणारे गाणे सेट करा</p>
+                        </header>
+
+                        <div class="form-layout-grid">
+                            <div class="form-card glassmorphic">
+                                <h3>१. युझरसाठी संगीत सेटिंग्ज (Select Music)</h3>
+                                <div class="input-group">
+                                    <label for="music-user-select">युझर निवडा</label>
+                                    <select id="music-user-select" onchange="appController.loadUserMusicConfig(this.value)">
+                                        <!-- Options dynamic -->
+                                    </select>
+                                </div>
+
+                                <div class="input-group">
+                                    <label>सध्याचे संगीत प्लेबॅक ट्रॅक (Choose a track or add custom link)</label>
+                                    <div class="music-selection-list" id="music-tracks-radio-container">
+                                        <!-- Tracks dynamic -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-card glassmorphic">
+                                <h3>२. नवीन संगीत ट्रॅक जोडा (Add New Music Track)</h3>
+                                <p class="help-text">तुम्ही कोणत्याही ऑडिओ फाईलची थेट लिंक (MP3/WAV direct url) जोडू शकता.</p>
+                                <div class="input-group">
+                                    <label for="music-new-title">गाण्याचे नाव (Track Title)</label>
+                                    <input type="text" id="music-new-title" placeholder="उदा. Soft Birthday Melody">
+                                </div>
+                                <div class="input-group" id="music-new-url-group">
+                                    <label for="music-new-url">ऑडिओ फाईल URL (Direct Audio Link)</label>
+                                    <input type="url" id="music-new-url" placeholder="https://example.com/audio.mp3">
+                                </div>
+                                <div class="input-group" id="music-new-file-group">
+                                    <label for="music-new-file">लोकल ऑडिओ फाईल अपलोड करा (Upload MP3 from Laptop)</label>
+                                    <input type="file" id="music-new-file" accept="audio/*">
+                                    <div class="upload-progress-container hide" id="music-upload-progress-container">
+                                        <div class="upload-progress-bar" id="music-upload-progress-bar" style="width: 0%;"></div>
+                                        <span class="upload-progress-text" id="music-upload-progress-text">0% Uploaded</span>
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary" onclick="appController.addNewMusicTrack()">
+                                    Add Music Track <i class="fa-solid fa-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TAB 6: LOGS & RECORDS -->
+                    <div id="admin-records" class="admin-tab-pane">
+                        <header class="content-header flex-between">
+                            <div>
+                                <h1>System Logs & User Thanks</h1>
+                                <p>वापरकर्त्यांचे लॉगिन रेकॉर्ड्स आणि त्यांनी पाठवलेले थँक्यू मेसेजेस</p>
+                            </div>
+                            <button class="btn btn-danger" onclick="appController.clearAllLogs()">
+                                <i class="fa-solid fa-trash-can"></i> Clear All Logs
+                            </button>
+                        </header>
+
+                        <div class="logs-grid">
+                            <div class="details-box glassmorphic">
+                                <h3>👥 लॉगिन इतिहास (User Login History)</h3>
+                                <div class="table-responsive">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>User</th>
+                                                <th>Timestamp</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="logs-login-tbody">
+                                            <!-- Logs dynamic -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div class="details-box glassmorphic">
+                                <h3>✉️ थँक्यू मेसेजेस (Thank You Messages)</h3>
+                                <div class="thanks-messages-list" id="logs-thanks-list">
+                                    <!-- Messages dynamic -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TAB 7: CLOUD INTEGRATION SETTINGS -->
+                    <div id="admin-cloudinary" class="admin-tab-pane">
+                        <header class="content-header">
+                            <h1>Cloud Integration Dashboard</h1>
+                            <p>वेबसाईट होस्टिंग आणि क्लाउड स्टोरेज (Vercel, Firebase & Cloudinary) व्यवस्थापन</p>
+                        </header>
+
+                        <!-- System Mode Status Badge -->
+                        <div class="form-card glassmorphic" style="margin-bottom: 25px; padding: 20px; border-left: 5px solid var(--primary);">
+                            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 15px;">
+                                <div>
+                                    <h3 style="margin-bottom: 5px;"><i class="fa-solid fa-server"></i> Active Environment</h3>
+                                    <p class="status-desc" id="sys-mode-desc" style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.4;">माहिती लोड होत आहे...</p>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 15px;">
+                                    <span id="sys-mode-badge" class="badge badge-gold">Detecting...</span>
+                                    <div class="status-pulse amber" id="sys-mode-pulse"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-layout-grid">
+                            <!-- CARD 1: CLOUDINARY CONFIG -->
+                            <div class="form-card glassmorphic">
+                                <h3>१. Cloudinary Config (मोफत फोटो/व्हिडिओ स्टोरेज)</h3>
+                                <p class="help-text" style="margin-bottom: 15px;">तुमचे फोटो आणि ऑडिओ फाईल्स क्लाउडवर सेव्ह करण्यासाठी तपशील भरा:</p>
+                                
+                                <div class="input-group">
+                                    <label for="cld-cloud-name">Cloud Name</label>
+                                    <input type="text" id="cld-cloud-name" placeholder="e.g. dxyz1234">
+                                </div>
+
+                                <!-- Unsigned preset used in Vercel mode, Secret used in local Express mode -->
+                                <div class="input-group" id="cld-unsigned-group">
+                                    <label for="cld-preset">Upload Preset (Unsigned)</label>
+                                    <input type="text" id="cld-preset" placeholder="e.g. ml_default (Unsigned preset)">
+                                    <span class="help-text" style="font-size: 0.72rem;">Vercel वर फोटो थेट अपलोड करण्यासाठी Cloudinary मध्ये Unsigned Preset सुरू करणे आवश्यक आहे.</span>
+                                </div>
+
+                                <div class="input-group" id="cld-secret-group">
+                                    <label for="cld-api-key">API Key</label>
+                                    <input type="text" id="cld-api-key" placeholder="e.g. 123456789012345">
+                                    <label for="cld-api-secret" style="margin-top: 10px;">API Secret</label>
+                                    <input type="password" id="cld-api-secret" placeholder="API Secret की टाका...">
+                                </div>
+                                
+                                <button class="btn btn-primary" onclick="appController.saveCloudinarySettings()">
+                                    Save Storage Config <i class="fa-solid fa-floppy-disk"></i>
+                                </button>
+                            </div>
+
+                            <!-- CARD 2: FIREBASE FIRESTORE CONFIG (Only active in Vercel Mode) -->
+                            <div class="form-card glassmorphic" id="fb-config-card">
+                                <h3>२. Firebase Firestore Config (डेटाबेस)</h3>
+                                <p class="help-text" id="fb-config-help" style="margin-bottom: 15px;">Vercel वर डेटा कायमस्वरूपी सेव्ह करण्यासाठी तुमचे Firebase तपशील भरा:</p>
+                                
+                                <div class="input-group">
+                                    <label for="fb-api-key">API Key</label>
+                                    <input type="text" id="fb-api-key" placeholder="AIzaSy...">
+                                </div>
+                                <div class="input-group">
+                                    <label for="fb-auth-domain">Auth Domain</label>
+                                    <input type="text" id="fb-auth-domain" placeholder="project-id.firebaseapp.com">
+                                </div>
+                                <div class="input-group">
+                                    <label for="fb-project-id">Project ID</label>
+                                    <input type="text" id="fb-project-id" placeholder="project-id">
+                                </div>
+                                <div class="input-group">
+                                    <label for="fb-app-id">App ID</label>
+                                    <input type="text" id="fb-app-id" placeholder="1:12345:web:abcd">
+                                </div>
+                                
+                                <button class="btn btn-primary" id="btn-save-fb" onclick="appController.saveFirebaseSettings()">
+                                    Save Database Config <i class="fa-solid fa-floppy-disk"></i>
+                                </button>
+                                <button class="btn btn-secondary hide" id="btn-disconnect-fb" onclick="appController.disconnectFirebase()">
+                                    Disconnect Database
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Instructions -->
+                        <div class="form-card glassmorphic" style="margin-top: 25px;">
+                            <h3>💡 Setup & Deployment Instructions:</h3>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 10px;">
+                                <div>
+                                    <h4 style="color: var(--primary); margin-bottom: 5px;">A. Vercel वर अपलोड करण्याची पद्धत:</h4>
+                                    <ol style="margin-left: 20px; font-size: 0.8rem; color: var(--text-muted); line-height: 1.5;">
+                                        <li>हा संपूर्ण फोल्डर तुमच्या GitHub वर अपलोड करा.</li>
+                                        <li><a href="https://vercel.com" target="_blank" style="color: var(--primary); text-decoration: underline;">Vercel.com</a> वर मोफत लॉगिन करा.</li>
+                                        <li>तिथे Add New -> Project करून तुमचे GitHub रिपॉझिटरी सिलेक्ट करा.</li>
+                                        <li>Vercel मधील कोणतीही सेटिंग न बदलता थेट <strong>Deploy</strong> वर क्लिक करा!</li>
+                                    </ol>
+                                </div>
+                                <div>
+                                    <h4 style="color: var(--primary); margin-bottom: 5px;">B. Cloudinary Unsigned Upload Preset मिळवा:</h4>
+                                    <ol style="margin-left: 20px; font-size: 0.8rem; color: var(--text-muted); line-height: 1.5;">
+                                        <li>Cloudinary.com डॅशबोर्डमध्ये वरच्या उजव्या बाजूला <strong>Settings (Gear icon)</strong> वर जा.</li>
+                                        <li>डावीकडे <strong>Upload</strong> निवडून खाली स्क्रोल करा आणि <strong>Add Upload Preset</strong> वर क्लिक करा.</li>
+                                        <li>Preset चे नाव कॉपी करा. Signing Mode बदलून <strong>Unsigned</strong> निवडा आणि सेव्ह करा.</li>
+                                        <li>तेच नाव डावीकडील <strong>Upload Preset (Unsigned)</strong> मध्ये भरा.</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </section>
+    </div>
+
+    <!-- MODAL 1: ADD / EDIT USER -->
+    <div id="modal-user" class="modal-overlay hide">
+        <div class="modal-content glassmorphic animate-scale-up">
+            <header class="modal-header">
+                <h3 id="user-modal-title">Add New Birthday User</h3>
+                <button class="btn-close" onclick="appController.closeUserModal()"><i class="fa-solid fa-xmark"></i></button>
+            </header>
+            <div class="modal-body">
+                <form id="form-user-edit" onsubmit="appController.saveUser(event)">
+                    <input type="hidden" id="edit-user-id">
+                    <div class="input-group">
+                        <label for="edit-user-name">नाव (Full Name)</label>
+                        <input type="text" id="edit-user-name" placeholder="उदा. सानव भोसले" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="edit-user-username">Username</label>
+                        <input type="text" id="edit-user-username" placeholder="उदा. sanav" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="edit-user-password">Password</label>
+                        <input type="text" id="edit-user-password" placeholder="पासवर्ड निवडा..." required>
+                    </div>
+                    <div class="input-group">
+                        <label for="edit-user-birthdate">जन्मतारीख (Birthdate)</label>
+                        <input type="date" id="edit-user-birthdate" required>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" onclick="appController.closeUserModal()">रद्द करा (Cancel)</button>
+                        <button type="submit" class="btn btn-primary">जतन करा (Save)</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 2: ADD GALLERY ITEM -->
+    <div id="modal-gallery" class="modal-overlay hide">
+        <div class="modal-content glassmorphic animate-scale-up">
+            <header class="modal-header">
+                <h3>Add Photo / Video Link</h3>
+                <button class="btn-close" onclick="appController.closeGalleryModal()"><i class="fa-solid fa-xmark"></i></button>
+            </header>
+            <div class="modal-body">
+                <form id="form-gallery-add" onsubmit="appController.saveGalleryItem(event)">
+                    <div class="input-group">
+                        <label>मीडिया प्रकार (Media Type)</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="media-type" value="image" checked onchange="appController.toggleGalleryFormType('image')"> Photo/Image</label>
+                            <label><input type="radio" name="media-type" value="video" onchange="appController.toggleGalleryFormType('video')"> Video</label>
+                        </div>
+                    </div>
+                    <div class="input-group" id="gallery-item-url-group">
+                        <label for="gallery-item-url">मीडिया फाईल URL (Direct Link to Image/Video)</label>
+                        <input type="url" id="gallery-item-url" placeholder="https://images.unsplash.com/... or video path">
+                        <span class="help-text">तुम्ही Unsplash, Imgur किंवा कोणत्याही डायरेक्ट इमेज लिंक्स वापरू शकता.</span>
+                    </div>
+                    <div class="input-group" id="gallery-item-file-group">
+                        <label for="gallery-item-file">लोकल फाईल अपलोड करा (Upload File from Laptop)</label>
+                        <input type="file" id="gallery-item-file" accept="image/*,video/*">
+                        <div class="upload-progress-container hide" id="gallery-upload-progress-container">
+                            <div class="upload-progress-bar" id="gallery-upload-progress-bar" style="width: 0%;"></div>
+                            <span class="upload-progress-text" id="gallery-upload-progress-text">0% Uploaded</span>
+                        </div>
+                    </div>
+                    <div class="input-group" id="gallery-item-caption-group">
+                        <label for="gallery-item-caption">शीर्षक (Caption - optional)</label>
+                        <input type="text" id="gallery-item-caption" placeholder="उदा. कॉलेजचा पहिला दिवस...">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" onclick="appController.closeGalleryModal()">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Add Media</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Image Lightbox Modal for User Experience -->
+    <div id="lightbox" class="lightbox-overlay hide" onclick="appController.closeLightbox()">
+        <button class="btn-close-lightbox"><i class="fa-solid fa-xmark"></i></button>
+        <img id="lightbox-img" src="" alt="Zoomed view">
+        <p id="lightbox-caption"></p>
+    </div>
+
+    <script src="app.js?v=2.0"></script>
+</body>
+</html>

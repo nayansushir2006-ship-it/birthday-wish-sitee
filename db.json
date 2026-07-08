@@ -1,0 +1,123 @@
+{
+  "adminPassword": "admin123",
+  "cloudinary": {
+    "cloudName": "awtaw7he",
+    "apiKey": "842648163144617",
+    "apiSecret": "LB_TgaVM6uTw4ISkyHfmYAnTa30"
+  },
+  "users": [
+    {
+      "id": "usr-1",
+      "name": "Sanav Bhosale",
+      "username": "sanav",
+      "password": "123",
+      "birthdate": "2003-05-12",
+      "wishMessage": "लाडक्या सानवला वाढदिवसाच्या अनंत शुभेच्छा! 🎂✨\n\nतुझे आयुष्य फुलांसारखे सुगंधी आणि ताऱ्यांसारखे चमकत राहो. तुझ्या सर्व इच्छा-आकांक्षा पूर्ण होऊ देत आणि तुला निरोगी आयुष्य लाभो, हीच देवाकडे प्रार्थना!\n\nसदा हसत राहा! 😊👑❤️",
+      "theme": "pink-princess",
+      "musicTrackId": "track-1",
+      "gallery": [
+        {
+          "type": "image",
+          "url": "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=800&auto=format&fit=crop&q=80",
+          "caption": "वाढदिवस सेलिब्रेशन 🎉"
+        },
+        {
+          "type": "image",
+          "url": "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&auto=format&fit=crop&q=80",
+          "caption": "रंगबेरंगी आठवणी ✨"
+        },
+        {
+          "type": "image",
+          "url": "https://images.unsplash.com/photo-1504196606672-aef5c9cefc92?w=800&auto=format&fit=crop&q=80",
+          "caption": "आनंदाचा प्रत्येक क्षण 💖"
+        },
+        {
+          "type": "image",
+          "url": "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800&auto=format&fit=crop&q=80",
+          "caption": "नेहमी हसत राहा 😊"
+        },
+        {
+          "type": "image",
+          "url": "https://res.cloudinary.com/awtaw7he/image/upload/v1783530532/birthday_wish_assets/ehvqsokcfe5qibkwbcsl.jpg",
+          "caption": "vv"
+        },
+        {
+          "type": "image",
+          "url": "https://res.cloudinary.com/awtaw7he/image/upload/v1783534129/birthday_wish_assets/ceh59dfrhwlnlamp7fnw.jpg",
+          "caption": ""
+        }
+      ]
+    },
+    {
+      "id": "usr-2",
+      "name": "Karan Patil",
+      "username": "karan",
+      "password": "123",
+      "birthdate": "2000-07-08",
+      "wishMessage": "Happy Birthday Karan! 🎂🎉\n\nWishing you a magnificent day filled with joy, laughter, and high energy. May this year unlock brand new opportunities and huge successes for you.\n\nKeep shining and rock on! 🎸🌟",
+      "theme": "royal-gold",
+      "musicTrackId": "track-2",
+      "gallery": [
+        {
+          "type": "image",
+          "url": "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&auto=format&fit=crop&q=80",
+          "caption": "Retro Party Vibes! 🕶️"
+        },
+        {
+          "type": "image",
+          "url": "https://images.unsplash.com/photo-1527529482837-4698179dc6ce?w=800&auto=format&fit=crop&q=80",
+          "caption": "Moments of Happiness 💫"
+        },
+        {
+          "type": "image",
+          "url": "https://images.unsplash.com/photo-1502082553048-f009c37129b9?w=800&auto=format&fit=crop&q=80",
+          "caption": "Dream Big!"
+        }
+      ]
+    }
+  ],
+  "tracks": [
+    {
+      "id": "track-1",
+      "title": "Romantic Piano Theme",
+      "url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+    },
+    {
+      "id": "track-2",
+      "title": "Upbeat Acoustic Vibe",
+      "url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"
+    },
+    {
+      "id": "track-3",
+      "title": "Party Electronic Beats",
+      "url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3"
+    },
+    {
+      "id": "track-4",
+      "title": "Sweet Acoustic Guitar",
+      "url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3"
+    }
+  ],
+  "logs": [
+    {
+      "id": "log-1",
+      "username": "sanav",
+      "action": "Logged in to dashboard",
+      "timestamp": "2026-07-07T14:15:32.000Z"
+    },
+    {
+      "username": "sanav",
+      "action": "Logged in successfully",
+      "timestamp": "2026-07-08T17:09:46.526Z",
+      "id": "log-1783530586560"
+    }
+  ],
+  "thanks": [
+    {
+      "id": "th-1",
+      "username": "sanav",
+      "message": "मस्त सरप्राईज आहे! खूप मनापासून आवडले! ❤️😊",
+      "timestamp": "2026-07-07T14:20:10.000Z"
+    }
+  ]
+}
