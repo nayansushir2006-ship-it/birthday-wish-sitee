@@ -130,10 +130,15 @@ class BirthdayAppController {
                 const tracks = await this.firebase.fetchCollection('tracks');
                 const logs = await this.firebase.fetchCollection('logs');
                 const thanks = await this.firebase.fetchCollection('thanks');
+                const settings = await this.firebase.fetchCollection('settings');
+
+                // Retrieve custom admin password if set
+                const adminSetting = settings.find(s => s.id === 'admin');
+                const savedAdminPassword = adminSetting ? adminSetting.password : 'admin123';
 
                 // Bind fetched documents
                 this.db = {
-                    adminPassword: 'admin123',
+                    adminPassword: savedAdminPassword,
                     cloudinary: cldConfig,
                     users: users,
                     tracks: tracks.length > 0 ? tracks : this.getDefaultTracks(),
@@ -352,6 +357,56 @@ class BirthdayAppController {
         if (confirm("तुम्हाला Firebase डेटाबेस डिस्कनेक्ट करायचा आहे का?")) {
             localStorage.removeItem('serverless_fb_config');
             window.location.reload();
+        }
+    }
+
+    async updateAdminPassword() {
+        const newPassword = document.getElementById('admin-new-password').value.trim();
+        const confirmPassword = document.getElementById('admin-confirm-password').value.trim();
+
+        if (!newPassword) {
+            alert("नवीन पासवर्ड रिकामा ठेवता येणार नाही!");
+            return;
+        }
+
+        if (newPassword !== confirmPassword) {
+            alert("पासवर्ड जुळत नाहीत! कृपया पुन्हा खात्री करा.");
+            return;
+        }
+
+        try {
+            if (this.isServerless) {
+                // Serverless Firestore mode
+                if (!this.firebase.db) {
+                    alert("कृपया प्रथम Firebase डेटाबेस यशस्वीरित्या कनेक्ट करा!");
+                    return;
+                }
+                await this.firebase.saveDoc('settings', 'admin', { password: newPassword });
+                this.db.adminPassword = newPassword;
+                alert("ॲडमीन पासवर्ड क्लाउडवर यशस्वीरित्या बदलला! 🔑");
+            } else {
+                // Express Local mode
+                const response = await fetch('/api/admin/password', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ newPassword })
+                });
+                const result = await response.json();
+                if (result.success) {
+                    this.db.adminPassword = newPassword;
+                    alert("ॲडमीन पासवर्ड यशस्वीरित्या बदलला! 🔑");
+                } else {
+                    alert("पासवर्ड बदलताना चूक झाली: " + result.error);
+                }
+            }
+            
+            // Clear inputs
+            document.getElementById('admin-new-password').value = '';
+            document.getElementById('admin-confirm-password').value = '';
+            
+        } catch (e) {
+            console.error("Password update error:", e);
+            alert("त्रुटी आली! पासवर्ड बदलता आला नाही.");
         }
     }
 

@@ -298,6 +298,18 @@ app.post('/api/clear-logs', (req, res) => {
     res.json({ success: true });
 });
 
+// Update Admin Password
+app.post('/api/admin/password', (req, res) => {
+    const { newPassword } = req.body;
+    if (!newPassword || newPassword.trim() === '') {
+        return res.status(400).json({ error: "Password cannot be empty" });
+    }
+    readDb();
+    db.adminPassword = newPassword.trim();
+    writeDb();
+    res.json({ success: true, message: "Admin password updated successfully!" });
+});
+
 // Start Express Server
 app.listen(PORT, () => {
     console.log(`==================================================`);

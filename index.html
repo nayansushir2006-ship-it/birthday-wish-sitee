@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Canvas Confetti Library for celebrations -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-    <link rel="stylesheet" href="style.css?v=2.0">
+    <link rel="stylesheet" href="style.css?v=3.0">
 </head>
 <body>
     <!-- Background Sparkles/Particles Container -->
@@ -612,6 +612,25 @@
                                     Disconnect Database
                                 </button>
                             </div>
+
+                            <!-- CARD 3: CHANGE ADMIN PASSWORD -->
+                            <div class="form-card glassmorphic">
+                                <h3>३. Change Admin Password (पासवर्ड बदला)</h3>
+                                <p class="help-text" style="margin-bottom: 15px;">ॲडमीन पॅनलचा लॉगिन पासवर्ड बदलण्यासाठी नवीन पासवर्ड प्रविष्ट करा:</p>
+                                
+                                <div class="input-group">
+                                    <label for="admin-new-password">New Password (नवीन पासवर्ड)</label>
+                                    <input type="text" id="admin-new-password" placeholder="नवीन पासवर्ड टाका...">
+                                </div>
+                                <div class="input-group">
+                                    <label for="admin-confirm-password">Confirm Password (पासवर्ड खात्री करा)</label>
+                                    <input type="text" id="admin-confirm-password" placeholder="नवीन पासवर्ड पुन्हा टाका...">
+                                </div>
+                                
+                                <button class="btn btn-primary" onclick="appController.updateAdminPassword()">
+                                    Update Password <i class="fa-solid fa-key"></i>
+                                </button>
+                            </div>
                         </div>
 
                         <!-- Instructions -->
@@ -728,6 +747,6 @@
         <p id="lightbox-caption"></p>
     </div>
 
-    <script src="app.js?v=2.0"></script>
+    <script src="app.js?v=3.0"></script>
 </body>
 </html>
