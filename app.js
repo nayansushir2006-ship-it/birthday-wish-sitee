@@ -585,12 +585,41 @@ class BirthdayAppController {
             const utterance = new SpeechSynthesisUtterance(text);
             const voices = window.speechSynthesis.getVoices();
             
-            let preferredVoice = voices.find(v => v.lang.includes('mr-IN') || v.lang.includes('mr_IN'));
-            if (!preferredVoice) preferredVoice = voices.find(v => v.lang.includes('hi-IN'));
-            if (!preferredVoice) preferredVoice = voices.find(v => v.lang.includes('en-IN'));
+            // Check if the text contains Devanagari (Marathi/Hindi) characters
+            const isDevanagari = /[\u0900-\u097F]/.test(text);
+            let preferredVoice = null;
 
-            if (preferredVoice) utterance.voice = preferredVoice;
-            utterance.rate = 0.85;
+            if (isDevanagari) {
+                // 1. Try finding native Marathi voices
+                const marathiVoices = voices.filter(v => v.lang.startsWith('mr'));
+                preferredVoice = marathiVoices.find(v => v.name.includes('Google') || v.name.includes('Natural') || v.name.includes('Microsoft')) || marathiVoices[0];
+                
+                // 2. Fallback to Hindi voices (can read Devanagari perfectly with local Indian accent!)
+                if (!preferredVoice) {
+                    const hindiVoices = voices.filter(v => v.lang.startsWith('hi'));
+                    preferredVoice = hindiVoices.find(v => v.name.includes('Google') || v.name.includes('Natural') || v.name.includes('Microsoft')) || hindiVoices[0];
+                }
+
+                utterance.lang = preferredVoice ? preferredVoice.lang : 'mr-IN';
+            } else {
+                // English text
+                const englishVoices = voices.filter(v => v.lang.startsWith('en'));
+                // Prefer Indian English (en-IN) for natural cadence
+                preferredVoice = englishVoices.find(v => v.lang.includes('IN') && (v.name.includes('Google') || v.name.includes('Microsoft')))
+                              || englishVoices.find(v => v.name.includes('Google') || v.name.includes('Microsoft'))
+                              || englishVoices[0];
+                
+                utterance.lang = preferredVoice ? preferredVoice.lang : 'en-IN';
+            }
+
+            if (preferredVoice) {
+                utterance.voice = preferredVoice;
+                console.log(`TTS Active Voice: ${preferredVoice.name} (${preferredVoice.lang})`);
+            }
+            
+            // Speed adjustments (slightly slower reading sounds more premium and clear)
+            utterance.rate = isDevanagari ? 0.82 : 0.88;
+            utterance.pitch = 1.0;
             
             const pauseBtn = document.getElementById('btn-pause-tts');
             
@@ -600,12 +629,15 @@ class BirthdayAppController {
             utterance.onend = () => {
                 if (pauseBtn) pauseBtn.classList.add('hide');
             };
-            utterance.onerror = () => {
+            utterance.onerror = (e) => {
+                console.error("TTS Speech synthesis error:", e);
                 if (pauseBtn) pauseBtn.classList.add('hide');
             };
             
             window.speechSynthesis.speak(utterance);
             this.speechUtterance = utterance;
+        } else {
+            console.warn("Speech synthesis is not supported on this browser.");
         }
     }
 
