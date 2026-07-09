@@ -115,46 +115,58 @@ class BirthdayAppController {
     async initServerlessMode() {
         this.isServerless = true;
         
-        // 1. Try loading configs from LocalStorage
-        const fbConfig = JSON.parse(localStorage.getItem('serverless_fb_config'));
-        const cldConfig = JSON.parse(localStorage.getItem('serverless_cld_config'));
+        // Default Firebase Config of your project (so it works out-of-the-box on Vercel!)
+        const defaultFbConfig = {
+            apiKey: "AIzaSyCWJ8tz45APW483fOrCrVyde0x0LWX2hVw",
+            authDomain: "birthday-wish-s.firebaseapp.com",
+            projectId: "birthday-wish-s",
+            appId: "1:202245956575:web:93cea742439ee463fc5a6a"
+        };
 
+        // Try loading configs from LocalStorage, falling back to our hardcoded defaults
+        const fbConfig = JSON.parse(localStorage.getItem('serverless_fb_config')) || defaultFbConfig;
+        
         this.updateEnvironmentUI();
 
-        if (fbConfig) {
-            console.log("Firebase config found. Initializing connection...");
-            const ready = await this.firebase.init(fbConfig);
-            if (ready) {
-                // Fetch collections from Firestore
-                const users = await this.firebase.fetchCollection('users');
-                const tracks = await this.firebase.fetchCollection('tracks');
-                const logs = await this.firebase.fetchCollection('logs');
-                const thanks = await this.firebase.fetchCollection('thanks');
-                const settings = await this.firebase.fetchCollection('settings');
+        console.log("Firebase initializing connection...");
+        const ready = await this.firebase.init(fbConfig);
+        if (ready) {
+            // Fetch collections from Firestore
+            const users = await this.firebase.fetchCollection('users');
+            const tracks = await this.firebase.fetchCollection('tracks');
+            const logs = await this.firebase.fetchCollection('logs');
+            const thanks = await this.firebase.fetchCollection('thanks');
+            const settings = await this.firebase.fetchCollection('settings');
 
-                // Retrieve custom admin password if set
-                const adminSetting = settings.find(s => s.id === 'admin');
-                const savedAdminPassword = adminSetting ? adminSetting.password : 'admin123';
+            // Retrieve custom admin password if set
+            const adminSetting = settings.find(s => s.id === 'admin');
+            const savedAdminPassword = adminSetting ? adminSetting.password : 'admin123';
 
-                // Bind fetched documents
-                this.db = {
-                    adminPassword: savedAdminPassword,
-                    cloudinary: cldConfig,
-                    users: users,
-                    tracks: tracks.length > 0 ? tracks : this.getDefaultTracks(),
-                    logs: logs,
-                    thanks: thanks
-                };
+            // Retrieve Cloudinary config if saved in Firestore
+            const cloudSetting = settings.find(s => s.id === 'cloudinary');
+            const activeCloudinary = cloudSetting ? {
+                cloudName: cloudSetting.cloudName,
+                uploadPreset: cloudSetting.uploadPreset
+            } : (JSON.parse(localStorage.getItem('serverless_cld_config')) || null);
 
-                // Seed defaults if Firestore users collection is empty
-                if (this.db.users.length === 0) {
-                    await this.seedDefaultServerlessData();
-                }
+            // Bind fetched documents
+            this.db = {
+                adminPassword: savedAdminPassword,
+                cloudinary: activeCloudinary,
+                users: users,
+                tracks: tracks.length > 0 ? tracks : this.getDefaultTracks(),
+                logs: logs,
+                thanks: thanks
+            };
 
-                console.log("Serverless mode connected successfully!");
-                this.populateUserSelects();
-                return;
+            // Seed defaults if Firestore users collection is empty
+            if (this.db.users.length === 0) {
+                await this.seedDefaultServerlessData();
             }
+
+            console.log("Serverless mode connected successfully!");
+            this.populateUserSelects();
+            return;
         }
 
         // Fallback Database in case config is empty (allows viewing Admin Dashboard offline/before config)
@@ -305,8 +317,20 @@ class BirthdayAppController {
                 return;
             }
             
-            localStorage.setItem('serverless_cld_config', JSON.stringify({ cloudName, uploadPreset }));
-            alert("Cloudinary स्टोरेज सेटिंग्ज ब्राउझरमध्ये सेव्ह झाल्या! 🚀");
+            // Save to Firestore so ALL devices can access it!
+            if (this.firebase.db) {
+                try {
+                    await this.firebase.saveDoc('settings', 'cloudinary', { cloudName, uploadPreset });
+                    alert("Cloudinary स्टोरेज सेटिंग्ज क्लाउडवर सेव्ह झाल्या! 🚀");
+                } catch (e) {
+                    console.error("Firestore Cloudinary save error:", e);
+                    localStorage.setItem('serverless_cld_config', JSON.stringify({ cloudName, uploadPreset }));
+                    alert("Cloudinary स्टोरेज सेटिंग्ज लोकल सेव्ह झाल्या.");
+                }
+            } else {
+                localStorage.setItem('serverless_cld_config', JSON.stringify({ cloudName, uploadPreset }));
+                alert("Cloudinary स्टोरेज सेटिंग्ज लोकल सेव्ह झाल्या.");
+            }
             await this.reloadDb();
         } else {
             // Express mode
