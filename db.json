@@ -12,41 +12,237 @@
       "username": "sanav",
       "password": "123",
       "birthdate": "2003-05-12",
+      "secretName": "Sanav",
+      "introGreeting": "Today isn't just another day.\nToday is the day a star was born!\n\nAre you ready? ✨",
       "wishMessage": "लाडक्या सानवला वाढदिवसाच्या अनंत शुभेच्छा! 🎂✨\n\nतुझे आयुष्य फुलांसारखे सुगंधी आणि ताऱ्यांसारखे चमकत राहो. तुझ्या सर्व इच्छा-आकांक्षा पूर्ण होऊ देत आणि तुला निरोगी आयुष्य लाभो, हीच देवाकडे प्रार्थना!\n\nसदा हसत राहा! 😊👑❤️",
       "theme": "pink-princess",
-      "musicTrackId": "track-1",
+      "musicTrackId": "track-1786702713524",
       "gallery": [
         {
           "type": "image",
           "url": "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=800&auto=format&fit=crop&q=80",
-          "caption": "वाढदिवस सेलिब्रेशन 🎉"
+          "caption": "वाढदिवस सेलिब्रेशन 🎉",
+          "category": "Memories"
         },
         {
           "type": "image",
           "url": "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&auto=format&fit=crop&q=80",
-          "caption": "रंगबेरंगी आठवणी ✨"
+          "caption": "रंगबेरंगी आठवणी ✨",
+          "category": "Fun"
         },
         {
           "type": "image",
           "url": "https://images.unsplash.com/photo-1504196606672-aef5c9cefc92?w=800&auto=format&fit=crop&q=80",
-          "caption": "आनंदाचा प्रत्येक क्षण 💖"
+          "caption": "आनंदाचा प्रत्येक क्षण 💖",
+          "category": "Memories"
         },
         {
           "type": "image",
           "url": "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800&auto=format&fit=crop&q=80",
-          "caption": "नेहमी हसत राहा 😊"
+          "caption": "नेहमी हसत राहा 😊",
+          "category": "Fun"
         },
         {
           "type": "image",
-          "url": "https://res.cloudinary.com/awtaw7he/image/upload/v1783530532/birthday_wish_assets/ehvqsokcfe5qibkwbcsl.jpg",
-          "caption": "vv"
+          "url": "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?w=800&auto=format&fit=crop&q=80",
+          "caption": "Best trip ever 🌍",
+          "category": "Trips"
         },
         {
           "type": "image",
-          "url": "https://res.cloudinary.com/awtaw7he/image/upload/v1783534129/birthday_wish_assets/ceh59dfrhwlnlamp7fnw.jpg",
-          "caption": ""
+          "url": "https://images.unsplash.com/photo-1522543558187-768b6df7c25c?w=800&auto=format&fit=crop&q=80",
+          "caption": "Us forever ❤️",
+          "category": "Us"
         }
-      ]
+      ],
+      "timeline": [
+        {
+          "id": "tl-2",
+          "date": "26 Feb 2022",
+          "title": "First Memory",
+          "description": "Our very first hangout together - unforgettable!",
+          "image": ""
+        },
+        {
+          "id": "tl-3",
+          "date": "18 Aug 2022",
+          "title": "That Crazy Day",
+          "description": "Remember that crazy adventure we had? Best day ever!",
+          "image": ""
+        },
+        {
+          "id": "tl-4",
+          "date": "31 Dec 2022",
+          "title": "Best Memory",
+          "description": "The best night of the year - New Year's Eve together!",
+          "image": ""
+        },
+        {
+          "id": "tl-5",
+          "date": "10 Aug 2024",
+          "title": "Today",
+          "description": "The day we're still here making memories!",
+          "image": ""
+        }
+      ],
+      "quiz": [
+        {
+          "id": "q-1",
+          "question": "What's your favourite food?",
+          "options": [
+            "Pizza 🍕",
+            "Biryani ❤️",
+            "Burger 🍔",
+            "Secret 🤫"
+          ],
+          "correct": 1
+        },
+        {
+          "id": "q-2",
+          "question": "What's your dream destination?",
+          "options": [
+            "Paris 🗼",
+            "Maldives 🏝️",
+            "Japan 🗾",
+            "Switzerland 🏔️"
+          ],
+          "correct": 2
+        },
+        {
+          "id": "q-3",
+          "question": "What's your favourite color?",
+          "options": [
+            "Pink 💗",
+            "Blue 💙",
+            "Black 🖤",
+            "Purple 💜"
+          ],
+          "correct": 0
+        },
+        {
+          "id": "q-4",
+          "question": "What do you do when you're bored?",
+          "options": [
+            "Sleep 😴",
+            "Watch Reels 📱",
+            "Eat Food 🍔",
+            "Call Me 📞"
+          ],
+          "correct": 3
+        },
+        {
+          "id": "q-5",
+          "question": "Your biggest fear?",
+          "options": [
+            "Spiders 🕷️",
+            "Exams 📝",
+            "Losing Friends 💔",
+            "Darkness 🌑"
+          ],
+          "correct": 2
+        },
+        {
+          "id": "q-6",
+          "question": "Pick your spirit animal:",
+          "options": [
+            "Cat 🐱",
+            "Dog 🐶",
+            "Panda 🐼",
+            "Unicorn 🦄"
+          ],
+          "correct": 3
+        },
+        {
+          "id": "q-7",
+          "question": "Your morning mood?",
+          "options": [
+            "Angry 😤",
+            "Sleepy 😴",
+            "Happy 😊",
+            "Hungry 🤤"
+          ],
+          "correct": 1
+        },
+        {
+          "id": "q-8",
+          "question": "What makes you happiest?",
+          "options": [
+            "Music 🎵",
+            "Food 🍕",
+            "Friends 👫",
+            "All of these ❤️"
+          ],
+          "correct": 3
+        },
+        {
+          "id": "q-1786614974487",
+          "question": "",
+          "options": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": 0
+        }
+      ],
+      "personality": {
+        "bars": [],
+        "overallRating": "99.9 / 100"
+      },
+      "openWhenMessages": [],
+      "wishStarMessage": "I hope this year brings you everything you've been wishing for ❤️",
+      "voiceMessage": {
+        "url": "https://res.cloudinary.com/awtaw7he/video/upload/v1786787036/birthday_wish_assets/ui4ijdgco8kpszvs2nka.mp3",
+        "title": "FOR DIKSHA"
+      },
+      "futureMessages": [
+        {
+          "year": 2027,
+          "message": "Hey, it's you from 2027! ✨\nI hope you're living your best life and making amazing memories. Remember all those dreams you had? Keep chasing them!\n\nProud of you, always! ❤️"
+        },
+        {
+          "year": 2030,
+          "message": "Hey, it's you from 2030! ✨\nI hope you're happy, successful, and surrounded by people who love you. Never stop chasing your dreams.\n\nProud of you, always! ❤️"
+        },
+        {
+          "year": 2035,
+          "message": "Hey, it's you from 2035! ✨\nLook how far you've come! You've achieved so much and I'm so proud of the person you've become. Keep shining!\n\nLove always! ❤️"
+        }
+      ],
+      "puzzleLevels": [
+        {
+          "id": "pz-1",
+          "title": "Solve the puzzle",
+          "type": "puzzle",
+          "question": "What is 15 + 27?",
+          "answer": "42",
+          "completed": false
+        },
+        {
+          "id": "pz-2",
+          "title": "Find the memory",
+          "type": "memory",
+          "question": "In which month did we first meet?",
+          "answer": "january",
+          "completed": false
+        },
+        {
+          "id": "pz-3",
+          "title": "Unlock the letter",
+          "type": "letter",
+          "question": "What's my favourite color?",
+          "answer": "blue",
+          "completed": false
+        }
+      ],
+      "finalMessage": "You are such a special person and I'm so lucky to have you in my life. May this year be your best one yet! 🎉",
+      "quizScore": {
+        "score": 7,
+        "total": 9,
+        "percent": 78,
+        "date": "2026-08-13T11:01:00.921Z"
+      }
     },
     {
       "id": "usr-2",
@@ -54,6 +250,8 @@
       "username": "karan",
       "password": "123",
       "birthdate": "2000-07-08",
+      "secretName": "Karan",
+      "introGreeting": "Today isn't just another day.\nToday is the day a legend was born!\n\nAre you ready? ✨",
       "wishMessage": "Happy Birthday Karan! 🎂🎉\n\nWishing you a magnificent day filled with joy, laughter, and high energy. May this year unlock brand new opportunities and huge successes for you.\n\nKeep shining and rock on! 🎸🌟",
       "theme": "royal-gold",
       "musicTrackId": "track-2",
@@ -61,19 +259,1029 @@
         {
           "type": "image",
           "url": "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&auto=format&fit=crop&q=80",
-          "caption": "Retro Party Vibes! 🕶️"
+          "caption": "Retro Party Vibes! 🕶️",
+          "category": "Fun"
         },
         {
           "type": "image",
           "url": "https://images.unsplash.com/photo-1527529482837-4698179dc6ce?w=800&auto=format&fit=crop&q=80",
-          "caption": "Moments of Happiness 💫"
+          "caption": "Moments of Happiness 💫",
+          "category": "Memories"
         },
         {
           "type": "image",
           "url": "https://images.unsplash.com/photo-1502082553048-f009c37129b9?w=800&auto=format&fit=crop&q=80",
-          "caption": "Dream Big!"
+          "caption": "Dream Big!",
+          "category": "Trips"
         }
-      ]
+      ],
+      "timeline": [
+        {
+          "id": "tl-1",
+          "date": "15 Mar 2021",
+          "title": "First Meet",
+          "description": "The day our friendship started!",
+          "image": ""
+        },
+        {
+          "id": "tl-2",
+          "date": "08 Jul 2021",
+          "title": "Birthday Bash",
+          "description": "Your epic birthday party!",
+          "image": ""
+        },
+        {
+          "id": "tl-3",
+          "date": "25 Dec 2021",
+          "title": "Christmas Vibes",
+          "description": "Best Christmas celebration ever!",
+          "image": ""
+        }
+      ],
+      "quiz": [
+        {
+          "id": "q-1",
+          "question": "What's your favourite sport?",
+          "options": [
+            "Cricket 🏏",
+            "Football ⚽",
+            "Basketball 🏀",
+            "Gaming 🎮"
+          ],
+          "correct": 0
+        },
+        {
+          "id": "q-2",
+          "question": "Your go-to snack?",
+          "options": [
+            "Chips 🍟",
+            "Pizza 🍕",
+            "Sandwich 🥪",
+            "Everything 😋"
+          ],
+          "correct": 3
+        },
+        {
+          "id": "q-3",
+          "question": "Favourite movie genre?",
+          "options": [
+            "Action 💥",
+            "Comedy 😂",
+            "Horror 👻",
+            "Sci-Fi 🚀"
+          ],
+          "correct": 0
+        },
+        {
+          "id": "q-4",
+          "question": "Your superpower would be?",
+          "options": [
+            "Flying 🦅",
+            "Invisibility 👻",
+            "Time Travel ⏰",
+            "Mind Reading 🧠"
+          ],
+          "correct": 2
+        }
+      ],
+      "personality": {
+        "bars": [
+          {
+            "label": "Chill Level",
+            "emoji": "😎",
+            "value": 95,
+            "color": "#4d79ff"
+          },
+          {
+            "label": "Humor",
+            "emoji": "😂",
+            "value": 100,
+            "color": "#ffb84d"
+          },
+          {
+            "label": "Energy",
+            "emoji": "⚡",
+            "value": 85,
+            "color": "#4dff88"
+          },
+          {
+            "label": "Loyalty",
+            "emoji": "🤝",
+            "value": 100,
+            "color": "#ff4d6d"
+          },
+          {
+            "label": "Gaming Skills",
+            "emoji": "🎮",
+            "value": 90,
+            "color": "#b84dff"
+          }
+        ],
+        "overallRating": "98.5 / 100"
+      },
+      "openWhenMessages": [
+        {
+          "id": "ow-1",
+          "emotion": "you're sad",
+          "emoji": "😢",
+          "color": "#ff6b8a",
+          "message": "Bro, chin up! Bad days don't last forever. You're a fighter and I know you'll get through this. I'm always just a call away! 💪"
+        },
+        {
+          "id": "ow-2",
+          "emotion": "you miss me",
+          "emoji": "💙",
+          "color": "#6b8aff",
+          "message": "Missing you too bro! Can't wait to hang out again. Until then, know that you've got a friend for life right here! 🤝"
+        },
+        {
+          "id": "ow-3",
+          "emotion": "you need motivation",
+          "emoji": "💪",
+          "color": "#8aff6b",
+          "message": "Remember - legends aren't born, they're made. And you're in the making! Keep grinding, keep shining! 🚀"
+        },
+        {
+          "id": "ow-4",
+          "emotion": "you want to smile",
+          "emoji": "😊",
+          "color": "#ffb86b",
+          "message": "Hey, remember that time we... actually every time with you is hilarious! You make everyone around you happy. Keep being you! 😄"
+        }
+      ],
+      "wishStarMessage": "May all your dreams come true this year! Keep being the legend you are! 🌟",
+      "voiceMessage": {
+        "url": "",
+        "title": "A special message just for you! 🎉"
+      },
+      "futureMessages": [
+        {
+          "year": 2027,
+          "message": "Hey Karan from 2027! ✨\nI bet you're crushing it right now. Keep up the amazing work!\n\nYour biggest fan! 🏆"
+        },
+        {
+          "year": 2030,
+          "message": "2030 Karan! ✨\nYou've come so far. I hope you're living the dream life you always talked about.\n\nStay legendary! 👑"
+        },
+        {
+          "year": 2035,
+          "message": "2035! ✨\nWow, look at you! From that kid to this legend. The world is lucky to have you.\n\nAlways proud! ❤️"
+        }
+      ],
+      "puzzleLevels": [
+        {
+          "id": "pz-1",
+          "title": "Solve the puzzle",
+          "type": "puzzle",
+          "question": "What is 25 + 17?",
+          "answer": "42",
+          "completed": false
+        },
+        {
+          "id": "pz-2",
+          "title": "Find the memory",
+          "type": "memory",
+          "question": "What was the name of our group?",
+          "answer": "legends",
+          "completed": false
+        },
+        {
+          "id": "pz-3",
+          "title": "Unlock the letter",
+          "type": "letter",
+          "question": "Your favourite catchphrase?",
+          "answer": "bro",
+          "completed": false
+        }
+      ],
+      "finalMessage": "Karan, you're not just a friend - you're family. Wishing you nothing but the best in life. Keep rocking! 🎸🎉"
+    },
+    {
+      "id": "usr-1786531168105",
+      "name": "Diksha Davkar",
+      "username": "dukkar",
+      "secretName": "dukkar",
+      "password": "120806",
+      "birthdate": "2006-08-12",
+      "theme": "pink-princess",
+      "wishStarMessage": "Diksha, माझी एक छोटीशी wish आहे… ✨❤️\nआयुष्यात कितीही challenges आले, कितीही परिस्थिती बदलल्या, तरी तुझ्या चेहऱ्यावरचं हे सुंदर smile कधीच कमी होऊ नये. 😊\n\nतुझ्या प्रत्येक dream ला success मिळो, तुझ्या प्रत्येक दिवसात happiness असो आणि तुझ्या आयुष्यात नेहमी सुंदर लोक, सुंदर moments आणि सुंदर memories असोत. 🌸✨\n\nतू नेहमी खुश राहा, हसत राहा आणि अशीच amazing राहा. 🫂❤️\n\nAnd whenever you look at the stars… remember that someone is always wishing for your happiness. ⭐❤️",
+      "finalWishMessage": "# ❤️ To My Dearest Diksha\n\n**Happy Birthday, Diksha! 🎂❤️**\n\nया website मधलं प्रत्येक page, प्रत्येक memory, प्रत्येक message, प्रत्येक puzzle आणि प्रत्येक छोटीशी surprise एका छोट्याशा कारणासाठी आहे—\n\n**तुझ्या चेहऱ्यावर एक smile आणण्यासाठी. 😊🫂**\n\nकदाचित मी प्रत्येक वेळी शब्दांत सांगू शकत नाही की तू माझ्यासाठी किती important आहेस… पण आज एकदा मनापासून सांगतो—\n\n**तू माझ्या life मधली फक्त एक friend नाहीस.\nतू माझ्या आयुष्यातला एक खूप सुंदर part आहेस. ❤️**\n\nRCPIT मध्ये भेटल्यापासून आजपर्यंत आपण किती memories बनवल्या आहेत—एकत्र study sessions, random conversations, personal गोष्टी, problems, हसणं, आणि हो… आपली endless भांडणंसुद्धा. 😂\n\nइतक्या कमी वेळात तुझ्यावर एवढा trust निर्माण होईल, आणि तू माझ्यासाठी इतकी important होशील, हे कधीच imagine केलं नव्हतं. 🥹\n\nमाझी एकच wish आहे—\n\n**तू नेहमी खुश राहावी, तुझ्या चेहऱ्यावरचं smile कधीच कमी होऊ नये, तुझ्या प्रत्येक dream ला success मिळावी आणि life तुला खूप सुंदर moments देत राहावी. ✨❤️**\n\nकाळ बदलेल, college संपेल, आपापल्या life मध्ये आपण busy होऊ… पण आपल्या या friendship च्या आठवणी माझ्यासाठी नेहमी special राहतील. 🫂\n\nआणि हो Madam… कितीही भांडणं झाली तरी,\n\n**कधीच सोडून जाऊ नकोस. 🥺❤️**\n\nThank you for listening to me, understanding me, supporting me आणि माझ्या life मध्ये एक **angel 😇** बनून येण्यासाठी.\n\n**Happy Birthday once again, my bestest best friend! 🎂🫂❤️**\n\nKeep smiling.\nKeep shining.\nKeep being the crazy, amazing **Dukkar** that you are. 🐷😂❤️\n\n### Forever grateful that I met you. ♾️\n\n**— Chetan ❤️**",
+      "gallery": [
+        {
+          "id": "g-1786531361358",
+          "type": "image",
+          "category": "Memories",
+          "url": "https://res.cloudinary.com/awtaw7he/image/upload/v1786531362/birthday_wish_assets/jgxpfck9dqv4i6wlvb23.jpg",
+          "caption": "college dress",
+          "title": "college dress"
+        },
+        {
+          "id": "g-1786531570657",
+          "type": "image",
+          "category": "Memories",
+          "url": "https://res.cloudinary.com/awtaw7he/image/upload/v1786531571/birthday_wish_assets/vvhdu3jvsl6k7e5sdtu4.jpg",
+          "caption": "",
+          "title": "Memories"
+        },
+        {
+          "id": "g-1786531594298",
+          "type": "image",
+          "category": "Memories",
+          "url": "https://res.cloudinary.com/awtaw7he/image/upload/v1786531595/birthday_wish_assets/kxo0gveurmv0qqprwrzb.jpg",
+          "caption": "",
+          "title": "Memories"
+        },
+        {
+          "id": "g-1786531652247",
+          "type": "image",
+          "category": "Memories",
+          "url": "https://res.cloudinary.com/awtaw7he/image/upload/v1786531652/birthday_wish_assets/ixyqr8xusen8kfx4nev5.jpg",
+          "caption": "",
+          "title": "Memories"
+        },
+        {
+          "id": "g-1786531672374",
+          "type": "image",
+          "category": "Memories",
+          "url": "https://res.cloudinary.com/awtaw7he/image/upload/v1786531673/birthday_wish_assets/ophnkcub6glvsnljel0t.jpg",
+          "caption": "",
+          "title": "Memories"
+        },
+        {
+          "id": "g-1786531690859",
+          "type": "image",
+          "category": "Memories",
+          "url": "https://res.cloudinary.com/awtaw7he/image/upload/v1786531691/birthday_wish_assets/odabc3abgvazbzsupgfd.jpg",
+          "caption": "",
+          "title": "Memories"
+        },
+        {
+          "id": "g-1786531724461",
+          "type": "image",
+          "category": "Trips",
+          "url": "https://res.cloudinary.com/awtaw7he/image/upload/v1786531725/birthday_wish_assets/jivnrouaexsn2tnh2cpk.jpg",
+          "caption": "",
+          "title": "Trips"
+        },
+        {
+          "id": "g-1786531755779",
+          "type": "image",
+          "category": "Trips",
+          "url": "https://res.cloudinary.com/awtaw7he/image/upload/v1786531756/birthday_wish_assets/skyzq0ni8ghjgyddomoj.jpg",
+          "caption": "",
+          "title": "Trips"
+        },
+        {
+          "id": "g-1786531826644",
+          "type": "image",
+          "category": "Trips",
+          "url": "https://res.cloudinary.com/awtaw7he/image/upload/v1786531827/birthday_wish_assets/botsrdmgbupf1ozogjdf.jpg",
+          "caption": "",
+          "title": "Trips"
+        },
+        {
+          "id": "g-1786531858374",
+          "type": "image",
+          "category": "Trips",
+          "url": "https://res.cloudinary.com/awtaw7he/image/upload/v1786531859/birthday_wish_assets/eiut2wyi1u6ayv6okpus.jpg",
+          "caption": "",
+          "title": "Trips"
+        },
+        {
+          "id": "g-1786531973635",
+          "type": "image",
+          "category": "Trips",
+          "url": "https://res.cloudinary.com/awtaw7he/image/upload/v1786531974/birthday_wish_assets/savficij1umpbvge5xad.jpg",
+          "caption": "",
+          "title": "Trips"
+        },
+        {
+          "id": "g-1786532025880",
+          "type": "image",
+          "category": "Trips",
+          "url": "https://res.cloudinary.com/awtaw7he/image/upload/v1786532026/birthday_wish_assets/lacy2flxguhayraz888r.jpg",
+          "caption": "",
+          "title": "Trips"
+        },
+        {
+          "id": "g-1786532066038",
+          "type": "image",
+          "category": "Trips",
+          "url": "https://res.cloudinary.com/awtaw7he/image/upload/v1786532066/birthday_wish_assets/rv44lza9rx9lpispe4ph.jpg",
+          "caption": "",
+          "title": "Trips"
+        },
+        {
+          "id": "g-1786532099207",
+          "type": "image",
+          "category": "Trips",
+          "url": "https://res.cloudinary.com/awtaw7he/image/upload/v1786532099/birthday_wish_assets/flavkukekchjvz85dc54.jpg",
+          "caption": "",
+          "title": "Trips"
+        },
+        {
+          "id": "g-1786532138831",
+          "type": "image",
+          "category": "Trips",
+          "url": "https://res.cloudinary.com/awtaw7he/image/upload/v1786532139/birthday_wish_assets/kgczads0wqqmffoirbmg.jpg",
+          "caption": "",
+          "title": "Trips"
+        },
+        {
+          "id": "g-1786532168024",
+          "type": "image",
+          "category": "Trips",
+          "url": "https://res.cloudinary.com/awtaw7he/image/upload/v1786532168/birthday_wish_assets/vtartx5aeeaztl0frlkt.jpg",
+          "caption": "",
+          "title": "Trips"
+        },
+        {
+          "id": "g-1786532197020",
+          "type": "image",
+          "category": "Us",
+          "url": "https://res.cloudinary.com/awtaw7he/image/upload/v1786532197/birthday_wish_assets/rwfpefiev1zbulkfja5g.jpg",
+          "caption": "",
+          "title": "Us"
+        },
+        {
+          "id": "g-1786532230479",
+          "type": "image",
+          "category": "Trips",
+          "url": "https://res.cloudinary.com/awtaw7he/image/upload/v1786532231/birthday_wish_assets/eipetenu1kaolt1txmn5.jpg",
+          "caption": "",
+          "title": "Trips"
+        },
+        {
+          "id": "g-1786532270127",
+          "type": "image",
+          "category": "Us",
+          "url": "https://res.cloudinary.com/awtaw7he/image/upload/v1786532270/birthday_wish_assets/tvira035ftynjf0l7zsn.jpg",
+          "caption": "",
+          "title": "Us"
+        },
+        {
+          "id": "g-1786532336017",
+          "type": "image",
+          "category": "Trips",
+          "url": "https://res.cloudinary.com/awtaw7he/image/upload/v1786532336/birthday_wish_assets/mqjzvnzh367dmyfwyrg0.jpg",
+          "caption": "",
+          "title": "Trips"
+        },
+        {
+          "id": "g-1786532362626",
+          "type": "image",
+          "category": "Us",
+          "url": "https://res.cloudinary.com/awtaw7he/image/upload/v1786532363/birthday_wish_assets/nicro3onva68bi8aszfm.jpg",
+          "caption": "",
+          "title": "Us"
+        },
+        {
+          "id": "g-1786532395831",
+          "type": "image",
+          "category": "Us",
+          "url": "https://res.cloudinary.com/awtaw7he/image/upload/v1786532396/birthday_wish_assets/u8yvdtlnigtqkxfurbrn.jpg",
+          "caption": "",
+          "title": "Us"
+        },
+        {
+          "id": "g-1786532492636",
+          "type": "image",
+          "category": "Memories",
+          "url": "https://res.cloudinary.com/awtaw7he/image/upload/v1786532493/birthday_wish_assets/jlye5orfu1dkjnpq92sp.jpg",
+          "caption": "",
+          "title": "Memories"
+        },
+        {
+          "id": "g-1786532518790",
+          "type": "image",
+          "category": "Us",
+          "url": "https://res.cloudinary.com/awtaw7he/image/upload/v1786532519/birthday_wish_assets/o1ehabtr5eea1lhb75py.jpg",
+          "caption": "",
+          "title": "Us"
+        },
+        {
+          "id": "g-1786532842630",
+          "type": "image",
+          "category": "Us",
+          "url": "https://res.cloudinary.com/awtaw7he/image/upload/v1786532843/birthday_wish_assets/twr6abihtxp6l0yromhn.jpg",
+          "caption": "",
+          "title": "Us"
+        },
+        {
+          "id": "g-1786532913774",
+          "type": "image",
+          "category": "Us",
+          "url": "https://res.cloudinary.com/awtaw7he/image/upload/v1786532914/birthday_wish_assets/rwhv5bxnpgqshwv2im8i.jpg",
+          "caption": "",
+          "title": "Us"
+        },
+        {
+          "id": "g-1786533023232",
+          "type": "image",
+          "category": "Memories",
+          "url": "https://res.cloudinary.com/awtaw7he/image/upload/v1786533024/birthday_wish_assets/cv8fxfc2wsuodytaysvr.jpg",
+          "caption": "",
+          "title": "Memories"
+        },
+        {
+          "id": "g-1786533045918",
+          "type": "image",
+          "category": "Memories",
+          "url": "https://res.cloudinary.com/awtaw7he/image/upload/v1786533046/birthday_wish_assets/z9gjifmtsnugp7ilfe0u.jpg",
+          "caption": "",
+          "title": "Memories"
+        },
+        {
+          "id": "g-1786533073269",
+          "type": "image",
+          "category": "Memories",
+          "url": "https://res.cloudinary.com/awtaw7he/image/upload/v1786533074/birthday_wish_assets/ipc0tfhbgsk0u1wqvzpc.jpg",
+          "caption": "",
+          "title": "Memories"
+        },
+        {
+          "id": "g-1786533099512",
+          "type": "image",
+          "category": "Memories",
+          "url": "https://res.cloudinary.com/awtaw7he/image/upload/v1786533100/birthday_wish_assets/eqoephc7eq7sjh2q0phj.jpg",
+          "caption": "",
+          "title": "Memories"
+        },
+        {
+          "id": "g-1786533118878",
+          "type": "image",
+          "category": "Memories",
+          "url": "https://res.cloudinary.com/awtaw7he/image/upload/v1786533119/birthday_wish_assets/vo0sjk8p9lodatq8oxrh.jpg",
+          "caption": "",
+          "title": "Memories"
+        },
+        {
+          "id": "g-1786533162670",
+          "type": "image",
+          "category": "Memories",
+          "url": "https://res.cloudinary.com/awtaw7he/image/upload/v1786533163/birthday_wish_assets/szruk4ay8jsqeobkqtby.jpg",
+          "caption": "",
+          "title": "Memories"
+        },
+        {
+          "id": "g-1786542034670",
+          "type": "image",
+          "category": "Memories",
+          "url": "https://res.cloudinary.com/awtaw7he/image/upload/v1786542034/birthday_wish_assets/n3rer8poc4ya94srthf7.jpg",
+          "caption": "",
+          "title": "Memories"
+        },
+        {
+          "id": "g-1786542060274",
+          "type": "image",
+          "category": "Memories",
+          "url": "https://res.cloudinary.com/awtaw7he/image/upload/v1786542060/birthday_wish_assets/hvcgxpcvz8zbii8iqipa.jpg",
+          "caption": "",
+          "title": "Memories"
+        },
+        {
+          "id": "g-1786542126508",
+          "type": "image",
+          "category": "Trips",
+          "url": "https://res.cloudinary.com/awtaw7he/image/upload/v1786542126/birthday_wish_assets/igeihvzmpqmwir44c2zp.jpg",
+          "caption": "",
+          "title": "Trips"
+        },
+        {
+          "id": "g-1786542153548",
+          "type": "image",
+          "category": "Trips",
+          "url": "https://res.cloudinary.com/awtaw7he/image/upload/v1786542153/birthday_wish_assets/y9wk3tri8qmdrxsx5ozu.jpg",
+          "caption": "",
+          "title": "Trips"
+        },
+        {
+          "id": "g-1786542208265",
+          "type": "image",
+          "category": "Trips",
+          "url": "https://res.cloudinary.com/awtaw7he/image/upload/v1786542208/birthday_wish_assets/qonsnnwxosbvoth83bea.jpg",
+          "caption": "",
+          "title": "Trips"
+        },
+        {
+          "id": "g-1786542247172",
+          "type": "image",
+          "category": "Trips",
+          "url": "https://res.cloudinary.com/awtaw7he/image/upload/v1786542247/birthday_wish_assets/g6hcivbldxyvsffbqccm.jpg",
+          "caption": "",
+          "title": "Trips"
+        },
+        {
+          "id": "g-1786542361007",
+          "type": "image",
+          "category": "Memories",
+          "url": "https://res.cloudinary.com/awtaw7he/image/upload/v1786542360/birthday_wish_assets/gufqlsmzcmq3qh0jzaus.jpg",
+          "caption": "",
+          "title": "Memories"
+        },
+        {
+          "id": "g-1786542414814",
+          "type": "image",
+          "category": "Memories",
+          "url": "https://res.cloudinary.com/awtaw7he/image/upload/v1786542414/birthday_wish_assets/enmkfkix812sadllakzi.jpg",
+          "caption": "",
+          "title": "Memories"
+        },
+        {
+          "id": "g-1786697649979",
+          "type": "video",
+          "category": "Memories",
+          "url": "https://res.cloudinary.com/awtaw7he/video/upload/v1786697649/birthday_wish_assets/vthpuhx94nqrdw3bfya4.mp4",
+          "caption": "for beautiful Sundari",
+          "title": "for beautiful Sundari"
+        },
+        {
+          "id": "g-1786697792208",
+          "type": "video",
+          "category": "Memories",
+          "url": "https://res.cloudinary.com/awtaw7he/video/upload/v1786697791/birthday_wish_assets/qli64qz1hagmtjrxe2m7.mp4",
+          "caption": "wake up one day",
+          "title": "wake up one day"
+        },
+        {
+          "id": "g-1786697839247",
+          "type": "video",
+          "category": "Memories",
+          "url": "https://res.cloudinary.com/awtaw7he/video/upload/v1786697839/birthday_wish_assets/qbdxfsydr4flga6b10gg.mp4",
+          "caption": "like a last night",
+          "title": "like a last night"
+        },
+        {
+          "id": "g-1786698057880",
+          "type": "video",
+          "category": "Memories",
+          "url": "https://res.cloudinary.com/awtaw7he/video/upload/v1786698057/birthday_wish_assets/ztrl8fcbvuqlbxth0muq.mp4",
+          "caption": "खिडकीतूनी बघता तुला",
+          "title": "खिडकीतूनी बघता तुला"
+        },
+        {
+          "id": "g-1786698395781",
+          "type": "video",
+          "category": "Memories",
+          "url": "https://res.cloudinary.com/awtaw7he/video/upload/v1786698395/birthday_wish_assets/hil5xm9u6owwzjkvfnh6.mp4",
+          "caption": "तू जरा माझ्याशी बोल ना",
+          "title": "तू जरा माझ्याशी बोल ना"
+        },
+        {
+          "id": "g-1786698492632",
+          "type": "video",
+          "category": "Memories",
+          "url": "https://res.cloudinary.com/awtaw7he/video/upload/v1786698492/birthday_wish_assets/uow4qry0kksbgmxoh717.mp4",
+          "caption": "you like a flower",
+          "title": "you like a flower"
+        },
+        {
+          "id": "g-1786698644188",
+          "type": "video",
+          "category": "Memories",
+          "url": "https://res.cloudinary.com/awtaw7he/video/upload/v1786698643/birthday_wish_assets/dxbhdfwp8ypstvdzwnas.mp4",
+          "caption": "",
+          "title": "Memories"
+        },
+        {
+          "id": "g-1786698732700",
+          "type": "video",
+          "category": "Memories",
+          "url": "https://res.cloudinary.com/awtaw7he/video/upload/v1786698731/birthday_wish_assets/vjkc4h3ym4rzpvwr07ki.mp4",
+          "caption": "My bestest best friend for ever",
+          "title": "My bestest best friend for ever"
+        },
+        {
+          "id": "g-1786698763133",
+          "type": "video",
+          "category": "Memories",
+          "url": "https://res.cloudinary.com/awtaw7he/video/upload/v1786698763/birthday_wish_assets/eetjz21ipmmiiolcqlzr.mp4",
+          "caption": "",
+          "title": "Memories"
+        },
+        {
+          "id": "g-1786698794994",
+          "type": "video",
+          "category": "Memories",
+          "url": "https://res.cloudinary.com/awtaw7he/video/upload/v1786698794/birthday_wish_assets/kjyacgqxfkmtuxacfsom.mp4",
+          "caption": "",
+          "title": "Memories"
+        },
+        {
+          "id": "g-1786698836747",
+          "type": "image",
+          "category": "Memories",
+          "url": "https://res.cloudinary.com/awtaw7he/image/upload/v1786698837/birthday_wish_assets/gargbes7oyma81y70sde.jpg",
+          "caption": "cute face",
+          "title": "cute face"
+        },
+        {
+          "id": "g-1786698911929",
+          "type": "video",
+          "category": "Memories",
+          "url": "https://res.cloudinary.com/awtaw7he/video/upload/v1786698911/birthday_wish_assets/bqqdkttx3mgxgyty80vg.mp4",
+          "caption": "Dukkar Eat Cookies",
+          "title": "Dukkar Eat Cookies"
+        }
+      ],
+      "timeline": [
+        {
+          "id": "tl-1786696766474",
+          "date": "12 August [Birth Year]",
+          "title": "The Day a Princess Arrived 👑❤️",
+          "description": "12 August… हा दिवस तुझ्या family साठी खूप special होता. त्या दिवशी Zodage, तुझ्या मामाच्या गावात, एका छोट्याशा princess ने या जगात entry केली. 👶👑\n\nतुझ्या घरात लक्ष्मीचं आगमन झालं होतं. घरात आनंदाचं वातावरण होतं आणि प्रत्येकाच्या चेहऱ्यावर एक वेगळंच हसू होतं. ❤️\n\nअशाच हसत-खेळत तुझ्या life चं छोटंसं childhood निघून गेलं… आणि तुला तेव्हा कुठे माहित होतं की पुढे तुझ्या life मध्ये किती सुंदर chapters येणार आहेत. ✨",
+          "image": ""
+        },
+        {
+          "id": "tl-1786696802481",
+          "date": "School Years",
+          "title": "Where You Started Growing 🌸",
+          "description": "यानंतर तुझी entry झाली Pratap Vidya Mandir, Chopda मध्ये. 🎒\n\nतिथे तुला नवीन मित्र-मैत्रिणी मिळाले, छान teachers भेटले आणि आयुष्यातल्या अनेक सुंदर आठवणी तयार झाल्या.\n\nSchool life मधले ते दिवस, friends सोबत केलेली मजा, teachers आणि छोट्या-छोट्या memories… हे सगळं तुझ्या life च्या beautiful chapter चा भाग बनलं.\n\nआणि मग…\n\n2022 मध्ये तुझं 10th education complete झालं. 🎓❤️\n\nएक chapter संपला आणि एका नवीन journey ची सुरुवात झाली.",
+          "image": ""
+        },
+        {
+          "id": "tl-1786696835365",
+          "date": "2022",
+          "title": "A New Chapter Begins 🎓✨",
+          "description": "10th नंतर तुझ्या life मध्ये एक नवीन phase सुरू झाला —\n\nSmt. Sharadchandrika Suresh Patil Institute of Technology.\n\nनवीन college…\nनवीन friends…\nनवीन experiences…\nआणि नवीन memories. ❤️\n\nइथे तुझ्या life ने अजून एक सुंदर turn घेतला.",
+          "image": ""
+        },
+        {
+          "id": "tl-1786696871583",
+          "date": "2022–2025",
+          "title": "The Years Full of Masti 😂❤️",
+          "description": "Diploma college म्हणजे फक्त education नव्हतं… ते एक पूर्ण experience होतं. 😄\n\nकधी first येण्याचे दिवस आले, कधी मित्रांसोबत भरपूर मस्ती केली, कधी नवीन लोक भेटले आणि हळूहळू मोठे groups तयार झाले.\n\nतुझ्या college journey मध्ये “Octosquad” आणि “Dplomates” सारखे groups तयार झाले. 🤝❤️\n\nआणि मग आली ती Nashik Industrial Visit…\n\nIndustrial visit च्या नावाखाली झालेली ती mini-trip, friends सोबत केलेली मजा आणि तयार झालेल्या memories — हे सगळं तुझ्या diploma life च्या favourite chapters पैकी एक राहील. 🚌😂",
+          "image": ""
+        },
+        {
+          "id": "tl-1786696903238",
+          "date": "30 May 2025",
+          "title": "The Day We Said Goodbye 🎓🥹",
+          "description": "Finally… तो दिवस आला.\n\n30 May 2025.\n\nसगळ्यांना bye म्हणण्याची आणि एका नवीन दिशेने निघण्याची वेळ आली होती.\n\nतू college सोडताना तुझ्यासोबत certificates पेक्षा जास्त काहीतरी घेऊन आलीस—\n\nआठवणी. ❤️\n\nFriends, teachers, classrooms, masti, laughter आणि त्या दिवसांचे countless moments…\n\nसगळं मागे राहिलं.\n\nतुला माहित होतं की ते दिवस पुन्हा exactly तसे कधीच परत येणार नाहीत.\n\nAnd that's why you will always miss those days. 🥺",
+          "image": ""
+        },
+        {
+          "id": "tl-1786696932459",
+          "date": "August 2025",
+          "title": "A New College… And A New Story ❤️",
+          "description": "August 2025 मध्ये तुझी entry झाली—\n\nR. C. Patel Institute of Technology, Shirpur. 🎓\n\nSecond round मध्ये तुझं college confirm झालं.\n\nत्यानंतर third round मध्ये माझी आणि Pranita ची entry झाली. आणि शेवटी management round मध्ये Nayan नेही याच college मध्ये admission घेतलं.\n\nम्हणजे आधीच आपल्याकडे एक छोटासा group तयार झाला होता. 😄\n\nआणि मग…\n\nहळूहळू मी तुमच्या group मध्ये entry केली.\n\nतेव्हा कदाचित आपल्याला माहितही नव्हतं की ही छोटीशी entry पुढे एका सुंदर friendship मध्ये बदलणार आहे. 🥹❤️",
+          "image": ""
+        },
+        {
+          "id": "tl-1786696965557",
+          "date": "January 2026",
+          "title": "From Friends to Best Friends 🫂❤️",
+          "description": "4th semester पासून आपली friendship हळूहळू खूप घट्ट होत गेली.\n\nसुरुवातीला आपण फक्त college friends होतो.\n\nपण हळूहळू conversations वाढले…\nTrust वाढला…\nPersonal गोष्टी share होऊ लागल्या…\nProblems share होऊ लागल्या…\nभांडणं झाली… 😂\nआणि पुन्हा आपण बोललो.\n\nआणि कधी ही friendship “Best Friendship” मध्ये convert झाली, ते कदाचित आपल्यालाच कळलं नाही. ❤️\n\nमला एकच इच्छा आहे—\n\nही friendship शेवटपर्यंत अशीच टिकावी. 🫂♾️",
+          "image": ""
+        },
+        {
+          "id": "tl-1786697005396",
+          "date": "12 August 2026",
+          "title": "A Birthday Made Special 🎂❤️",
+          "description": "12 August 2026…\n\nतुझा birthday. 🎂\n\nयावेळी मला तुला फक्त एक normal birthday wish पाठवायची नव्हती.\n\nतुझ्या चेहऱ्यावर smile आणण्यासाठी, आपल्या friendship च्या आठवणी एकाच ठिकाणी ठेवण्यासाठी आणि तुला एक छोटंसं surprise देण्यासाठी ही website तयार केली. ❤️\n\nया website मधलं प्रत्येक word, प्रत्येक message, प्रत्येक memory…\n\nतुझ्यासाठी आहे. 🥹🫂",
+          "image": ""
+        },
+        {
+          "id": "tl-1786697030931",
+          "date": "2027–May 2028",
+          "title": "Let's Make These Years Unforgettable 🎓❤️",
+          "description": "आता अजून काही वेळ आहे…\n\n2027 आणि 2028 मध्ये अजून खूप memories बनवायच्या आहेत.\n\nअजून study sessions आहेत.\nअजून exams आहेत.\nअजून conversations आहेत.\nअजून भांडणं आहेत. 😂\nआणि अजून खूप हसायचं आहे. ❤️\n\nपण May 2028 मध्ये आपली college life officially संपेल.\n\nएक दिवस आपण दोघं वेगवेगळ्या दिशेने career च्या प्रवासाला निघालो असू.\n\nआपल्याकडे मग रोजच्या भेटी नसतील…\n\nपण आपल्या कडे एक गोष्ट नक्की असेल—\n\nआपल्या college life च्या सुंदर आठवणी. 🫂",
+          "image": ""
+        },
+        {
+          "id": "tl-1786697061799",
+          "date": "2029",
+          "title": "Different Roads, Same Memories 🌍",
+          "description": "2029…\n\nकदाचित त्या वेळेपर्यंत आपल्याला आपापल्या field मध्ये छान jobs मिळालेल्या असतील. 💼✨\n\nआपण आपल्या-आपल्या life मध्ये busy असू, नवीन responsibilities असतील, नवीन people असतील आणि नवीन dreams असतील.\n\nकदाचित रोज बोलणं शक्य होणार नाही.\n\nपण मला आशा आहे की कधीतरी एखाद्या शांत क्षणी तुला आपल्या college days ची आठवण येईल…\n\nRCPIT…\nआपला group…\nआपली friendship…\nआणि आपली ती वेडी मस्ती. 😂❤️",
+          "image": ""
+        },
+        {
+          "id": "tl-1786697103699",
+          "date": "2030–2034",
+          "title": "When Life Takes Us Different Ways 🌍",
+          "description": "कदाचित 2030 ते 2034 च्या दरम्यान आपल्या life मध्ये खूप मोठे changes झालेले असतील.\n\nकदाचित आपापली लग्नं झालेली असतील. 💍\n\nतुझी एक नवीन family असेल…\nमाझी एक नवीन family असेल…\n\nआपापल्या responsibilities वाढतील.\n\nLife खूप बदलून जाईल.\n\nकदाचित आपण पूर्वीसारखे रोज बोलणार नाही.\nकदाचित काही वर्षांनी आपल्या conversations कमी होतील.\n\nआणि कदाचित…\n\nआपण एकमेकांना हळूहळू कमी आठवायला लागू. 🥺\n\nपण काही memories अशा असतात ज्या कितीही वर्षं गेली तरी मनाच्या एका छोट्या corner मध्ये कायम राहतात. ❤️",
+          "image": ""
+        },
+        {
+          "id": "tl-1786697179094",
+          "date": "After 2034",
+          "title": "Maybe This Is Where The Timeline Ends… ♾️",
+          "description": "After 2034…\n\nकदाचित आपली life पूर्णपणे बदललेली असेल.\n\nकदाचित आपण आपल्या-आपल्या families मध्ये busy असू.\nकदाचित conversations खूप कमी झाल्या असतील.\nकदाचित आपण एकमेकांना पूर्वीसारखं रोज आठवतही नसू.\n\nपण Diksha…\n\nया timeline चा शेवट म्हणजे आपल्या memories चा शेवट नाही. ❤️\n\nएक काळ होता…\n\nजेव्हा RCPIT मध्ये दोन friends एकत्र बसायचे.\nएकत्र study करायचे.\nभांडायचे. 😂\nPersonal गोष्टी share करायचे.\nआणि एकमेकांसाठी genuinely care करायचे.\n\nत्या काळाला आपण पुन्हा जगू शकणार नाही…\n\nपण तो काळ कधीच delete करू शकणार नाही. 🥹\n\nम्हणून…\n\nMiss you so much, Diksha. 🫂❤️\n\nAnd if someday you open this website again…\n\nremember — you were once a very beautiful part of my story. ❤️\n\n— Chetan 🐷\n\nThe timeline may end here…\nbut some memories never do. ♾️",
+          "image": ""
+        }
+      ],
+      "musicTrackId": "track-1786786995377",
+      "message": "# ❤️ To My Dearest Diksha\n\n**Happy Birthday, Diksha! 🎂❤️**\n\nया website मधलं प्रत्येक page, प्रत्येक memory, प्रत्येक message, प्रत्येक puzzle आणि प्रत्येक छोटीशी surprise एका छोट्याशा कारणासाठी आहे—\n\n**तुझ्या चेहऱ्यावर एक smile आणण्यासाठी. 😊🫂**\n\nकदाचित मी प्रत्येक वेळी शब्दांत सांगू शकत नाही की तू माझ्यासाठी किती important आहेस… पण आज एकदा मनापासून सांगतो—\n\n**तू माझ्या life मधली फक्त एक friend नाहीस.\nतू माझ्या आयुष्यातला एक खूप सुंदर part आहेस. ❤️**\n\nRCPIT मध्ये भेटल्यापासून आजपर्यंत आपण किती memories बनवल्या आहेत—एकत्र study sessions, random conversations, personal गोष्टी, problems, हसणं, आणि हो… आपली endless भांडणंसुद्धा. 😂\n\nइतक्या कमी वेळात तुझ्यावर एवढा trust निर्माण होईल, आणि तू माझ्यासाठी इतकी important होशील, हे कधीच imagine केलं नव्हतं. 🥹\n\nमाझी एकच wish आहे—\n\n**तू नेहमी खुश राहावी, तुझ्या चेहऱ्यावरचं smile कधीच कमी होऊ नये, तुझ्या प्रत्येक dream ला success मिळावी आणि life तुला खूप सुंदर moments देत राहावी. ✨❤️**\n\nकाळ बदलेल, college संपेल, आपापल्या life मध्ये आपण busy होऊ… पण आपल्या या friendship च्या आठवणी माझ्यासाठी नेहमी special राहतील. 🫂\n\nआणि हो Madam… कितीही भांडणं झाली तरी,\n\n**कधीच सोडून जाऊ नकोस. 🥺❤️**\n\nThank you for listening to me, understanding me, supporting me आणि माझ्या life मध्ये एक **angel 😇** बनून येण्यासाठी.\n\n**Happy Birthday once again, my bestest best friend! 🎂🫂❤️**\n\nKeep smiling.\nKeep shining.\nKeep being the crazy, amazing **Dukkar** that you are. 🐷😂❤️\n\n### Forever grateful that I met you. ♾️\n\n**— Chetan ❤️**",
+      "openWhenMessages": [
+        {
+          "id": "ow-1786619038399",
+          "emotion": "you're sad",
+          "emoji": "😢",
+          "color": "#ff4f8b",
+          "message": "Diksha… 🫂\n\nजर आज तुझं मन थोडं उदास असेल ना, तर आधी एक गोष्ट लक्षात ठेव — तुला एकटं वाटत असलं तरी तू एकटी नाहीस. ❤️\n\nLife मध्ये कितीही problems आले, कितीही गोष्टी मनासारख्या झाल्या नाहीत, तरी स्वतःला कमजोर समजू नकोस.\n\nतुझ्या चेहऱ्यावरचं smile मला खूप आवडतं. 😊\nम्हणून please जास्त वेळ sad राहू नकोस.\n\nकधी काही मनात असेल तर मला सांग.\nSolution माझ्याकडे असेलच असं नाही… पण तुझं ऐकायला मी नक्की असेन. 🫂\n\nआणि हो…\nआज smile करायची compulsory आहे. 😌❤️\n\n— तुझा कायमचा Dukkar 🐷"
+        },
+        {
+          "id": "ow-1786619144471",
+          "emotion": "you miss me",
+          "emoji": "❤️",
+          "color": "#3498db",
+          "message": "अरे Madam… 😭❤️\n\nमाझी आठवण आली म्हणून हे envelope उघडलंस?\n\nतर आधी एक virtual hug घे. 🫂\n\nआपण रोज भेटलो नाही, बोललो नाही किंवा काही कारणामुळे दूर असलो तरी एक गोष्ट लक्षात ठेव—\n\nDistance can change the moment, not the friendship. ❤️\n\nआपल्या study sessions, random conversations, भांडणं, हसणं आणि त्या सगळ्या छोट्या छोट्या moments ची मला नेहमी आठवण राहील.\n\nआणि हो…\nमाझी आठवण आली तर मला message करायला कोणाची permission लागत नाही. 😌\n\nमी आहेच. Always. 🤝❤️"
+        },
+        {
+          "id": "ow-1786619180912",
+          "emotion": "you're angry",
+          "emoji": "😤",
+          "color": "#ff7b5c",
+          "message": "ओहो… 😑\nम्हणजे आता Diksha Madam चा anger mode ON झालाय! 😂\n\nसर्वात आधी… शांत हो. 😭\n\nआणि जर तुझा राग माझ्यावर असेल तर—\n\nI'm sorry. 🥺❤️\n\nकदाचित माझ्याकडून काही चुकीचं बोललं किंवा केलं असेल. माझा intention तुला hurt करण्याचा कधीच नसतो.\n\nतू माझ्यावर रागावू शकतेस, माझ्याशी भांडू शकतेस…\nपण please मनात ठेवू नकोस.\n\nकारण आपल्या भांडणांमुळे conversation वाढत असतील 😂\nपण आपली friendship कमी व्हायला नको. 🫂\n\nचल आता…\nथोडा राग कमी कर आणि एक smile दे. 😊\n\n— तुझा irritating पण important friend 🐷❤️"
+        },
+        {
+          "id": "ow-1786619237759",
+          "emotion": "you need motivation",
+          "emoji": "💪",
+          "color": "#7cff4f",
+          "message": "Diksha, listen carefully. 👀❤️\n\nतू जे काही achieve करायचं ठरवलं आहेस ना, ते तू नक्की करू शकतेस.\n\nकधी कधी आपण स्वतःवर doubt करतो.\n“माझ्याकडून होईल का?”\n“मी पुरेशी चांगली आहे का?”\n“मी हे करू शकेन का?”\n\nYES. तू करू शकतेस. 💯\n\nफक्त एक step घे.\nमग दुसरा.\nआणि हळूहळू तू तिथे पोहोचशील जिथे तुला जायचं आहे. ✨\n\nतुझं future खूप सुंदर असावं, तू आयुष्यात खूप successful व्हावीस आणि तुझ्या प्रत्येक dream ला success मिळावी ही माझी मनापासून इच्छा आहे. ❤️\n\nआणि जेव्हा तुला वाटेल की “माझ्याकडून नाही होणार…”\n\nतेव्हा हा message पुन्हा वाच.\n\nBecause I believe in you. 🤝❤️"
+        },
+        {
+          "id": "ow-1786619284809",
+          "emotion": "you want to smile",
+          "emoji": "😊",
+          "color": "#ffbd4a",
+          "message": "Finally! 😌😂\n\nतुला smile करायची आहे म्हणजे आता माझं काम सुरू. 😎\n\nतर आठव…\n\nआपली पहिली friendship…\nCollege…\nTT-1…\nTT-2…\nFinal Exam…\nएकत्र study…\nRandom conversations…\nआपली भांडणं… 😂\nआणि त्या भांडणांनंतर पुन्हा बोलणं…\n\nइतक्या कमी वेळात आपण इतक्या memories बनवल्या आहेत. ❤️\n\nआणि honestly…\n\nतुझं smile खरंच खूप सुंदर आहे. 😊\n\nम्हणून हे लक्षात ठेव:\n\n“Whatever happens, don't let life steal your smile.” ✨\n\nआता phone बाजूला ठेव…\n\nआणि SMILE MADAM! 😤😂❤️"
+        },
+        {
+          "id": "ow-1786619325648",
+          "emotion": "you feel alone",
+          "emoji": "🫂",
+          "color": "#9b59b6",
+          "message": "Diksha… ❤️\n\nकधी कधी आजूबाजूला खूप लोक असतात, पण तरीही मनाला एकटं वाटतं.\n\nजर कधी असं वाटलं ना, तर स्वतःला एक गोष्ट आठवून दे—\n\nThere is someone who genuinely cares about you. 🫂\n\nतुला प्रत्येक problem चं solution लगेच मिळेलच असं नाही.\nपण प्रत्येक problem एकटीने handle करायची गरजही नाही.\n\nतुला बोलायचं असेल तर बोल.\nरडायचं असेल तर रड.\nशांत बसायचं असेल तर शांत बस.\n\nमी judge करणार नाही.\n\nJust be yourself. ❤️"
+        },
+        {
+          "id": "ow-1786619378641",
+          "emotion": "you had a bad day",
+          "emoji": "🌧️",
+          "color": "#6c8cff",
+          "message": "आजचा दिवस खराब गेला?\n\nIt's okay. 🫂\n\nप्रत्येक दिवस perfect नसतो.\n\nआज काही चुकीचं झालं असेल, काही मनासारखं झालं नसेल, कोणीतरी hurt केलं असेल किंवा फक्त mood खराब असेल…\n\nLet it go.\n\nआजचा दिवस तुझ्या पूर्ण life ची story नाही.\nउद्या पुन्हा एक नवीन day आहे. 🌅\n\nआता थोडं relax कर, favourite song ऐक, काहीतरी खा 😭😂 आणि स्वतःची काळजी घे.\n\nTomorrow can be better. ❤️"
+        },
+        {
+          "id": "ow-1786619540265",
+          "emotion": "you doubt our friendship",
+          "emoji": "🥹  ",
+          "color": "#ff5caa",
+          "message": "Diksha…\n\nजर कधी तुला वाटलं की\n“आपली friendship खरंच इतकी special आहे का?”\n\nतर माझं answer simple आहे—\n\nYES. ❤️\n\nआपण किती दिवसांपासून एकमेकांना ओळखतो यापेक्षा, त्या दिवसांमध्ये आपण एकमेकांसोबत किती genuine राहिलो हे माझ्यासाठी जास्त important आहे.\n\nआपण happiness share केली.\nProblems share केल्या.\nPersonal गोष्टी share केल्या.\nभांडलो. 😂\nपुन्हा बोललो.\nआणि memories बनवल्या.\n\nम्हणून माझ्यासाठी ही friendship फक्त “college friendship” नाही.\n\nYou're one of the people I genuinely don't want to lose. 🫂"
+        },
+        {
+          "id": "ow-1786619582451",
+          "emotion": "you need a birthday reminder",
+          "emoji": "🎂",
+          "color": "#ff6b9d",
+          "message": "12/8… 🎂❤️\n\nहा फक्त calendar वरचा एक date नाही.\n\nहा तो दिवस आहे ज्या दिवशी माझ्या आयुष्यात नंतर एक अशी व्यक्ती आली, जी माझ्यासाठी इतकी important होईल हे मला कधीच वाटलं नव्हतं. 🥹\n\nHappy Birthday once again, Diksha. 🫂\n\nतू किती special आहेस हे तुला कदाचित रोज जाणवत नसेल…\n\nपण someone out there is genuinely thankful that you exist. ❤️"
+        }
+      ],
+      "personality": {
+        "bars": [
+          {
+            "label": "Trustworthy",
+            "emoji": "🤝",
+            "value": 100,
+            "color": "#6c8cff"
+          },
+          {
+            "label": "Understanding",
+            "emoji": "🫂",
+            "value": 100,
+            "color": "#ff6b9d"
+          },
+          {
+            "label": "Caring",
+            "emoji": "❤️",
+            "value": 100,
+            "color": "#ff5c7a"
+          },
+          {
+            "label": "Always There",
+            "emoji": "🌸",
+            "value": 100,
+            "color": "#b56cff"
+          },
+          {
+            "label": "Makes Me Smile",
+            "emoji": "😊",
+            "value": 100,
+            "color": "#ffbd4a"
+          },
+          {
+            "label": "Supportive",
+            "emoji": "💪",
+            "value": 100,
+            "color": "#7cff4f"
+          },
+          {
+            "label": "Fun / Crazy",
+            "emoji": "😂",
+            "value": 100,
+            "color": "#ff7b5c"
+          },
+          {
+            "label": "Special Friend",
+            "emoji": "✨",
+            "value": 100,
+            "color": "#ff4fa3"
+          }
+        ],
+        "overallRating": "100 / 100"
+      },
+      "futureMessages": [
+        {
+          "year": 2027,
+          "message": "**Diksha… ❤️**\n\nहे 2027 आहे… आणि विचार केला तर आपल्याकडे आता college life चे खूप कमी दिवस उरले आहेत. 🥹\n\nRCPIT मध्ये एकत्र बसून केलेला अभ्यास, TT-1, TT-2, exams, random conversations, आपली भांडणं आणि त्यानंतर पुन्हा बोलणं… हे सगळं आठवतंय. 🫂\n\nकदाचित पुढचं वर्ष आपल्याला अजून खूप memories देईल.\n\nम्हणून या वर्षात एकच करूया—\n\n**No regrets.\nMore memories.\nMore smiles.\nMore stupid conversations. 😂❤️**\n\nआणि हो Madam… college संपायच्या आधी मला अजून खूप त्रास द्यायचा आहे तुला. 😂🐷\n\n**Let's make this year unforgettable. ❤️**\n"
+        },
+        {
+          "year": 2028,
+          "message": "“The Last College Chapter” 🎓🥹\n**Diksha… 🥹❤️**\n\nजर तू हा message 2028 मध्ये वाचत असशील, तर कदाचित आपण आपल्या college life च्या शेवटच्या chapter मध्ये असू.\n\nएक दिवस RCPIT चे classrooms, benches, study sessions, exams आणि रोजची भेट… सगळं मागे राहणार आहे.\n\nआणि कदाचित सगळ्यात जास्त आठवण येईल ती—\n\n**“आपण एकत्र बसायचो…”**\n**“आपण किती भांडायचो…” 😂**\n**“आणि तरीही पुन्हा एकमेकांशी बोलायचो.” ❤️**\n\nCollege संपेल… पण माझ्यासाठी आपल्या friendship चा chapter इथे संपणार नाही.\n\n**College was just where our story started.\nIt doesn't have to be where it ends. 🫂❤️**\n\nThank you for making these years more beautiful than they could have been.\n\nAnd yes…\n\n**Dukkar friendship forever. 🐷❤️**\n"
+        },
+        {
+          "year": 2029,
+          "message": "“After College” 🌍\n**Hey Diksha… ❤️**\n\nSo… college is over now. 🎓\n\nआपापल्या life मध्ये आपण busy झालो असू. नवीन jobs, नवीन responsibilities, नवीन people आणि नवीन places…\n\nकदाचित रोज बोलणं शक्य नसेल.\n\nकदाचित रोज भेटणं तर अजिबात शक्य नसेल.\n\nपण मला एक गोष्ट मनापासून सांगायची आहे—\n\n**Distance आणि busy life मुळे friendship ची value कमी होत नाही. ❤️**\n\nजर कधी खूप वर्षांनी आपण पुन्हा एकत्र बसलो आणि जुन्या college memories आठवल्या…\n\nतर मला आशा आहे की आपण दोघं म्हणू—\n\n**“यार… आपण खरंच किती वेडे होतो!” 😂**\n\nआणि मग पुन्हा तसंच हसू. 🫂\n\nLife कुठेही घेऊन जाऊ दे…\n\n**You will always have a special place in my life. ❤️**\n"
+        },
+        {
+          "year": 2030,
+          "message": "“If You Ever Forget…” 🥹\n**Diksha… ❤️**\n\nजर तू हा message 2030 मध्ये वाचत असशील, तर आपल्या college life ला कदाचित दोन वर्षं झाली असतील.\n\nआपण दोघं किती बदललो असू हे मला माहित नाही.\n\nआपल्या lives किती बदलल्या असतील हेही माहित नाही.\n\nपण मला एक गोष्ट आठवण करून द्यायची आहे—\n\n**एक काळ असा होता जेव्हा RCPIT मध्ये दोन वेडे लोक एकत्र बसून study करायचे, भांडायचे, हसायचे आणि एकमेकांना आपले problems सांगायचे. 😂🫂**\n\nत्या काळात तू माझ्यासाठी खूप important होतीस.\n\nआणि जर आजही तू माझ्या life मध्ये असशील, तर…\n\n**Thank you. ❤️**\n\nआणि जर कधी life च्या धावपळीत तुला आपल्या friendship ची आठवण झाली, तर ही website पुन्हा उघड.\n\nकारण या website मध्ये फक्त words नाहीत…\n\n**आपल्या एका सुंदर काळाच्या आठवणी आहेत. 🥹❤️**\n\n— Chetan 🫂\n"
+        }
+      ],
+      "puzzleLevels": [
+        {
+          "id": "pz-1786622784638",
+          "title": "The Beginning",
+          "type": "puzzle",
+          "question": "Diksha, आपली friendship कुठे सुरू झाली? ❤️",
+          "answer": "rcpit ",
+          "completed": false
+        },
+        {
+          "id": "pz-1786622820440",
+          "title": "The Beginning",
+          "type": "puzzle",
+          "question": "आपण college मध्ये exams च्या वेळी एकत्र काय करायचो?",
+          "answer": "study",
+          "completed": false
+        },
+        {
+          "id": "pz-1786622938558",
+          "title": "The Secret Nickname",
+          "type": "puzzle",
+          "question": "me तुला कोणत्या funny नावाने बोलावतो?",
+          "answer": "dukkar",
+          "completed": false
+        },
+        {
+          "id": "pz-1786622974303",
+          "title": "The Trusted Person",
+          "type": "puzzle",
+          "question": "माझ्या life मधल्या personal गोष्टी मी कोणासोबत freely share करतो?",
+          "answer": "diksha",
+          "completed": false
+        },
+        {
+          "id": "pz-1786623083743",
+          "title": "The Hardest Question",
+          "type": "puzzle",
+          "question": "Diksha, माझ्यासाठी तू नेमकी कोण आहेस?",
+          "answer": "best friend",
+          "completed": false
+        },
+        {
+          "id": "pz-1786623127126",
+          "title": "Can You Read My Mind? 🧠❤️",
+          "type": "puzzle",
+          "question": "एक अशी व्यक्ती जिने माझ्या life मध्ये खूप कमी वेळात खूप मोठी जागा मिळवली… ती कोण?",
+          "answer": "diksha",
+          "completed": false
+        },
+        {
+          "id": "pz-1786623219943",
+          "title": "Memory",
+          "type": "puzzle",
+          "question": "My birthdate (one day)",
+          "answer": "24",
+          "completed": false
+        }
+      ],
+      "quiz": [
+        {
+          "id": "q-1786623392810",
+          "question": "माझ्या मते तू माझ्यासाठी काय आहेस?",
+          "options": [
+            "Just a classmate",
+            "One of my best parts of life",
+            "Study partner only",
+            "love"
+          ],
+          "correct": 1
+        },
+        {
+          "id": "q-1786623448441",
+          "question": "Exam time मध्ये आपण काय करतो?",
+          "options": [
+            "वेगवेगळे बसतो",
+            "College bunk करतो",
+            "फक्त games खेळतो",
+            "एकत्र study करतो"
+          ],
+          "correct": 3
+        },
+        {
+          "id": "q-1786623512304",
+          "question": "मला राग आला असताना तुला पाहिल्यावर काय होतं? 😤",
+          "options": [
+            "राग वाढतो",
+            "मी निघून जातो",
+            "राग automatically शांत होतो",
+            "मी झोपतो"
+          ],
+          "correct": 2
+        },
+        {
+          "id": "q-1786623560569",
+          "question": "आपल्या conversation कशामुळे कधी कधी वाढतात?",
+          "options": [
+            "Studying",
+            "Fighting/भांडण",
+            "Sleeping",
+            "Silence"
+          ],
+          "correct": 1
+        },
+        {
+          "id": "q-1786623638610",
+          "question": "माझ्यासाठी आपली friendship काय आहे?",
+          "options": [
+            "Temporary",
+            "Normal",
+            "Life मधील special bond",
+            "Just college friendship"
+          ],
+          "correct": 2
+        },
+        {
+          "id": "q-1786623720234",
+          "question": "जर आपली friendship एक word मध्ये सांगायची असेल तर?",
+          "options": [
+            "Temporary",
+            "Trust",
+            "Competition",
+            "Just college friendship"
+          ],
+          "correct": 1
+        },
+        {
+          "id": "q-1786623782553",
+          "question": "माझ्या मते आपल्या friendship मधील सर्वात dangerous गोष्ट कोणती?",
+          "options": [
+            "Exams",
+            "Trust",
+            "आपले भांडण",
+            "Attendance"
+          ],
+          "correct": 2
+        },
+        {
+          "id": "q-1786623851824",
+          "question": "Diksha चं secret superpower काय आहे?",
+          "options": [
+            "मला शांत करणे",
+            "मला चिडवणे",
+            "Both A & B",
+            "Nothing"
+          ],
+          "correct": 2
+        },
+        {
+          "id": "q-1786623929796",
+          "question": "माझा राग शांत करण्याचा easiest way कोणता?",
+          "options": [
+            "Chocolate",
+            "Sorry",
+            "majhe (Diksha) समोर येणे",
+            "Long lecture"
+          ],
+          "correct": 2
+        },
+        {
+          "id": "q-1786624001268",
+          "question": "Diksha, तुला खरंच माहित आहे का की तू माझ्यासाठी किती important आहेस?",
+          "options": [
+            "थोडंसं",
+            "कदाचित",
+            "अजूनही पूर्णपणे नाही",
+            "Infinity"
+          ],
+          "correct": 3
+        }
+      ],
+      "voiceMessage": {
+        "url": "https://res.cloudinary.com/awtaw7he/video/upload/v1786787074/birthday_wish_assets/t44uccpqypjiu62f4ffx.mp3",
+        "title": "FOR DIKSHA"
+      }
     }
   ],
   "tracks": [
@@ -96,28 +1304,247 @@
       "id": "track-4",
       "title": "Sweet Acoustic Guitar",
       "url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3"
+    },
+    {
+      "id": "track-1786702713533",
+      "title": "JIV adakala tujhyat",
+      "url": "https://res.cloudinary.com/awtaw7he/video/upload/v1786702713/birthday_wish_assets/nrilpeb8udk1wyw7tayq.mp4"
+    },
+    {
+      "id": "track-1786786995377",
+      "title": "friendship",
+      "url": "https://res.cloudinary.com/awtaw7he/video/upload/v1786786993/birthday_wish_assets/lpanoexxuesqoprtew66.mp4"
+    },
+    {
+      "id": "track-1786787050643",
+      "title": "friendship",
+      "url": "https://res.cloudinary.com/awtaw7he/video/upload/v1786787049/birthday_wish_assets/rkcut34on3irjluhvudp.mp4"
     }
   ],
   "logs": [
     {
-      "id": "log-1",
-      "username": "sanav",
-      "action": "Logged in to dashboard",
-      "timestamp": "2026-07-07T14:15:32.000Z"
+      "id": "log-1786702737457",
+      "username": "dukkar",
+      "action": "Logged in successfully",
+      "timestamp": "2026-08-14T10:18:57.448Z"
     },
     {
+      "id": "log-1786702737465",
+      "username": "dukkar",
+      "action": "Logged in successfully",
+      "timestamp": "2026-08-14T10:18:57.450Z"
+    },
+    {
+      "id": "log-1786702812636",
+      "username": "dukkar",
+      "action": "Logged in successfully",
+      "timestamp": "2026-08-14T10:20:12.628Z"
+    },
+    {
+      "id": "log-1786702812646",
+      "username": "dukkar",
+      "action": "Logged in successfully",
+      "timestamp": "2026-08-14T10:20:12.632Z"
+    },
+    {
+      "id": "log-1786770575367",
+      "username": "dukkar",
+      "action": "Logged in successfully",
+      "timestamp": "2026-08-15T05:09:35.360Z"
+    },
+    {
+      "id": "log-1786770575377",
+      "username": "dukkar",
+      "action": "Logged in successfully",
+      "timestamp": "2026-08-15T05:09:35.364Z"
+    },
+    {
+      "id": "log-1786770754112",
       "username": "sanav",
       "action": "Logged in successfully",
-      "timestamp": "2026-07-08T17:09:46.526Z",
-      "id": "log-1783530586560"
+      "timestamp": "2026-08-15T05:12:34.106Z"
+    },
+    {
+      "id": "log-1786770754118",
+      "username": "sanav",
+      "action": "Logged in successfully",
+      "timestamp": "2026-08-15T05:12:34.108Z"
+    },
+    {
+      "id": "log-1786787098184",
+      "username": "dukkar",
+      "action": "Logged in successfully",
+      "timestamp": "2026-08-15T09:44:58.179Z"
+    },
+    {
+      "id": "log-1786787098196",
+      "username": "dukkar",
+      "action": "Logged in successfully",
+      "timestamp": "2026-08-15T09:44:58.183Z"
+    },
+    {
+      "id": "log-1786787105465",
+      "username": "dukkar",
+      "action": "Logged in successfully",
+      "timestamp": "2026-08-15T09:45:05.460Z"
+    },
+    {
+      "id": "log-1786787105474",
+      "username": "dukkar",
+      "action": "Logged in successfully",
+      "timestamp": "2026-08-15T09:45:05.461Z"
+    },
+    {
+      "id": "log-1786787292257",
+      "username": "dukkar",
+      "action": "Logged in successfully",
+      "timestamp": "2026-08-15T09:48:12.248Z"
+    },
+    {
+      "id": "log-1786787292262",
+      "username": "dukkar",
+      "action": "Logged in successfully",
+      "timestamp": "2026-08-15T09:48:12.253Z"
+    },
+    {
+      "id": "log-1786788616501",
+      "username": "dukkar",
+      "action": "Logged in successfully",
+      "timestamp": "2026-08-15T10:10:16.333Z"
+    },
+    {
+      "id": "log-1786788727305",
+      "username": "dukkar",
+      "action": "Logged in successfully",
+      "timestamp": "2026-08-15T10:12:07.175Z"
+    },
+    {
+      "id": "log-1786790257283",
+      "username": "Diksha Davkar",
+      "action": "Made a Birthday Candle Wish: \"mala mazya sarv friends la mazya fa...\"",
+      "timestamp": "2026-08-15T10:37:36.184Z"
+    },
+    {
+      "id": "log-1786790889324",
+      "username": "dukkar",
+      "action": "Logged in successfully",
+      "timestamp": "2026-08-15T10:48:09.109Z"
+    },
+    {
+      "id": "log-1786791543161",
+      "username": "dukkar",
+      "action": "Logged in successfully",
+      "timestamp": "2026-08-15T10:59:01.885Z"
+    },
+    {
+      "id": "log-1786792215451",
+      "username": "dukkar",
+      "action": "Logged in successfully",
+      "timestamp": "2026-08-15T11:10:15.439Z"
+    },
+    {
+      "id": "log-1786902032191",
+      "username": "dukkar",
+      "action": "Logged in successfully",
+      "timestamp": "2026-08-16T17:40:31.970Z"
+    },
+    {
+      "id": "log-1786902032196",
+      "username": "dukkar",
+      "action": "Logged in successfully",
+      "timestamp": "2026-08-16T17:40:31.987Z"
+    },
+    {
+      "id": "log-1786902736503",
+      "username": "dukkar",
+      "action": "Logged in successfully",
+      "timestamp": "2026-08-16T17:52:16.756Z"
+    },
+    {
+      "id": "log-1786902736506",
+      "username": "dukkar",
+      "action": "Logged in successfully",
+      "timestamp": "2026-08-16T17:52:16.761Z"
     }
   ],
   "thanks": [
     {
-      "id": "th-1",
-      "username": "sanav",
-      "message": "मस्त सरप्राईज आहे! खूप मनापासून आवडले! ❤️😊",
-      "timestamp": "2026-07-07T14:20:10.000Z"
+      "id": "th-1786790257272",
+      "username": "Diksha Davkar",
+      "message": "🎂 Birthday Candle Wish: mala mazya sarv friends la mazya family madhe add karayche aahe",
+      "timestamp": "2026-08-15T10:37:36.184Z"
+    },
+    {
+      "id": "th-1786791359146",
+      "username": "Diksha Davkar",
+      "message": "thank you so much  for  giving me this unforgatable surprice this gift are so different thank you.......thank you infinity",
+      "timestamp": "2026-08-15T10:55:56.778Z"
+    },
+    {
+      "id": "th-1786791359160",
+      "username": "Diksha Davkar",
+      "message": "thank you so much  for  giving me this unforgatable surprice this gift are so different thank you.......thank you infinity",
+      "timestamp": "2026-08-15T10:55:56.255Z"
+    },
+    {
+      "id": "th-1786791359173",
+      "username": "Diksha Davkar",
+      "message": "thank you so much  for  giving me this unforgatable surprice this gift are so different thank you.......thank you infinity",
+      "timestamp": "2026-08-15T10:55:55.915Z"
+    },
+    {
+      "id": "th-1786791359182",
+      "username": "Diksha Davkar",
+      "message": "thank you so much  for  giving me this unforgatable surprice this gift are so different thank you.......thank you infinity",
+      "timestamp": "2026-08-15T10:55:55.710Z"
+    },
+    {
+      "id": "th-1786791359193",
+      "username": "Diksha Davkar",
+      "message": "thank you so much  for  giving me this unforgatable surprice this gift are so different thank you.......thank you infinity",
+      "timestamp": "2026-08-15T10:55:54.830Z"
+    },
+    {
+      "id": "th-1786791359200",
+      "username": "Diksha Davkar",
+      "message": "thank you so much  for  giving me this unforgatable surprice this gift are so different thank you.......thank you infinity",
+      "timestamp": "2026-08-15T10:55:56.412Z"
+    },
+    {
+      "id": "th-1786791359210",
+      "username": "Diksha Davkar",
+      "message": "thank you so much  for  giving me this unforgatable surprice this gift are so different thank you.......thank you infinity",
+      "timestamp": "2026-08-15T10:55:56.090Z"
+    },
+    {
+      "id": "th-1786791359218",
+      "username": "Diksha Davkar",
+      "message": "thank you so much  for  giving me this unforgatable surprice this gift are so different thank you.......thank you infinity",
+      "timestamp": "2026-08-15T10:55:55.444Z"
+    },
+    {
+      "id": "th-1786791359225",
+      "username": "Diksha Davkar",
+      "message": "thank you so much  for  giving me this unforgatable surprice this gift are so different thank you.......thank you infinity",
+      "timestamp": "2026-08-15T10:55:55.293Z"
+    },
+    {
+      "id": "th-1786791359230",
+      "username": "Diksha Davkar",
+      "message": "thank you so much  for  giving me this unforgatable surprice this gift are so different thank you.......thank you infinity",
+      "timestamp": "2026-08-15T10:55:56.558Z"
+    },
+    {
+      "id": "th-1786791359238",
+      "username": "Diksha Davkar",
+      "message": "thank you so much  for  giving me this unforgatable surprice this gift are so different thank you.......thank you infinity",
+      "timestamp": "2026-08-15T10:55:57.626Z"
+    },
+    {
+      "id": "th-1786902680245",
+      "username": "Diksha Davkar",
+      "message": "Khup khup thank u aaj me hi web yasathi open keli because of me sad aani angry hote 🥺🧿❤️",
+      "timestamp": "2026-08-16T17:51:19.090Z"
     }
   ]
 }

@@ -1,101 +1,125 @@
 <!DOCTYPE html>
-<html lang="mr">
+<html lang="mr" class="notranslate" translate="no">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
+    <meta http-equiv="Content-Language" content="mr">
     <title>Birthday Wish Surprise | वाढदिवसाच्या हार्दिक शुभेच्छा!</title>
     <!-- Google Fonts for premium design -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- FontAwesome for modern icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Canvas Confetti Library for celebrations -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-    <link rel="stylesheet" href="style.css?v=4.0">
+    <link rel="stylesheet" href="style.css?v=5.0">
 </head>
 <body>
     <!-- Background Sparkles/Particles Container -->
     <div id="particle-container"></div>
     <div id="balloons-container"></div>
 
+    <!-- Fixed Navigation & Music -->
+    <div id="section-nav-dots" aria-label="Section Navigation">
+        <!-- Dynamically populated by JS -->
+    </div>
+    
+    <div id="music-player-float" class="glassmorphic">
+        <div class="disc-wrapper">
+            <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=150&auto=format&fit=crop&q=60" id="music-vinyl-disc" class="vinyl-disc" alt="vinyl disc">
+        </div>
+        <div class="music-info-wrapper">
+            <span id="music-float-title">Birthday Song</span>
+            <div class="music-eq-visualizer">
+                <span class="music-eq-bar"></span>
+                <span class="music-eq-bar"></span>
+                <span class="music-eq-bar"></span>
+                <span class="music-eq-bar"></span>
+            </div>
+        </div>
+        <button class="btn-icon" id="btn-toggle-music-float" aria-label="Play/Pause Music">
+            <i class="fa-solid fa-play"></i>
+        </button>
+    </div>
+
     <div id="app">
-        <!-- 1. LANDING SCREEN -->
-        <section id="screen-landing" class="screen active">
-            <div class="landing-card glassmorphic animate-fade-in">
-                <div class="brand">
+        <!-- ================= 0. LANDING SCREEN ================= -->
+        <section id="screen-landing" class="screen bw-section active">
+            <div class="glassmorphic center-card landing-card animate-fade-in text-center">
+                <div class="brand mb-4">
                     <i class="fa-solid fa-cake-candles logo-icon"></i>
-                    <h1>Celebrate Love</h1>
-                    <p>एका खास व्यक्तीसाठी एक सुंदर वाढदिवसाचे सरप्राईज!</p>
+                    <h1 class="glow-text">Celebrate Love</h1>
+                    <p class="subtitle">एका खास व्यक्तीसाठी एक सुंदर वाढदिवसाचे सरप्राईज!</p>
                 </div>
                 <div class="mode-selectors">
-                    <button class="btn btn-primary" onclick="appController.navigateTo('login-user')">
+                    <button class="btn btn-primary btn-block mb-3" onclick="appController.navigateTo('section-secret-entry')">
                         <i class="fa-solid fa-gift"></i> User Experience (सरप्राईज पहा)
                     </button>
-                    <button class="btn btn-secondary" onclick="appController.navigateTo('login-admin')">
-                        <i class="fa-solid fa-user-gear"></i> Admin Control Panel
+                    <button class="btn btn-secondary btn-block" onclick="appController.navigateTo('screen-login-admin')">
+                        <i class="fa-solid fa-user-gear"></i> Chetan Control Panel
                     </button>
                 </div>
-                <div class="footer-tag">Made with ❤️ for your special day</div>
+                <div class="footer-tag mt-4">Made with ❤️ for your special day</div>
             </div>
         </section>
 
-        <!-- 2. USER LOGIN SCREEN -->
-        <section id="screen-login-user" class="screen">
-            <button class="btn-back" onclick="appController.navigateTo('landing')">
+        <!-- ================= USER SECTIONS (15) ================= -->
+        
+        <!-- 1. User Login & Secret Entry -->
+        <section id="section-secret-entry" class="bw-section">
+            <button class="btn-back" onclick="appController.navigateTo('screen-landing')">
                 <i class="fa-solid fa-arrow-left"></i> मागे जा
             </button>
-            <div class="login-card glassmorphic animate-scale-up">
+            <div class="glassmorphic center-card login-card animate-scale-up text-center">
+                <i class="fa-solid fa-lock secret-lock-icon"></i>
                 <h2>User Login</h2>
                 <p class="subtitle">तुमचे सरप्राईज अनलॉक करण्यासाठी लॉगिन करा</p>
                 
-                <form id="form-user-login" onsubmit="appController.handleUserLogin(event)">
+                <form id="form-user-login" onsubmit="event.preventDefault(); appController.handleUserLogin(event); return false;">
                     <div class="input-group">
-                        <label for="user-username"><i class="fa-solid fa-user"></i> Username</label>
-                        <input type="text" id="user-username" placeholder="नाव टाका..." required autocomplete="username">
+                        <label for="user-username"><i class="fa-solid fa-user"></i> Username / नाव (Name)</label>
+                        <input type="text" id="user-username" placeholder="उदा. sanav किंवा karan..." required autocomplete="username">
                     </div>
                     <div class="input-group">
                         <label for="user-password"><i class="fa-solid fa-lock"></i> Password</label>
-                        <input type="password" id="user-password" placeholder="पासवर्ड टाका..." required autocomplete="current-password">
+                        <input type="password" id="user-password" placeholder="पासवर्ड टाका (उदा. 123)..." autocomplete="current-password">
                     </div>
                     <div class="input-group">
                         <label for="user-birthdate"><i class="fa-solid fa-calendar-days"></i> Birthdate</label>
-                        <input type="date" id="user-birthdate" required>
+                        <input type="date" id="user-birthdate">
                     </div>
-                    <div id="user-login-error" class="error-msg hide"> चुकीचा युझरनेम, पासवर्ड किंवा जन्मतारीख!</div>
-                    <button type="submit" class="btn btn-primary btn-block">
+                    <div id="user-login-error" class="error-msg hide mb-3">चुकीचा युझरनेम, पासवर्ड किंवा जन्मतारीख!</div>
+                    <button type="submit" id="btn-secret-continue" class="btn btn-primary btn-block" onclick="event.preventDefault(); appController.handleUserLogin(event);">
                         Unlock Surprise <i class="fa-solid fa-heart-pulse"></i>
                     </button>
                 </form>
-            </div>
-        </section>
-
-        <!-- 3. ADMIN LOGIN SCREEN -->
-        <section id="screen-login-admin" class="screen">
-            <button class="btn-back" onclick="appController.navigateTo('landing')">
-                <i class="fa-solid fa-arrow-left"></i> मागे जा
-            </button>
-            <div class="login-card glassmorphic animate-scale-up">
-                <h2>Admin Access</h2>
-                <p class="subtitle">सिस्टम कंट्रोल करण्यासाठी पासवर्ड टाका</p>
                 
-                <form id="form-admin-login" onsubmit="appController.handleAdminLogin(event)">
-                    <div class="input-group">
-                        <label for="admin-password"><i class="fa-solid fa-lock"></i> Admin Password</label>
-                        <input type="password" id="admin-password" placeholder="पासवर्ड प्रविष्ट करा..." required autocomplete="current-password">
-                    </div>
-                    <div id="admin-login-error" class="error-msg hide">चुकीचा पासवर्ड! (Default: admin123)</div>
-                    <button type="submit" class="btn btn-secondary btn-block">
-                        Access Dashboard <i class="fa-solid fa-shield-halved"></i>
-                    </button>
-                </form>
+                <p class="footer-note mt-3">Sshh... it's a secret 🤫</p>
+                
+                <!-- Chetan login link -->
+                <button class="btn btn-sm btn-text mt-3" onclick="appController.navigateTo('screen-login-admin')" style="margin-top:15px; font-size:0.8rem; opacity:0.6;">
+                    Chetan Access <i class="fa-solid fa-shield-halved"></i>
+                </button>
             </div>
         </section>
 
-        <!-- 4. USER SURPRISE UNLOCK (GIFT BOX SCREEN) -->
-        <section id="screen-surprise-unlock" class="screen">
-            <div class="unlock-wrapper text-center animate-fade-in">
-                <div class="gift-box-container" onclick="appController.unlockBirthdayExperience()">
+        <!-- 2. Cinematic Intro -->
+        <section id="section-cinematic-intro" class="bw-section">
+            <div class="starry-bg"></div>
+            <div class="intro-content center-content">
+                <h1 id="intro-name" class="font-cursive glow-text">Hey [Name] ❤️</h1>
+                <p id="intro-greeting-text" class="typewriter-text"></p>
+                <button id="btn-lets-go" class="btn btn-primary btn-glow hide" onclick="appController.nextSection()">Let's Go! 🎉</button>
+            </div>
+        </section>
+
+        <!-- 3. Virtual Gift Box -->
+        <section id="section-gift-box" class="bw-section">
+            <div class="center-content">
+                <h2>A special gift for you! 🎁</h2>
+                <div id="gift-box-wrapper" class="gift-box-container" onclick="appController.openGiftBox()">
                     <div class="gift-lid"></div>
                     <div class="gift-ribbon-v"></div>
                     <div class="gift-ribbon-h"></div>
@@ -104,154 +128,325 @@
                         <i class="fa-solid fa-heart floating-heart-center"></i>
                     </div>
                 </div>
-                <h1 class="gift-headline">तुमच्यासाठी एक सुंदर भेट! 🎁</h1>
-                <p class="gift-subline">अनलॉक करण्यासाठी गिफ्ट बॉक्सवर क्लिक करा</p>
+                <p id="gift-headline" style="cursor:pointer;" onclick="appController.openGiftBox()">Click to open your gift</p>
             </div>
         </section>
 
-        <!-- 5. USER MAIN BIRTHDAY EXPERIENCE (DYNAMIC THEMED) -->
-        <section id="screen-user-dashboard" class="screen">
-            <!-- Floating Top Bar -->
-            <div class="user-top-bar glassmorphic">
-                <div class="user-info">
-                    <i class="fa-solid fa-crown user-crown"></i>
-                    <span id="user-display-name">Sanav</span>
+        <!-- 4. Timeline -->
+        <section id="section-timeline" class="bw-section">
+            <div class="timeline-container-outer">
+                <h2 class="timeline-main-title">Our Memories Timeline <i class="fa-solid fa-heart text-accent"></i></h2>
+                <p class="timeline-subtitle">A journey through our favorite moments together ❤️</p>
+                <div id="timeline-container" class="timeline-scroll-wrapper">
+                    <div class="timeline-line"></div>
+                    <!-- Timeline items generated by JS -->
                 </div>
-                <div class="music-mini-control">
-                    <div class="disc-wrapper">
-                        <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=150&auto=format&fit=crop&q=60" id="music-vinyl-disc" alt="vinyl disc">
+                <div class="text-center mt-3">
+                    <button class="btn btn-primary btn-glow" onclick="appController.nextSection()">Continue &rarr;</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Quiz Time -->
+        <section id="section-quiz" class="bw-section">
+            <div class="center-content quiz-wrapper">
+                <div class="quiz-header">
+                    <h2>Quiz Time 🤓</h2>
+                    <span id="quiz-counter" class="badge">1 / 5</span>
+                </div>
+                <p>Let's see how well you know yourself! 🤔</p>
+                <div class="glassmorphic quiz-card" id="quiz-card-container">
+                    <h3 id="quiz-question">Question text here?</h3>
+                    <div id="quiz-options" class="options-grid">
+                        <!-- Options generated by JS: .quiz-option -->
                     </div>
-                    <span id="music-current-title">Birthday Song</span>
-                    <button class="btn-icon" id="btn-toggle-music" onclick="appController.toggleBackgroundMusic()">
-                        <i class="fa-solid fa-pause"></i>
+                </div>
+                <button id="btn-quiz-next" class="btn btn-primary mt-4 hide">Next Question &rarr;</button>
+
+                <!-- Quiz Score Result (hidden until quiz finishes) -->
+                <div id="quiz-result" class="glassmorphic quiz-result-card hide">
+                    <div id="quiz-result-emoji" class="quiz-result-emoji">🏆</div>
+                    <h2 id="quiz-result-title">Quiz Complete!</h2>
+                    <div id="quiz-result-score" class="quiz-result-score">0 / 0</div>
+                    <p id="quiz-result-msg" class="quiz-result-msg">Great job!</p>
+                    <div class="quiz-result-bar-wrapper">
+                        <div id="quiz-result-bar" class="quiz-result-bar" style="width:0%"></div>
+                    </div>
+                    <button class="btn btn-primary mt-4" onclick="appController.nextSection()">Continue &rarr;</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Personality Meter -->
+        <section id="section-personality" class="bw-section">
+            <div class="center-content">
+                <h2>Your Personality Report 🧬</h2>
+                <div class="glassmorphic personality-card">
+                    <div id="personality-bars">
+                        <!-- Bars generated by JS: .personality-bar-row -->
+                    </div>
+                    <div id="personality-overall" class="overall-rating mt-4">
+                        <i class="fa-solid fa-heart fa-2x text-accent mb-2"></i>
+                        <h3>100% Perfect!</h3>
+                    </div>
+                </div>
+                <button class="btn btn-primary mt-4" onclick="appController.nextSection()">Continue &rarr;</button>
+            </div>
+        </section>
+
+        <!-- 7. Open When -->
+        <section id="section-open-when" class="bw-section">
+            <div class="container">
+                <h2 class="text-center">Open when... Messages <i class="fa-solid fa-envelope-open-text"></i></h2>
+                <p class="text-center subtitle">Open when...</p>
+                <div id="open-when-list" class="envelope-grid">
+                    <!-- .envelope-card items generated by JS -->
+                </div>
+                <p class="text-center mt-4 footer-note">Click any envelope to open ✉️</p>
+            </div>
+        </section>
+
+        <!-- 8. Make a Wish -->
+        <section id="section-make-wish" class="bw-section">
+            <div class="center-content wish-section">
+                <h2 class="glow-text">Make a wish ✨</h2>
+                <p class="subtitle">Click on any star to reveal your special birthday wish</p>
+                <div id="wish-stars-container" class="stars-area">
+                    <div class="wish-star" onclick="appController.handleWishStar(this)"><i class="fa-solid fa-star"></i></div>
+                    <div class="wish-star" onclick="appController.handleWishStar(this)"><i class="fa-solid fa-star"></i></div>
+                    <div class="wish-star" onclick="appController.handleWishStar(this)"><i class="fa-solid fa-star"></i></div>
+                    <div class="wish-star" onclick="appController.handleWishStar(this)"><i class="fa-solid fa-star"></i></div>
+                    <div class="wish-star" onclick="appController.handleWishStar(this)"><i class="fa-solid fa-star"></i></div>
+                </div>
+                <div id="wish-text-display" class="wish-message glassmorphic hide">
+                    <p class="font-cursive large-text">May all your dreams come true! 🌟</p>
+                </div>
+                <button class="btn btn-primary btn-glow mt-4 hide" id="btn-wish-continue" onclick="appController.nextSection()">Continue &rarr;</button>
+            </div>
+        </section>
+
+        <!-- 9. Birthday Cake -->
+        <section id="section-cake" class="bw-section">
+            <div class="center-content cake-section">
+                <h2 class="glow-text">Make a wish... 🎂</h2>
+                
+                <div id="cake-container" class="interactive-cake" onclick="appController.blowCandles()">
+                    <div class="cake-plate"></div>
+                    <div class="cake-layer-1"></div>
+                    <div class="cake-layer-2"></div>
+                    <div class="cake-layer-3">
+                        <div class="cake-frosting"></div>
+                    </div>
+                    <div class="cake-candle">
+                        <div class="cake-flame"></div>
+                    </div>
+                </div>
+                
+                <h3 id="cake-message" class="mt-4">Click the candle to blow it out! 🕯️</h3>
+                <p class="subtitle">(Click on the candle to extinguish it & make a wish)</p>
+
+                <!-- Secret Candle Wish Modal / Box -->
+                <div id="candle-wish-modal" class="glassmorphic candle-wish-box hide mt-4">
+                    <h3 class="font-display text-accent mb-2">Make your secret birthday wish ✨</h3>
+                    <p class="mb-3 text-muted" style="font-size:0.95rem; color:#e2e8f0 !important;">तुमची गुप्त इच्छा (Wish) खाली लिहा, ती थेट ॲडमिनला पाठवली जाईल 💌</p>
+                    <div class="input-group mb-3">
+                        <textarea id="candle-wish-input" rows="3" placeholder="उदा. मला या नवीन वर्षात खूप यश आणि आनंद मिळो..."></textarea>
+                    </div>
+                    <button id="btn-submit-candle-wish" class="btn btn-primary btn-glow btn-block" onclick="appController.submitCandleWish()">
+                        Save & Send Wish to Admin ❤️
+                    </button>
+                    <div id="candle-wish-status" class="success-msg hide mt-2"></div>
+                </div>
+
+                <div class="text-center mt-4">
+                    <button id="btn-cake-continue" class="btn btn-primary btn-glow hide" onclick="appController.nextSection()">
+                        Continue &rarr;
                     </button>
                 </div>
-                <button class="btn btn-sm btn-danger" onclick="appController.logoutUser()">
-                    <i class="fa-solid fa-right-from-bracket"></i> Exit
-                </button>
             </div>
+        </section>
 
-            <!-- Content Grid Layout -->
-            <div class="user-container">
-                <div class="left-hero-panel glassmorphic animate-slide-left">
-                    <div class="cake-display">
-                        <div class="celebration-title">
-                            <h2 class="font-cursive">Happy Birthday</h2>
-                            <h1 id="user-hero-name" class="glow-text">User Name</h1>
-                        </div>
-                        
-                        <!-- Interactive 3D Cake -->
-                        <div class="interactive-cake" id="cake-interactive" onclick="appController.blowCandle()">
-                            <div class="candle">
-                                <div class="flame" id="candle-flame"></div>
-                            </div>
-                            <div class="cake-top"></div>
-                            <div class="cake-middle"></div>
-                            <div class="cake-bottom"></div>
-                        </div>
-                        <p class="cake-instruction" id="cake-instructions">🕯️ मेणबत्ती विझवण्यासाठी केकवर क्लिक करा (Blow Candle!)</p>
-                    </div>
-
-                    <!-- Music Settings Inside experience -->
-                    <div class="music-settings-box">
-                        <h4><i class="fa-solid fa-music"></i> Select Music Vibes</h4>
-                        <div class="music-options-grid" id="user-music-presets">
-                            <!-- Presets dynamically loaded -->
-                        </div>
-                    </div>
+        <!-- 10. Memories Wall -->
+        <section id="section-memories-wall" class="bw-section">
+            <div class="container gallery-wrapper">
+                <h2 class="text-center">Memories Wall <i class="fa-solid fa-camera-retro"></i></h2>
+                <div id="gallery-filter-tabs" class="filter-tabs flex-center">
+                    <button class="gallery-filter-btn active" data-category="all">All</button>
+                    <button class="gallery-filter-btn" data-category="memories">Memories</button>
+                    <button class="gallery-filter-btn" data-category="fun">Fun</button>
+                    <button class="gallery-filter-btn" data-category="trips">Trips</button>
+                    <button class="gallery-filter-btn" data-category="us">Us❤️</button>
                 </div>
-
-                <div class="right-tabs-panel glassmorphic animate-slide-right">
-                    <!-- Nav Tabs -->
-                    <div class="tabs-nav">
-                        <button class="tab-btn active" onclick="appController.switchUserTab('tab-wish')">
-                            <i class="fa-solid fa-envelope-open-text"></i> Wish
-                        </button>
-                        <button class="tab-btn" onclick="appController.switchUserTab('tab-gallery')">
-                            <i class="fa-solid fa-images"></i> Memories
-                        </button>
-                        <button class="tab-btn" onclick="appController.switchUserTab('tab-thanks')">
-                            <i class="fa-solid fa-reply"></i> Say Thanks
-                        </button>
+                <div id="gallery-slideshow" class="gallery-slideshow mt-4">
+                    <div id="gallery-slides-container" class="gallery-slides-container">
+                        <!-- slides generated by JS -->
                     </div>
-
-                    <!-- Tab Contents -->
-                    <div class="tabs-content">
-                        <!-- Tab 1: Wish Message -->
-                        <div id="tab-wish" class="tab-pane active">
-                            <div class="wish-letter">
-                                <div class="letter-header">
-                                    <i class="fa-solid fa-quote-left quote-icon"></i>
-                                </div>
-                                <div class="letter-body">
-                                    <p id="user-wish-message" class="wish-text-reading">
-                                        वाढदिवसाच्या हार्दिक शुभेच्छा! तुमचे आयुष्य सुख, समृद्धी आणि आनंदाने भरून जावे हीच ईश्वरचरणी प्रार्थना...
-                                    </p>
-                                </div>
-                                <div class="letter-footer">
-                                    <button class="btn btn-primary btn-speak" onclick="appController.readMessageAloud()">
-                                        <i class="fa-solid fa-volume-high"></i> ऐका (Listen Wish)
-                                    </button>
-                                    <button class="btn btn-secondary btn-speak-pause hide" id="btn-pause-tts" onclick="appController.pauseSpeech()">
-                                        <i class="fa-solid fa-circle-pause"></i> थांबवा
-                                    </button>
-                                    <p class="wish-from">- From Your Admin</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Tab 2: Memories Gallery -->
-                        <div id="tab-gallery" class="tab-pane">
-                            <div class="gallery-wrapper">
-                                <h3><i class="fa-solid fa-photo-film"></i> गोड आठवणींचा खजिना</h3>
-                                <p class="gallery-desc">तुमच्यासाठी सजवलेली खास गॅलरी</p>
-                                <div class="gallery-grid" id="user-gallery-grid">
-                                    <!-- Photos/Videos dynamically loaded -->
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Tab 3: Say Thanks -->
-                        <div id="tab-thanks" class="tab-pane">
-                            <div class="thanks-form-box">
-                                <h3><i class="fa-solid fa-paper-plane"></i> Send a Thank You Note</h3>
-                                <p>ज्यांनी तुमच्यासाठी हे सरप्राईज डिझाइन केले त्यांना एक गोड संदेश पाठवा.</p>
-                                <textarea id="thanks-message-input" rows="5" placeholder="थँक्यू मेसेज लिहा... (उदा. खूप छान सरप्राईज आहे, थँक्यू सो मच!)"></textarea>
-                                <div id="thanks-success-msg" class="success-msg hide"><i class="fa-solid fa-circle-check"></i> थँक्यू! तुमचा मेसेज ॲडमीनकडे सेव्ह झाला आहे.</div>
-                                <button class="btn btn-primary" onclick="appController.sendThanksMessage()">
-                                    Send Message <i class="fa-solid fa-paper-plane"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+                    <button id="gallery-prev-btn" class="gallery-nav-btn gallery-prev" onclick="appController.galleryPrev()">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <button id="gallery-next-btn" class="gallery-nav-btn gallery-next" onclick="appController.galleryNext()">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                    <div id="gallery-slide-counter" class="gallery-slide-counter">1 / 1</div>
+                </div>
+                <div id="gallery-dots" class="gallery-dots"></div>
+                <div class="text-center mt-4">
+                    <button class="btn btn-primary" onclick="appController.nextSection()">Continue &rarr;</button>
                 </div>
             </div>
         </section>
 
-        <!-- 6. ADMIN DASHBOARD CONTROL PANEL -->
-        <section id="screen-admin-dashboard" class="screen">
+        <!-- 11. Voice Message -->
+        <section id="section-voice-message" class="bw-section">
+            <div class="center-content voice-section">
+                <h2 class="glow-text">Voice Message <i class="fa-solid fa-microphone-lines text-primary"></i></h2>
+                <p class="subtitle mb-4">Listen to your birthday message 🎙️</p>
+                <div class="glassmorphic voice-player-card">
+                    <div class="vinyl-record-wrapper">
+                        <img src="https://images.unsplash.com/photo-1539375665275-f9de415ef9ac?w=150&auto=format&fit=crop&q=60" id="voice-vinyl-img" class="vinyl-disc" alt="vinyl">
+                    </div>
+                    <div id="voice-player" class="custom-voice-player mt-3">
+                        <button id="voice-play-btn" class="btn-play-large" onclick="appController.toggleVoicePlay()">
+                            <i class="fa-solid fa-play"></i>
+                        </button>
+                        <div class="voice-progress-container mt-3" onclick="appController.seekVoice(event)">
+                            <div id="voice-progress-fill" class="voice-progress-bar"></div>
+                        </div>
+                        <div class="voice-times mt-2">
+                            <span id="voice-current-time">0:00</span>
+                            <span id="voice-duration">0:00</span>
+                        </div>
+                    </div>
+                    <h3 id="voice-title" class="voice-card-title mt-3">A Special Message Just For You ❤️</h3>
+                </div>
+                <button class="btn btn-primary mt-4" onclick="appController.nextSection()">Continue &rarr;</button>
+            </div>
+        </section>
+
+        <!-- 12. Future You -->
+        <section id="section-future-you" class="bw-section">
+            <div class="center-content future-section">
+                <h2>Future You <i class="fa-solid fa-crystal-ball"></i></h2>
+                <p>A message from your future...</p>
+                <div id="future-year-tabs" class="year-tabs mt-4 flex-center gap-2">
+                    <!-- .future-year-btn generated by JS -->
+                </div>
+                <div id="future-message-card" class="glassmorphic future-card mt-4">
+                    <p id="future-message-text" class="message-text">Select a year to see your future message.</p>
+                    <p class="signature font-cursive text-right mt-2">- Future You</p>
+                </div>
+                <button class="btn btn-primary mt-4" onclick="appController.nextSection()">Continue &rarr;</button>
+            </div>
+        </section>
+
+        <!-- 13. Unlock Message -->
+        <section id="section-unlock-message" class="bw-section">
+            <div class="center-content puzzle-wrapper">
+                <h2>Unlock the Message <i class="fa-solid fa-lock"></i></h2>
+                <p>Complete all levels to unlock your birthday message!</p>
+                
+                <div id="puzzle-levels" class="level-grid mt-4">
+                    <!-- .puzzle-level-card generated by JS -->
+                </div>
+                
+                <div class="glassmorphic active-puzzle-card mt-4">
+                    <h3 id="puzzle-active-title">Level 1</h3>
+                    <p id="puzzle-active-question">Loading...</p>
+                    <div class="input-group mt-2">
+                        <input type="text" id="puzzle-answer-input" placeholder="Your answer here...">
+                    </div>
+                    <button id="btn-puzzle-submit" class="btn btn-secondary mt-2" onclick="appController.submitPuzzleAnswer()">Submit Answer</button>
+                </div>
+                
+                <button id="btn-unlock-final" class="btn btn-primary btn-glow mt-4 hide" onclick="appController.nextSection()">
+                    Unlock Final Message 🗝️
+                </button>
+            </div>
+        </section>
+
+        <!-- 14. Final Message -->
+        <section id="section-final-message" class="bw-section">
+            <div class="center-content">
+                <div class="heart-border-card glassmorphic p-5 text-center">
+                    <h1 class="font-cursive glow-text">Happy Birthday <span id="final-name"></span>! 🎉</h1>
+                    <p id="final-msg-text" class="large-msg-text mt-4"></p>
+                    <button id="btn-love-you-best-friend" class="btn btn-primary btn-glow mt-4" onclick="appController.nextSection()">Love You Best friend forever ❤️</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 15. Celebration -->
+        <section id="section-celebration" class="bw-section">
+            <div class="center-content celebration-screen text-center">
+                <h1 class="huge-text font-cursive glow-text">HAPPY<br>Birthday!</h1>
+                <h2 id="celebration-name" class="mt-2 text-accent"></h2>
+                <p class="mt-3 quote-text">Keep smiling. Keep dreaming. Keep being you. ✨</p>
+                
+                <div class="thank-you-box glassmorphic p-4 mt-4 text-center max-w-md mx-auto">
+                    <h3 class="font-display text-accent mb-2">Send a Thank You Note to Chetan 💌</h3>
+                    <div class="input-group">
+                        <textarea id="thank-you-input" rows="3" placeholder="उदा. खूप खूप धन्यवाद! सरप्राईज खूप छान वाटले..."></textarea>
+                    </div>
+                    <button id="btn-send-thank-you" class="btn btn-primary btn-glow btn-block mt-2" onclick="appController.sendThankYouNote()">
+                        Send Message to Chetan ❤️
+                    </button>
+                    <div id="thank-you-status" class="success-msg hide mt-2"></div>
+                </div>
+
+                <p class="footer-tag mt-4">Made with ❤️ for you</p>
+            </div>
+        </section>
+
+
+        <!-- ================= CHETAN / ADMIN SCREENS ================= -->
+
+        <!-- Chetan / Admin Login -->
+        <section id="screen-login-admin" class="bw-section">
+            <div class="login-card glassmorphic animate-scale-up center-card">
+                <h2>Chetan Access</h2>
+                <p class="subtitle">System Control Panel</p>
+                
+                <form id="form-admin-login" onsubmit="appController.handleAdminLogin(event)">
+                    <div class="input-group">
+                        <label for="admin-password"><i class="fa-solid fa-lock"></i> Chetan Password</label>
+                        <input type="password" id="admin-password" placeholder="Enter password..." required autocomplete="current-password">
+                    </div>
+                    <div id="admin-login-error" class="error-msg hide">Incorrect Password!</div>
+                    <button type="submit" class="btn btn-secondary btn-block mt-4">
+                        Access Dashboard <i class="fa-solid fa-shield-halved"></i>
+                    </button>
+                </form>
+                <button class="btn btn-sm btn-text mt-4" onclick="appController.navigateTo('section-secret-entry')" style="margin-top:20px; font-size:0.8rem; opacity:0.5;">
+                    <i class="fa-solid fa-arrow-left"></i> Back to User Entry
+                </button>
+            </div>
+        </section>
+
+        <!-- Admin Dashboard -->
+        <section id="screen-admin-dashboard" class="bw-section">
             <div class="admin-layout">
                 <!-- Sidebar -->
                 <aside class="admin-sidebar">
                     <div class="sidebar-header">
                         <i class="fa-solid fa-user-gear admin-icon"></i>
                         <div>
-                            <h3>Admin Panel</h3>
+                            <h3>Chetan Panel</h3>
                             <span>Website Controller</span>
                         </div>
                     </div>
                     <nav class="sidebar-nav">
+                        <!-- Existing Tabs -->
                         <button class="nav-item active" onclick="appController.switchAdminTab('admin-overview')">
-                            <i class="fa-solid fa-chart-pie"></i> Dashboard Overview
+                            <i class="fa-solid fa-chart-pie"></i> Overview
                         </button>
                         <button class="nav-item" onclick="appController.switchAdminTab('admin-users')">
-                            <i class="fa-solid fa-users"></i> Manage Users
+                            <i class="fa-solid fa-users"></i> Users
                         </button>
                         <button class="nav-item" onclick="appController.switchAdminTab('admin-themes')">
                             <i class="fa-solid fa-palette"></i> Themes & Message
                         </button>
                         <button class="nav-item" onclick="appController.switchAdminTab('admin-gallery')">
-                            <i class="fa-solid fa-images"></i> Media Gallery Manager
+                            <i class="fa-solid fa-images"></i> Media Gallery
                         </button>
                         <button class="nav-item" onclick="appController.switchAdminTab('admin-music')">
                             <i class="fa-solid fa-music"></i> Music Settings
@@ -260,11 +455,37 @@
                             <i class="fa-solid fa-list-check"></i> System Logs
                         </button>
                         <button class="nav-item" onclick="appController.switchAdminTab('admin-cloudinary')">
-                            <i class="fa-solid fa-cloud-arrow-up"></i> Cloudinary Settings
+                            <i class="fa-solid fa-cloud-arrow-up"></i> Cloudinary Config
+                        </button>
+                        
+                        <div class="sidebar-divider"></div>
+                        <span class="sidebar-label">New Managers</span>
+                        
+                        <!-- New Tabs -->
+                        <button class="nav-item" onclick="appController.switchAdminTab('admin-timeline-mgr')">
+                            <i class="fa-solid fa-timeline"></i> Timeline Manager
+                        </button>
+                        <button class="nav-item" onclick="appController.switchAdminTab('admin-quiz-mgr')">
+                            <i class="fa-solid fa-circle-question"></i> Quiz Manager
+                        </button>
+                        <button class="nav-item" onclick="appController.switchAdminTab('admin-personality-mgr')">
+                            <i class="fa-solid fa-chart-bar"></i> Personality Settings
+                        </button>
+                        <button class="nav-item" onclick="appController.switchAdminTab('admin-open-when-mgr')">
+                            <i class="fa-solid fa-envelope-open"></i> Open When Messages
+                        </button>
+                        <button class="nav-item" onclick="appController.switchAdminTab('admin-voice-mgr')">
+                            <i class="fa-solid fa-microphone"></i> Voice Message
+                        </button>
+                        <button class="nav-item" onclick="appController.switchAdminTab('admin-future-mgr')">
+                            <i class="fa-solid fa-forward"></i> Future Messages
+                        </button>
+                        <button class="nav-item" onclick="appController.switchAdminTab('admin-puzzle-mgr')">
+                            <i class="fa-solid fa-puzzle-piece"></i> Puzzle Settings
                         </button>
                     </nav>
                     <div class="sidebar-footer">
-                        <button class="btn btn-sm btn-danger btn-block" onclick="appController.logoutAdmin()">
+                        <button class="btn btn-sm btn-danger btn-block" onclick="appController.navigateTo('section-secret-entry')">
                             <i class="fa-solid fa-power-off"></i> Exit Admin
                         </button>
                     </div>
@@ -273,425 +494,517 @@
                 <!-- Main Admin Content Area -->
                 <main class="admin-content">
                     
-                    <!-- TAB 1: OVERVIEW -->
+                    <!-- TAB: OVERVIEW (Existing) -->
                     <div id="admin-overview" class="admin-tab-pane active">
                         <header class="content-header">
                             <h1>Dashboard Overview</h1>
-                            <p>सिस्टममधील महत्त्वाचे अपडेट्स आणि आकडेवारी</p>
+                            <p>System stats and recent activity.</p>
                         </header>
                         <div class="stats-grid">
                             <div class="stat-card glassmorphic">
                                 <div class="stat-icon pink-glow"><i class="fa-solid fa-users"></i></div>
-                                <div class="stat-details">
-                                    <h3 id="stat-total-users">0</h3>
-                                    <p>एकूण युझर्स (Total Users)</p>
-                                </div>
+                                <div class="stat-details"><h3 id="stat-total-users">0</h3><p>Total Users</p></div>
                             </div>
+                            <!-- Keeping it brief for structural tabs -->
                             <div class="stat-card glassmorphic">
                                 <div class="stat-icon gold-glow"><i class="fa-solid fa-cake-candles"></i></div>
-                                <div class="stat-details">
-                                    <h3 id="stat-today-birthdays">0</h3>
-                                    <p>आज वाढदिवस असलेले युझर्स</p>
-                                </div>
-                            </div>
-                            <div class="stat-card glassmorphic">
-                                <div class="stat-icon purple-glow"><i class="fa-solid fa-images"></i></div>
-                                <div class="stat-details">
-                                    <h3 id="stat-total-media">0</h3>
-                                    <p>एकूण अपलोडेड मीडिया</p>
-                                </div>
-                            </div>
-                            <div class="stat-card glassmorphic">
-                                <div class="stat-icon green-glow"><i class="fa-solid fa-heart"></i></div>
-                                <div class="stat-details">
-                                    <h3 id="stat-total-thanks">0</h3>
-                                    <p>थँक्यू मेसेजेस (Thank You Notes)</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="dashboard-details-grid">
-                            <div class="details-box glassmorphic">
-                                <h3><i class="fa-solid fa-clock-rotate-left"></i> रिसेंट लॉगीन्स (Recent Logins)</h3>
-                                <div class="table-responsive">
-                                    <table>
-                                        <thead>
-                                            <tr>
-                                                <th>User</th>
-                                                <th>Login Time</th>
-                                                <th>Status</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="overview-recent-logins">
-                                            <!-- Dynamic content -->
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            <div class="details-box glassmorphic">
-                                <h3><i class="fa-solid fa-gift"></i> आजचे वाढदिवस (Today's Birthdays)</h3>
-                                <ul class="birthday-list" id="overview-birthdays-list">
-                                    <!-- Dynamic list of today's birthdays -->
-                                </ul>
+                                <div class="stat-details"><h3 id="stat-today-birthdays">0</h3><p>Birthdays Today</p></div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- TAB 2: MANAGE USERS -->
+                    <!-- TAB: MANAGE USERS (Existing) -->
                     <div id="admin-users" class="admin-tab-pane">
                         <header class="content-header flex-between">
                             <div>
-                                <h1>Manage Birthday Users</h1>
-                                <p>वाढदिवस असलेल्या युझर्सची यादी आणि लॉगिन क्रेडेंशियल्स</p>
+                                <h1>Manage Users</h1>
                             </div>
                             <button class="btn btn-primary" onclick="appController.openUserModal('add')">
                                 <i class="fa-solid fa-plus"></i> Add New User
                             </button>
                         </header>
                         <div class="table-container glassmorphic">
-                            <div class="table-responsive">
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th>नाव (Name)</th>
-                                            <th>Username</th>
-                                            <th>Password</th>
-                                            <th>जन्मतारीख (Birthdate)</th>
-                                            <th>Active Theme</th>
-                                            <th>Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="admin-users-table-body">
-                                        <!-- User lists -->
-                                    </tbody>
-                                </table>
-                            </div>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Secret Name</th>
+                                        <th>Birthdate</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="admin-users-table-body"></tbody>
+                            </table>
                         </div>
                     </div>
 
-                    <!-- TAB 3: THEME & MESSAGE -->
+                    <!-- TAB: THEMES & MESSAGE -->
                     <div id="admin-themes" class="admin-tab-pane">
                         <header class="content-header">
-                            <h1>Themes & Birthday Wish Message</h1>
-                            <p>युझरसाठी सुंदर डिझाइन आणि शुभेच्छांचा मेसेज सेट करा</p>
+                            <h1>Themes & Final Message</h1>
+                            <p>युझरची थीम, तारा संदेश आणि वाढदिवसाचा मुख्य मेसेज निवडा</p>
                         </header>
-
                         <div class="form-layout-grid">
                             <div class="form-card glassmorphic">
-                                <h3>१. युझर निवडा आणि थीम सेट करा</h3>
                                 <div class="input-group">
-                                    <label for="theme-user-select">युझर निवडा</label>
-                                    <select id="theme-user-select" onchange="appController.loadUserDataForTheme(this.value)">
-                                        <!-- Users options dynamic -->
+                                    <label><i class="fa-solid fa-user"></i> Select User (युझर निवडा)</label>
+                                    <select id="theme-user-select" class="w-full mb-2" onchange="appController.loadUserDataForTheme(this.value)"></select>
+                                </div>
+                                
+                                <div class="input-group mt-3">
+                                    <label><i class="fa-solid fa-palette"></i> Experience Theme (थीम निवडा)</label>
+                                    <select id="admin-user-theme-select" class="w-full">
+                                        <option value="pink-princess">🌸 Pink Princess (रोमँटिक गुलाबी)</option>
+                                        <option value="royal-gold">👑 Royal Gold (रॉयल गोल्ड)</option>
+                                        <option value="cyber-neon">⚡ Cyber Neon (सायबर निऑन)</option>
+                                        <option value="cosmic-dark">🌌 Cosmic Dark (कॉस्मिक् डार्क)</option>
                                     </select>
                                 </div>
-                                <div class="theme-selector-grid">
-                                    <div class="theme-card-option selected" id="opt-theme-pink-princess" onclick="appController.selectThemeOption('pink-princess')">
-                                        <div class="theme-preview pink-preview"></div>
-                                        <span>Princess Pink</span>
-                                    </div>
-                                    <div class="theme-card-option" id="opt-theme-royal-gold" onclick="appController.selectThemeOption('royal-gold')">
-                                        <div class="theme-preview gold-preview"></div>
-                                        <span>Royal Gold</span>
-                                    </div>
-                                    <div class="theme-card-option" id="opt-theme-cyber-neon" onclick="appController.selectThemeOption('cyber-neon')">
-                                        <div class="theme-preview neon-preview"></div>
-                                        <span>Cyber Neon</span>
-                                    </div>
-                                    <div class="theme-card-option" id="opt-theme-cosmic-dark" onclick="appController.selectThemeOption('cosmic-dark')">
-                                        <div class="theme-preview cosmic-preview"></div>
-                                        <span>Cosmic Dark</span>
-                                    </div>
-                                </div>
-                            </div>
 
-                            <div class="form-card glassmorphic">
-                                <h3>२. वाढदिवस शुभेच्छा मेसेज (Birthday Wish)</h3>
-                                <p class="help-text">हा मेसेज युझरला लॉगिन केल्यावर दिसेल आणि ऑडिओद्वारे ऐकूही येईल.</p>
-                                <div class="input-group">
-                                    <label for="admin-wish-text">शुभेच्छा मेसेज (Marathi or English)</label>
-                                    <textarea id="admin-wish-text" rows="8" placeholder="इथे शुभेच्छा मेसेज लिहा..."></textarea>
+                                <div class="input-group mt-3">
+                                    <label><i class="fa-solid fa-star"></i> Wish Star Message (सेक्शन 8 तारा संदेश)</label>
+                                    <textarea id="admin-wish-star-text" rows="2" class="w-full" placeholder="उदा. May all your dreams come true..."></textarea>
                                 </div>
-                                <button class="btn btn-primary" onclick="appController.saveThemeAndMessage()">
-                                    Save Theme & Message <i class="fa-solid fa-floppy-disk"></i>
+
+                                <div class="input-group mt-3">
+                                    <label><i class="fa-solid fa-heart"></i> Final Birthday Message (सेक्शन 14 मुख्य संदेश)</label>
+                                    <textarea id="admin-wish-text" rows="5" class="w-full" placeholder="उदा. वाढदिवसाच्या खूप खूप शुभेच्छा..."></textarea>
+                                </div>
+                                
+                                <button class="btn btn-primary btn-glow mt-3" onclick="appController.saveThemeAndMessage()">
+                                    <i class="fa-solid fa-floppy-disk"></i> Save Theme & Message
                                 </button>
+                                <div id="theme-save-status" class="success-msg hide mt-2"></div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- TAB 4: GALLERY MANAGER -->
+                    <!-- TAB: MEDIA GALLERY -->
                     <div id="admin-gallery" class="admin-tab-pane">
                         <header class="content-header flex-between">
                             <div>
                                 <h1>Media Gallery Manager</h1>
-                                <p>आठवणींचे फोटो आणि व्हिडिओ गॅलरीमध्ये जोडा</p>
+                                <p>युझरच्या आठवणींचे फोटो आणि व्हिडिओ व्यवस्थापित करा</p>
                             </div>
-                            <div class="gallery-actions">
-                                <select id="gallery-user-select" class="select-inline" onchange="appController.loadUserGallery(this.value)">
-                                    <!-- Dynamic user select -->
-                                </select>
-                                <button class="btn btn-primary" onclick="appController.openGalleryModal()">
-                                    <i class="fa-solid fa-plus"></i> Add Image/Video
+                            <div class="flex-align-center">
+                                <select id="gallery-user-select" class="mr-2" onchange="appController.loadUserGallery(this.value)"></select>
+                                <button class="btn btn-primary btn-glow" onclick="appController.openGalleryModal()">
+                                    <i class="fa-solid fa-plus"></i> Add Media
                                 </button>
                             </div>
                         </header>
-
-                        <div class="gallery-manager-grid" id="admin-gallery-manager-grid">
-                            <!-- Dynamic images/videos lists with delete options -->
-                        </div>
+                        <div id="admin-gallery-manager-grid" class="gallery-manager-grid mt-4" style="display:grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap:20px;"></div>
                     </div>
 
-                    <!-- TAB 5: MUSIC MANAGER -->
+                    <!-- TAB: MUSIC MANAGER -->
                     <div id="admin-music" class="admin-tab-pane">
                         <header class="content-header">
-                            <h1>Background Music Manager</h1>
-                            <p>युझरच्या वाढदिवसाच्या स्क्रीनवर वाजणारे गाणे सेट करा</p>
+                            <h1>Music Settings</h1>
+                            <p>Configure background song tracks and assign to users</p>
                         </header>
-
                         <div class="form-layout-grid">
                             <div class="form-card glassmorphic">
-                                <h3>१. युझरसाठी संगीत सेटिंग्ज (Select Music)</h3>
+                                <h3>Assign Track to User</h3>
+                                <select id="music-user-select" class="mb-3 w-full" onchange="appController.loadUserMusicConfig(this.value)"></select>
                                 <div class="input-group">
-                                    <label for="music-user-select">युझर निवडा</label>
-                                    <select id="music-user-select" onchange="appController.loadUserMusicConfig(this.value)">
-                                        <!-- Options dynamic -->
-                                    </select>
+                                    <label>Active Music Track</label>
+                                    <select id="music-track-select" class="w-full"></select>
                                 </div>
+                                <button class="btn btn-primary mt-2" onclick="appController.saveUserTrackSelection()">Save Track Assignment</button>
 
+                                <hr class="mt-4 mb-4">
+                                <h3>Upload / Add New Music Track 🎵</h3>
                                 <div class="input-group">
-                                    <label>सध्याचे संगीत प्लेबॅक ट्रॅक (Choose a track or add custom link)</label>
-                                    <div class="music-selection-list" id="music-tracks-radio-container">
-                                        <!-- Tracks dynamic -->
-                                    </div>
+                                    <label><i class="fa-solid fa-music"></i> Track Title (गाण्याचे नाव)</label>
+                                    <input type="text" id="admin-new-track-title" placeholder="उदा. Happy Birthday Romantic Song">
                                 </div>
-                            </div>
-
-                            <div class="form-card glassmorphic">
-                                <h3>२. नवीन संगीत ट्रॅक जोडा (Add New Music Track)</h3>
-                                <p class="help-text">तुम्ही कोणत्याही ऑडिओ फाईलची थेट लिंक (MP3/WAV direct url) जोडू शकता.</p>
                                 <div class="input-group">
-                                    <label for="music-new-title">गाण्याचे नाव (Track Title)</label>
-                                    <input type="text" id="music-new-title" placeholder="उदा. Soft Birthday Melody">
+                                    <label><i class="fa-solid fa-file-audio"></i> Upload MP3 Audio File (थेट संगणक/मोबाईलवरून फाईल अपलोड करा)</label>
+                                    <input type="file" id="admin-new-track-file" accept="audio/*,.mp3,.m4a,.wav,.ogg,.aac,.flac" class="w-full mb-2">
+                                    <p class="text-muted" style="font-size:0.8rem; margin-top:4px;">किंवा खालील बॉक्समध्ये MP3 गाण्याची ऑनलाईन लिंक (URL) टाका:</p>
                                 </div>
-                                <div class="input-group" id="music-new-url-group">
-                                    <label for="music-new-url">ऑडिओ फाईल URL (Direct Audio Link)</label>
-                                    <input type="url" id="music-new-url" placeholder="https://example.com/audio.mp3">
+                                <div class="input-group">
+                                    <label><i class="fa-solid fa-link"></i> Track MP3 URL (Optional)</label>
+                                    <input type="url" id="admin-new-track-url" placeholder="https://...mp3">
                                 </div>
-                                <div class="input-group" id="music-new-file-group">
-                                    <label for="music-new-file">लोकल ऑडिओ फाईल अपलोड करा (Upload MP3 from Laptop)</label>
-                                    <input type="file" id="music-new-file" accept="audio/*">
-                                    <div class="upload-progress-container hide" id="music-upload-progress-container">
-                                        <div class="upload-progress-bar" id="music-upload-progress-bar" style="width: 0%;"></div>
-                                        <span class="upload-progress-text" id="music-upload-progress-text">0% Uploaded</span>
-                                    </div>
-                                </div>
-                                <button class="btn btn-primary" onclick="appController.addNewMusicTrack()">
-                                    Add Music Track <i class="fa-solid fa-plus"></i>
+                                <button class="btn btn-primary mt-2 btn-glow" onclick="appController.addNewMusicTrack()">
+                                    <i class="fa-solid fa-cloud-arrow-up"></i> Upload & Save Music Track
                                 </button>
+                            </div>
+                            <div class="form-card glassmorphic">
+                                <h3>Available Tracks</h3>
+                                <ul id="admin-tracks-list" class="admin-list mt-2"></ul>
                             </div>
                         </div>
                     </div>
 
-                    <!-- TAB 6: LOGS & RECORDS -->
+                    <!-- TAB: SYSTEM LOGS & THANK YOU NOTES -->
                     <div id="admin-records" class="admin-tab-pane">
                         <header class="content-header flex-between">
                             <div>
-                                <h1>System Logs & User Thanks</h1>
-                                <p>वापरकर्त्यांचे लॉगिन रेकॉर्ड्स आणि त्यांनी पाठवलेले थँक्यू मेसेजेस</p>
+                                <h1>User Activity & Thank You Notes</h1>
+                                <p>View real-time logs and messages sent by users</p>
                             </div>
-                            <button class="btn btn-danger" onclick="appController.clearAllLogs()">
-                                <i class="fa-solid fa-trash-can"></i> Clear All Logs
-                            </button>
+                            <button class="btn btn-sm btn-danger" onclick="appController.clearAllLogs()">Clear All Logs</button>
                         </header>
 
-                        <div class="logs-grid">
-                            <div class="details-box glassmorphic">
-                                <h3>👥 लॉगिन इतिहास (User Login History)</h3>
-                                <div class="table-responsive">
-                                    <table>
-                                        <thead>
-                                            <tr>
-                                                <th>User</th>
-                                                <th>Timestamp</th>
-                                                <th>Action</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="logs-login-tbody">
-                                            <!-- Logs dynamic -->
-                                        </tbody>
-                                    </table>
+                        <div class="form-layout-grid mt-4">
+                            <div class="form-card glassmorphic">
+                                <h3>💌 Thank You Messages from Users</h3>
+                                <div id="admin-thanks-list" class="admin-thanks-container mt-3">
+                                    <p class="text-muted">No messages received yet.</p>
                                 </div>
                             </div>
-
-                            <div class="details-box glassmorphic">
-                                <h3>✉️ थँक्यू मेसेजेस (Thank You Messages)</h3>
-                                <div class="thanks-messages-list" id="logs-thanks-list">
-                                    <!-- Messages dynamic -->
+                            <div class="form-card glassmorphic">
+                                <h3>📜 Login & System Activity Logs</h3>
+                                <div id="admin-logs-list" class="admin-logs-container mt-3">
+                                    <p class="text-muted">No activity logs.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- TAB 7: CLOUD INTEGRATION SETTINGS -->
+                    <!-- TAB: CLOUDINARY & CLOUD CONFIG -->
                     <div id="admin-cloudinary" class="admin-tab-pane">
-                        <header class="content-header">
-                            <h1>Cloud Integration Dashboard</h1>
-                            <p>वेबसाईट होस्टिंग आणि क्लाउड स्टोरेज (Vercel, Firebase & Cloudinary) व्यवस्थापन</p>
+                        <header class="content-header mb-4">
+                            <h1 class="font-display">Cloud Integration Dashboard</h1>
+                            <p class="text-muted">वेबसाईट होस्टिंग आणि क्लाउड स्टोरेज (Vercel, Firebase & Cloudinary) व्यवस्थापन</p>
                         </header>
-
-                        <!-- System Mode Status Badge -->
-                        <div class="form-card glassmorphic" style="margin-bottom: 25px; padding: 20px; border-left: 5px solid var(--primary);">
-                            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 15px;">
-                                <div>
-                                    <h3 style="margin-bottom: 5px;"><i class="fa-solid fa-server"></i> Active Environment</h3>
-                                    <p class="status-desc" id="sys-mode-desc" style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.4;">माहिती लोड होत आहे...</p>
-                                </div>
-                                <div style="display: flex; align-items: center; gap: 15px;">
-                                    <span id="sys-mode-badge" class="badge badge-gold">Detecting...</span>
-                                    <div class="status-pulse amber" id="sys-mode-pulse"></div>
-                                </div>
+                        
+                        <div class="active-env-banner glassmorphic mb-4 p-3 flex-between" style="border-radius:14px; border:1px solid var(--card-border);">
+                            <div>
+                                <strong><i class="fa-solid fa-server text-accent"></i> Active Environment</strong>
+                                <p class="text-muted mb-0" style="font-size:0.85rem;">प्रोजेक्ट सर्व्हरलेस चालू आहे (Vercel, स्थानिक किंवा Google Firestore बफर वापरला जात आहे).</p>
                             </div>
+                            <span class="badge badge-pink p-2">Vercel Serverless Mode</span>
                         </div>
 
-                        <div class="form-layout-grid">
-                            <!-- CARD 1: CLOUDINARY CONFIG -->
-                            <div class="form-card glassmorphic">
-                                <h3>१. Cloudinary Config (मोफत फोटो/व्हिडिओ स्टोरेज)</h3>
-                                <p class="help-text" style="margin-bottom: 15px;">तुमचे फोटो आणि ऑडिओ फाईल्स क्लाउडवर सेव्ह करण्यासाठी तपशील भरा:</p>
-                                
+                        <div class="form-layout-grid gap-4" style="display:flex; flex-direction:column; gap:20px;">
+                            <!-- 1. Cloudinary Config -->
+                            <div class="form-card glassmorphic p-4" style="border-radius:16px;">
+                                <h3 class="font-display text-accent mb-2"><i class="fa-solid fa-cloud"></i> १. Cloudinary Config (मोफत फोटो/व्हिडिओ स्टोरेज)</h3>
+                                <p class="text-muted mb-3" style="font-size:0.85rem;">तुमचे फोटो आणि व्हिडिओ क्लाउडवर सेव्ह करण्यासाठी ही माहिती भरा.</p>
                                 <div class="input-group">
-                                    <label for="cld-cloud-name">Cloud Name</label>
-                                    <input type="text" id="cld-cloud-name" placeholder="e.g. dxyz1234">
+                                    <label>CLOUD NAME</label>
+                                    <input type="text" id="cloud-cloud-name" placeholder="awfaw7he">
                                 </div>
-
-                                <!-- Unsigned preset used in Vercel mode, Secret used in local Express mode -->
-                                <div class="input-group" id="cld-unsigned-group">
-                                    <label for="cld-preset">Upload Preset (Unsigned)</label>
-                                    <input type="text" id="cld-preset" placeholder="e.g. ml_default (Unsigned preset)">
-                                    <span class="help-text" style="font-size: 0.72rem;">Vercel वर फोटो थेट अपलोड करण्यासाठी Cloudinary मध्ये Unsigned Preset सुरू करणे आवश्यक आहे.</span>
+                                <div class="input-group mt-2">
+                                    <label>UPLOAD PRESET (UNSIGNED)</label>
+                                    <input type="text" id="cloud-upload-preset" placeholder="birthday_preset">
+                                    <small class="text-muted block mt-1" style="font-size:0.8rem;">Vercel वरील थेट अपलोडसाठी Cloudinary चे Unsigned Preset सुरु असणे आवश्यक आहे.</small>
                                 </div>
-
-                                <div class="input-group" id="cld-secret-group">
-                                    <label for="cld-api-key">API Key</label>
-                                    <input type="text" id="cld-api-key" placeholder="e.g. 123456789012345">
-                                    <label for="cld-api-secret" style="margin-top: 10px;">API Secret</label>
-                                    <input type="password" id="cld-api-secret" placeholder="API Secret की टाका...">
-                                </div>
-                                
-                                <button class="btn btn-primary" onclick="appController.saveCloudinarySettings()">
-                                    Save Storage Config <i class="fa-solid fa-floppy-disk"></i>
+                                <button class="btn btn-primary btn-glow mt-3" onclick="appController.saveCloudinaryConfig()">
+                                    <i class="fa-solid fa-lock"></i> Save Storage Config 🔒
                                 </button>
+                                <div id="cloudinary-status" class="success-msg hide mt-2"></div>
                             </div>
 
-                            <!-- CARD 2: FIREBASE FIRESTORE CONFIG (Only active in Vercel Mode) -->
-                            <div class="form-card glassmorphic" id="fb-config-card">
-                                <h3>२. Firebase Firestore Config (डेटाबेस)</h3>
-                                <p class="help-text" id="fb-config-help" style="margin-bottom: 15px;">Vercel वर डेटा कायमस्वरूपी सेव्ह करण्यासाठी तुमचे Firebase तपशील भरा:</p>
-                                
+                            <!-- 2. Firebase Firestore Config -->
+                            <div class="form-card glassmorphic p-4" style="border-radius:16px;">
+                                <h3 class="font-display text-accent mb-2"><i class="fa-solid fa-fire"></i> २. Firebase Firestore Config (डेटाबेस)</h3>
+                                <p class="text-muted mb-3" style="font-size:0.85rem;">Firebase डेटाबेस जोडण्यासाठी तुमची API की प्रविष्ट करा.</p>
                                 <div class="input-group">
-                                    <label for="fb-api-key">API Key</label>
-                                    <input type="text" id="fb-api-key" placeholder="AIzaSy...">
+                                    <label>API KEY</label>
+                                    <input type="text" id="cloud-api-key" placeholder="AIzaSyC...">
                                 </div>
-                                <div class="input-group">
-                                    <label for="fb-auth-domain">Auth Domain</label>
-                                    <input type="text" id="fb-auth-domain" placeholder="project-id.firebaseapp.com">
+                                <div class="input-group mt-2">
+                                    <label>AUTH DOMAIN</label>
+                                    <input type="text" id="cloud-auth-domain" placeholder="birthday-wish-s.firebaseapp.com">
                                 </div>
-                                <div class="input-group">
-                                    <label for="fb-project-id">Project ID</label>
-                                    <input type="text" id="fb-project-id" placeholder="project-id">
+                                <div class="input-group mt-2">
+                                    <label>PROJECT ID</label>
+                                    <input type="text" id="cloud-project-id" placeholder="birthday-wish-s">
                                 </div>
-                                <div class="input-group">
-                                    <label for="fb-app-id">App ID</label>
-                                    <input type="text" id="fb-app-id" placeholder="1:12345:web:abcd">
+                                <div class="input-group mt-2">
+                                    <label>APP ID</label>
+                                    <input type="text" id="cloud-app-id" placeholder="1:202245956575:web:...">
                                 </div>
-                                
-                                <button class="btn btn-primary" id="btn-save-fb" onclick="appController.saveFirebaseSettings()">
-                                    Save Database Config <i class="fa-solid fa-floppy-disk"></i>
-                                </button>
-                                <button class="btn btn-secondary hide" id="btn-disconnect-fb" onclick="appController.disconnectFirebase()">
-                                    Disconnect Database
-                                </button>
+                                <div class="flex-gap mt-3">
+                                    <button class="btn btn-primary btn-glow" onclick="appController.saveFirebaseConfig()">
+                                        <i class="fa-solid fa-database"></i> Update Config
+                                    </button>
+                                    <button class="btn btn-secondary ml-2" onclick="appController.disconnectDatabase()">
+                                        Disconnect Database
+                                    </button>
+                                </div>
+                                <div id="firebase-status" class="success-msg hide mt-2"></div>
                             </div>
 
-                            <!-- CARD 3: CHANGE ADMIN PASSWORD -->
-                            <div class="form-card glassmorphic">
-                                <h3>३. Change Admin Password (पासवर्ड बदला)</h3>
-                                <p class="help-text" style="margin-bottom: 15px;">ॲडमीन पॅनलचा लॉगिन पासवर्ड बदलण्यासाठी नवीन पासवर्ड प्रविष्ट करा:</p>
-                                
+                            <!-- 3. Change Admin Password -->
+                            <div class="form-card glassmorphic p-4" style="border-radius:16px;">
+                                <h3 class="font-display text-accent mb-2"><i class="fa-solid fa-key"></i> ३. Change Admin Password (पासवर्ड बदला)</h3>
+                                <p class="text-muted mb-3" style="font-size:0.85rem;">ॲडमिन पॅनेलचा लॉगिन पासवर्ड बदलण्यासाठी नवीन पासवर्ड प्रविष्ट करा.</p>
                                 <div class="input-group">
-                                    <label for="admin-new-password">New Password (नवीन पासवर्ड)</label>
-                                    <input type="text" id="admin-new-password" placeholder="नवीन पासवर्ड टाका...">
+                                    <label>NEW PASSWORD (नवीन पासवर्ड)</label>
+                                    <input type="password" id="cloud-new-password" placeholder="नवीन पासवर्ड टाका...">
                                 </div>
-                                <div class="input-group">
-                                    <label for="admin-confirm-password">Confirm Password (पासवर्ड खात्री करा)</label>
-                                    <input type="text" id="admin-confirm-password" placeholder="नवीन पासवर्ड पुन्हा टाका...">
+                                <div class="input-group mt-2">
+                                    <label>CONFIRM PASSWORD (पासवर्ड खात्री करा)</label>
+                                    <input type="password" id="cloud-confirm-password" placeholder="नवीन पासवर्ड पुन्हा टाका...">
                                 </div>
-                                
-                                <button class="btn btn-primary" onclick="appController.updateAdminPassword()">
-                                    Update Password <i class="fa-solid fa-key"></i>
+                                <button class="btn btn-primary btn-glow mt-3" onclick="appController.updateAdminPassword()">
+                                    <i class="fa-solid fa-key"></i> Update Password 🔑
                                 </button>
+                                <div id="password-status" class="success-msg hide mt-2"></div>
                             </div>
-                        </div>
 
-                        <!-- Instructions -->
-                        <div class="form-card glassmorphic" style="margin-top: 25px;">
-                            <h3>💡 Setup & Deployment Instructions:</h3>
-                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 10px;">
-                                <div>
-                                    <h4 style="color: var(--primary); margin-bottom: 5px;">A. Vercel वर अपलोड करण्याची पद्धत:</h4>
-                                    <ol style="margin-left: 20px; font-size: 0.8rem; color: var(--text-muted); line-height: 1.5;">
-                                        <li>हा संपूर्ण फोल्डर तुमच्या GitHub वर अपलोड करा.</li>
-                                        <li><a href="https://vercel.com" target="_blank" style="color: var(--primary); text-decoration: underline;">Vercel.com</a> वर मोफत लॉगिन करा.</li>
-                                        <li>तिथे Add New -> Project करून तुमचे GitHub रिपॉझिटरी सिलेक्ट करा.</li>
-                                        <li>Vercel मधील कोणतीही सेटिंग न बदलता थेट <strong>Deploy</strong> वर क्लिक करा!</li>
-                                    </ol>
-                                </div>
-                                <div>
-                                    <h4 style="color: var(--primary); margin-bottom: 5px;">B. Cloudinary Unsigned Upload Preset मिळवा:</h4>
-                                    <ol style="margin-left: 20px; font-size: 0.8rem; color: var(--text-muted); line-height: 1.5;">
-                                        <li>Cloudinary.com डॅशबोर्डमध्ये वरच्या उजव्या बाजूला <strong>Settings (Gear icon)</strong> वर जा.</li>
-                                        <li>डावीकडे <strong>Upload</strong> निवडून खाली स्क्रोल करा आणि <strong>Add Upload Preset</strong> वर क्लिक करा.</li>
-                                        <li>Preset चे नाव कॉपी करा. Signing Mode बदलून <strong>Unsigned</strong> निवडा आणि सेव्ह करा.</li>
-                                        <li>तेच नाव डावीकडील <strong>Upload Preset (Unsigned)</strong> मध्ये भरा.</li>
-                                    </ol>
+                            <!-- 4. Setup & Deployment Instructions -->
+                            <div class="form-card glassmorphic p-4" style="border-radius:16px;">
+                                <h3 class="font-display text-accent mb-3"><i class="fa-solid fa-lightbulb"></i> 💡 Setup & Deployment Instructions:</h3>
+                                <div class="instruction-grid" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:20px;">
+                                    <div>
+                                        <strong style="color:var(--primary);">A. Vercel वर अपलोड करण्याची पद्धत:</strong>
+                                        <ol class="text-muted mt-2" style="font-size:0.85rem; padding-left:18px; line-height:1.6;">
+                                            <li>हा संपूर्ण प्रोजेक्ट तुमच्या GitHub वर अपलोड करा.</li>
+                                            <li><a href="https://vercel.com" target="_blank" style="color:var(--primary);">Vercel.com</a> वर मोफत लॉगिन करा.</li>
+                                            <li>Add New -> Project वरून तुमची GitHub रिपॉझिटरी निवडा.</li>
+                                            <li>Vercel कोणतीही सेटिंग न बदलता थेट Deploy वर क्लिक करा.</li>
+                                        </ol>
+                                    </div>
+                                    <div>
+                                        <strong style="color:var(--primary);">B. Cloudinary Unsigned Upload Preset कसा निवडावा:</strong>
+                                        <ol class="text-muted mt-2" style="font-size:0.85rem; padding-left:18px; line-height:1.6;">
+                                            <li>Cloudinary.com डॅशबोर्डमध्ये उजव्या कोपऱ्यात Settings (Gear icon) वर जा.</li>
+                                            <li>डावीकडे Upload टॅबवर क्लिक करून खाली या आणि Add Upload Preset वर क्लिक करा.</li>
+                                            <li>Preset चे नाव कॉपी करा. Signing Mode मधून Unsigned निवडा आणि सेव्ह करा.</li>
+                                            <li>तेच नाव डावीकडील Upload Preset (Unsigned) मध्ये भरा.</li>
+                                        </ol>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+                    <!-- ================= NEW ADMIN TABS ================= -->
+                    
+                    <!-- NEW TAB: TIMELINE MANAGER -->
+                    <div id="admin-timeline-mgr" class="admin-tab-pane">
+                        <header class="content-header">
+                            <h1>Timeline Manager</h1>
+                            <p>Manage memories timeline items</p>
+                        </header>
+                        <div class="form-layout-grid">
+                            <div class="form-card glassmorphic">
+                                <h3>Add New Timeline Item</h3>
+                                <select id="admin-tl-user-select" class="mb-4 w-full" onchange="appController.loadTimelineItems(this.value)"></select>
+                                
+                                <div class="input-group">
+                                    <label>Date / Year</label>
+                                    <input type="text" id="admin-tl-date" placeholder="e.g. Oct 2021">
+                                </div>
+                                <div class="input-group">
+                                    <label>Title</label>
+                                    <input type="text" id="admin-tl-title" placeholder="Event title">
+                                </div>
+                                <div class="input-group">
+                                    <label>Description</label>
+                                    <textarea id="admin-tl-desc" rows="3"></textarea>
+                                </div>
+                                <div class="input-group">
+                                    <label>Image URL (optional)</label>
+                                    <input type="url" id="admin-tl-image" placeholder="https://...">
+                                </div>
+                                <button class="btn btn-primary mt-2" onclick="appController.addTimelineItem()">Add Item</button>
+                            </div>
+                            <div class="form-card glassmorphic">
+                                <h3>Existing Items</h3>
+                                <ul id="admin-tl-list" class="admin-list mt-2"></ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- NEW TAB: QUIZ MANAGER -->
+                    <div id="admin-quiz-mgr" class="admin-tab-pane">
+                        <header class="content-header">
+                            <h1>Quiz Manager</h1>
+                        </header>
+                        <div class="form-layout-grid">
+                            <div class="form-card glassmorphic">
+                                <h3>Add New Question</h3>
+                                <select id="admin-quiz-user-select" class="mb-4 w-full" onchange="appController.loadQuizItems(this.value)"></select>
+                                
+                                <div class="input-group">
+                                    <label>Question</label>
+                                    <input type="text" id="admin-quiz-question">
+                                </div>
+                                <div class="input-group"><label>Option A</label><input type="text" id="admin-quiz-opt-a"></div>
+                                <div class="input-group"><label>Option B</label><input type="text" id="admin-quiz-opt-b"></div>
+                                <div class="input-group"><label>Option C</label><input type="text" id="admin-quiz-opt-c"></div>
+                                <div class="input-group"><label>Option D</label><input type="text" id="admin-quiz-opt-d"></div>
+                                
+                                <div class="input-group">
+                                    <label>Correct Option (0=A, 1=B, 2=C, 3=D)</label>
+                                    <select id="admin-quiz-correct">
+                                        <option value="0">A</option><option value="1">B</option>
+                                        <option value="2">C</option><option value="3">D</option>
+                                    </select>
+                                </div>
+                                <button class="btn btn-primary mt-2" onclick="appController.addQuizQuestion()">Add Question</button>
+                            </div>
+                            <div class="form-card glassmorphic">
+                                <h3>Existing Questions</h3>
+                                <ul id="admin-quiz-list" class="admin-list mt-2"></ul>
+                            </div>
+                            <div class="form-card glassmorphic">
+                                <h3>📊 Quiz Score</h3>
+                                <div id="admin-quiz-score-display" class="admin-quiz-score-box">
+                                    <p style="color:rgba(255,255,255,0.5);">No score recorded yet</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- NEW TAB: PERSONALITY MGR -->
+                    <div id="admin-personality-mgr" class="admin-tab-pane">
+                        <header class="content-header">
+                            <h1>Personality Settings</h1>
+                        </header>
+                        <div class="form-layout-grid">
+                            <div class="form-card glassmorphic">
+                                <h3>Add Personality Trait</h3>
+                                <select id="admin-pers-user-select" class="mb-4 w-full" onchange="appController.loadPersonalityItems(this.value)"></select>
+                                
+                                <div class="input-group"><label>Label (e.g. Kindness)</label><input type="text" id="admin-pers-label"></div>
+                                <div class="input-group"><label>Emoji</label><input type="text" id="admin-pers-emoji"></div>
+                                <div class="input-group">
+                                    <label>Value (0-100)</label>
+                                    <input type="number" id="admin-pers-value" min="0" max="100">
+                                </div>
+                                <div class="input-group"><label>Color (Hex/CSS)</label><input type="text" id="admin-pers-color" value="#ff6b6b"></div>
+                                <button class="btn btn-primary mt-2" onclick="appController.addPersonalityTrait()">Add Trait</button>
+
+                                <hr class="mt-4 mb-4">
+                                <div class="input-group"><label>Overall Rating Text</label><input type="text" id="admin-pers-overall"></div>
+                                <button class="btn btn-secondary mt-2" onclick="appController.savePersonalityOverall()">Save Overall</button>
+                            </div>
+                            <div class="form-card glassmorphic">
+                                <h3>Existing Traits</h3>
+                                <ul id="admin-pers-bars-list" class="admin-list mt-2"></ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- NEW TAB: OPEN WHEN MGR -->
+                    <div id="admin-open-when-mgr" class="admin-tab-pane">
+                        <header class="content-header">
+                            <h1>Open When Messages</h1>
+                        </header>
+                        <div class="form-layout-grid">
+                            <div class="form-card glassmorphic">
+                                <h3>Add Envelope</h3>
+                                <select id="admin-ow-user-select" class="mb-4 w-full" onchange="appController.loadOpenWhenItems(this.value)"></select>
+                                
+                                <div class="input-group"><label>Emotion/Condition (e.g. you're sad)</label><input type="text" id="admin-ow-emotion"></div>
+                                <div class="input-group"><label>Emoji</label><input type="text" id="admin-ow-emoji"></div>
+                                <div class="input-group"><label>Border Color</label><input type="text" id="admin-ow-color" value="#3498db"></div>
+                                <div class="input-group"><label>Message Content</label><textarea id="admin-ow-message" rows="4"></textarea></div>
+                                <button class="btn btn-primary mt-2" onclick="appController.addOpenWhenMessage()">Add Envelope</button>
+                            </div>
+                            <div class="form-card glassmorphic">
+                                <h3>Existing Envelopes</h3>
+                                <ul id="admin-ow-list" class="admin-list mt-2"></ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- NEW TAB: VOICE MGR -->
+                    <div id="admin-voice-mgr" class="admin-tab-pane">
+                        <header class="content-header">
+                            <h1>Voice Message</h1>
+                        </header>
+                        <div class="form-card glassmorphic">
+                            <select id="admin-voice-user-select" class="mb-4" onchange="appController.loadVoiceInfo(this.value)"></select>
+                            
+                            <div class="input-group"><label>Title</label><input type="text" id="admin-voice-title" placeholder="Voice Note"></div>
+                            <div class="input-group"><label>Audio URL</label><input type="text" id="admin-voice-current" placeholder="https://..."></div>
+                            <div class="input-group"><label>Upload File</label><input type="file" id="admin-voice-file" accept="audio/*"></div>
+                            <button class="btn btn-primary mt-2" onclick="appController.saveVoiceMessage()">Save Voice Note</button>
+                        </div>
+                    </div>
+
+                    <!-- NEW TAB: FUTURE MGR -->
+                    <div id="admin-future-mgr" class="admin-tab-pane">
+                        <header class="content-header">
+                            <h1>Future Messages</h1>
+                        </header>
+                        <div class="form-layout-grid">
+                            <div class="form-card glassmorphic">
+                                <h3>Add Future Message</h3>
+                                <select id="admin-future-user-select" class="mb-4 w-full" onchange="appController.loadFutureItems(this.value)"></select>
+                                
+                                <div class="input-group"><label>Year</label><input type="number" id="admin-future-year" placeholder="e.g. 2027"></div>
+                                <div class="input-group"><label>Message</label><textarea id="admin-future-message" rows="4"></textarea></div>
+                                <button class="btn btn-primary mt-2" onclick="appController.addFutureMessage()">Add Message</button>
+                            </div>
+                            <div class="form-card glassmorphic">
+                                <h3>Existing Future Messages</h3>
+                                <ul id="admin-future-list" class="admin-list mt-2"></ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- NEW TAB: PUZZLE MGR -->
+                    <div id="admin-puzzle-mgr" class="admin-tab-pane">
+                        <header class="content-header">
+                            <h1>Puzzle Settings</h1>
+                        </header>
+                        <div class="form-layout-grid">
+                            <div class="form-card glassmorphic">
+                                <h3>Add Puzzle Level</h3>
+                                <select id="admin-puzzle-user-select" class="mb-4 w-full" onchange="appController.loadPuzzleItems(this.value)"></select>
+                                
+                                <div class="input-group"><label>Level Title</label><input type="text" id="admin-puzzle-title"></div>
+                                <div class="input-group">
+                                    <label>Type</label>
+                                    <select id="admin-puzzle-type"><option value="text">Text Answer</option><option value="date">Date</option></select>
+                                </div>
+                                <div class="input-group"><label>Question Text</label><textarea id="admin-puzzle-question" rows="2"></textarea></div>
+                                <div class="input-group"><label>Correct Answer (exact string)</label><input type="text" id="admin-puzzle-answer"></div>
+                                <button class="btn btn-primary mt-2" onclick="appController.addPuzzleLevel()">Add Level</button>
+                            </div>
+                            <div class="form-card glassmorphic">
+                                <h3>Existing Levels</h3>
+                                <ul id="admin-puzzle-list" class="admin-list mt-2"></ul>
+                            </div>
+                        </div>
+                    </div>
+
                 </main>
             </div>
         </section>
     </div>
 
+    <!-- ================= MODALS ================= -->
+
     <!-- MODAL 1: ADD / EDIT USER -->
     <div id="modal-user" class="modal-overlay hide">
         <div class="modal-content glassmorphic animate-scale-up">
-            <header class="modal-header">
-                <h3 id="user-modal-title">Add New Birthday User</h3>
+            <header class="modal-header flex-between">
+                <h3 id="user-modal-title">Add New User</h3>
                 <button class="btn-close" onclick="appController.closeUserModal()"><i class="fa-solid fa-xmark"></i></button>
             </header>
-            <div class="modal-body">
-                <form id="form-user-edit" onsubmit="appController.saveUser(event)">
+            <div class="modal-body mt-3">
+                <form id="form-user-edit" onsubmit="event.preventDefault(); appController.saveUserFromModal(event); return false;">
                     <input type="hidden" id="edit-user-id">
                     <div class="input-group">
-                        <label for="edit-user-name">नाव (Full Name)</label>
-                        <input type="text" id="edit-user-name" placeholder="उदा. सानव भोसले" required>
+                        <label for="edit-user-name"><i class="fa-solid fa-user"></i> Full Name (युझरचे पूर्ण नाव)</label>
+                        <input type="text" id="edit-user-name" placeholder="उदा. Sanav Bhosale" required>
                     </div>
                     <div class="input-group">
-                        <label for="edit-user-username">Username</label>
-                        <input type="text" id="edit-user-username" placeholder="उदा. sanav" required>
+                        <label for="edit-user-secretname"><i class="fa-solid fa-at"></i> Secret Handle / Username (लॉगिन नाव)</label>
+                        <input type="text" id="edit-user-secretname" placeholder="उदा. sanav" required>
                     </div>
                     <div class="input-group">
-                        <label for="edit-user-password">Password</label>
-                        <input type="text" id="edit-user-password" placeholder="पासवर्ड निवडा..." required>
+                        <label for="edit-user-password"><i class="fa-solid fa-key"></i> Secret Code / Password</label>
+                        <input type="text" id="edit-user-password" placeholder="उदा. 123" value="123" required>
                     </div>
                     <div class="input-group">
-                        <label for="edit-user-birthdate">जन्मतारीख (Birthdate)</label>
+                        <label for="edit-user-birthdate"><i class="fa-solid fa-cake-candles"></i> Birthdate (जन्मतारीख)</label>
                         <input type="date" id="edit-user-birthdate" required>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" onclick="appController.closeUserModal()">रद्द करा (Cancel)</button>
-                        <button type="submit" class="btn btn-primary">जतन करा (Save)</button>
+                    <div class="modal-footer mt-4 flex-between">
+                        <button type="button" class="btn btn-secondary" onclick="appController.closeUserModal()">Cancel</button>
+                        <button type="submit" class="btn btn-primary btn-glow"><i class="fa-solid fa-floppy-disk"></i> Save User</button>
                     </div>
                 </form>
             </div>
@@ -701,52 +1014,69 @@
     <!-- MODAL 2: ADD GALLERY ITEM -->
     <div id="modal-gallery" class="modal-overlay hide">
         <div class="modal-content glassmorphic animate-scale-up">
-            <header class="modal-header">
-                <h3>Add Photo / Video Link</h3>
+            <header class="modal-header flex-between">
+                <h3>Add Photo / Video to Gallery</h3>
                 <button class="btn-close" onclick="appController.closeGalleryModal()"><i class="fa-solid fa-xmark"></i></button>
             </header>
-            <div class="modal-body">
-                <form id="form-gallery-add" onsubmit="appController.saveGalleryItem(event)">
+            <div class="modal-body mt-3">
+                <form id="form-gallery-add" onsubmit="event.preventDefault(); appController.saveGalleryItem(event); return false;">
+                    <div class="input-group mb-3">
+                        <label>Media Type</label>
+                        <div class="radio-group flex-gap" style="display:flex; gap:15px;">
+                            <label><input type="radio" name="media-type" value="image" checked> 🖼️ Photo (फोटो)</label>
+                            <label><input type="radio" name="media-type" value="video"> 🎥 Video (व्हिडिओ)</label>
+                        </div>
+                    </div>
                     <div class="input-group">
-                        <label>मीडिया प्रकार (Media Type)</label>
-                        <div class="radio-group">
-                            <label><input type="radio" name="media-type" value="image" checked onchange="appController.toggleGalleryFormType('image')"> Photo/Image</label>
-                            <label><input type="radio" name="media-type" value="video" onchange="appController.toggleGalleryFormType('video')"> Video</label>
-                        </div>
+                        <label>Category (कॅटेगिरी)</label>
+                        <select id="gallery-item-category" class="w-full">
+                            <option value="Memories">❤️ Memories (आठवणी)</option>
+                            <option value="Fun">🎉 Fun (गंमत)</option>
+                            <option value="Trips">✈️ Trips (सहली)</option>
+                            <option value="Us">💑 Us (आपण)</option>
+                        </select>
                     </div>
-                    <div class="input-group" id="gallery-item-url-group">
-                        <label for="gallery-item-url">मीडिया फाईल URL (Direct Link to Image/Video)</label>
-                        <input type="url" id="gallery-item-url" placeholder="https://images.unsplash.com/... or video path">
-                        <span class="help-text">तुम्ही Unsplash, Imgur किंवा कोणत्याही डायरेक्ट इमेज लिंक्स वापरू शकता.</span>
+                    <div class="input-group mt-2">
+                        <label><i class="fa-solid fa-file-image"></i> Upload File (थेट फोटो/व्हिडिओ अपलोड करा)</label>
+                        <input type="file" id="gallery-item-file" accept="image/*,video/*" class="w-full">
                     </div>
-                    <div class="input-group" id="gallery-item-file-group">
-                        <label for="gallery-item-file">लोकल फाईल अपलोड करा (Upload File from Laptop)</label>
-                        <input type="file" id="gallery-item-file" accept="image/*,video/*">
-                        <div class="upload-progress-container hide" id="gallery-upload-progress-container">
-                            <div class="upload-progress-bar" id="gallery-upload-progress-bar" style="width: 0%;"></div>
-                            <span class="upload-progress-text" id="gallery-upload-progress-text">0% Uploaded</span>
-                        </div>
+                    <div class="input-group mt-2">
+                        <label><i class="fa-solid fa-link"></i> Or Media URL (किंवा ऑनलाईन फोटो/व्हिडिओ लिंक)</label>
+                        <input type="url" id="gallery-item-url" placeholder="https://...">
                     </div>
-                    <div class="input-group" id="gallery-item-caption-group">
-                        <label for="gallery-item-caption">शीर्षक (Caption - optional)</label>
-                        <input type="text" id="gallery-item-caption" placeholder="उदा. कॉलेजचा पहिला दिवस...">
+                    <div class="input-group mt-2">
+                        <label for="gallery-item-caption">Caption / Short Description</label>
+                        <input type="text" id="gallery-item-caption" placeholder="उदा. आमची सुंदर सफर...">
                     </div>
-                    <div class="modal-footer">
+                    <div class="modal-footer mt-4 flex-between">
                         <button type="button" class="btn btn-secondary" onclick="appController.closeGalleryModal()">Cancel</button>
-                        <button type="submit" class="btn btn-primary">Add Media</button>
+                        <button type="submit" class="btn btn-primary btn-glow"><i class="fa-solid fa-plus"></i> Save Media</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 
-    <!-- Image Lightbox Modal for User Experience -->
+    <!-- Image Lightbox Modal -->
     <div id="lightbox" class="lightbox-overlay hide" onclick="appController.closeLightbox()">
         <button class="btn-close-lightbox"><i class="fa-solid fa-xmark"></i></button>
         <img id="lightbox-img" src="" alt="Zoomed view">
         <p id="lightbox-caption"></p>
     </div>
 
-    <script src="app.js?v=4.0"></script>
+    <!-- Open When Modal -->
+    <div id="open-when-overlay" class="modal-overlay hide">
+        <div class="modal-content glassmorphic envelope-open-anim center-text">
+            <header class="modal-header flex-center">
+                <h3 id="open-when-msg-title">Title</h3>
+                <button class="btn-close" onclick="appController.closeOpenWhen()"><i class="fa-solid fa-xmark"></i></button>
+            </header>
+            <div class="modal-body mt-4">
+                <p id="open-when-msg-text" class="large-msg-text"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js?v=5.0"></script>
 </body>
 </html>

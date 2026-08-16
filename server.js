@@ -193,18 +193,25 @@ app.post('/api/upload', upload.single('file'), async (req, res) => {
     if (isCloudinaryActive) {
         try {
             console.log(`Uploading file ${req.file.filename} to Cloudinary...`);
+            const ext = path.extname(req.file.originalname).toLowerCase();
+            const isAudioOrVideo = (req.file.mimetype && (req.file.mimetype.startsWith('audio/') || req.file.mimetype.startsWith('video/'))) ||
+                                   ['.m4a', '.mp3', '.wav', '.ogg', '.aac', '.flac', '.mp4', '.webm', '.mov', '.avi', '.mkv'].includes(ext);
+            const resourceType = isAudioOrVideo ? "video" : "auto";
+
             const result = await cloudinary.uploader.upload(req.file.path, {
-                resource_type: "auto",
+                resource_type: resourceType,
                 folder: "birthday_wish_assets"
             });
             
             // Delete temp file from uploads directory
-            fs.unlinkSync(req.file.path);
+            if (fs.existsSync(req.file.path)) {
+                fs.unlinkSync(req.file.path);
+            }
             
             return res.json({
                 success: true,
                 url: result.secure_url,
-                type: req.file.mimetype.split('/')[0] // 'image', 'video' or 'audio'
+                type: req.file.mimetype ? req.file.mimetype.split('/')[0] : (isAudioOrVideo ? 'audio' : 'file')
             });
         } catch (error) {
             console.error("Cloudinary Upload Error:", error);
