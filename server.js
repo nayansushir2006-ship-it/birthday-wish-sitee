@@ -319,15 +319,6 @@ app.post('/api/admin/password', (req, res) => {
     res.json({ success: true, message: "Admin password updated successfully!" });
 });
 
-// Catch-all route to serve static index.html or files for single-page app
-app.get('*', (req, res) => {
-    const requestedPath = path.join(__dirname, req.path);
-    if (fs.existsSync(requestedPath) && fs.statSync(requestedPath).isFile()) {
-        return res.sendFile(requestedPath);
-    }
-    res.sendFile(path.join(__dirname, 'index.html'));
-});
-
 // Export Express App for Vercel Serverless Functions
 module.exports = app;
 
