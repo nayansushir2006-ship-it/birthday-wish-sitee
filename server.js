@@ -30,7 +30,9 @@ try {
 }
 
 // Database initialization
-const dbPath = path.join(__dirname, 'db.json');
+const dbPath = fs.existsSync(path.join(__dirname, 'db.json'))
+    ? path.join(__dirname, 'db.json')
+    : path.join(process.cwd(), 'db.json');
 let db = null;
 
 const defaultDb = {
@@ -317,10 +319,15 @@ app.post('/api/admin/password', (req, res) => {
     res.json({ success: true, message: "Admin password updated successfully!" });
 });
 
-// Start Express Server
-app.listen(PORT, () => {
-    console.log(`==================================================`);
-    console.log(`🎂 Birthday Wish Server running on port ${PORT}`);
-    console.log(`🔗 Access it locally at: http://localhost:${PORT}`);
-    console.log(`==================================================`);
-});
+// Export Express App for Vercel Serverless Functions
+module.exports = app;
+
+// Start Express Server locally
+if (require.main === module || (!process.env.VERCEL && !process.env.NOW_REGION)) {
+    app.listen(PORT, () => {
+        console.log(`==================================================`);
+        console.log(`🎂 Birthday Wish Server running on port ${PORT}`);
+        console.log(`🔗 Access it locally at: http://localhost:${PORT}`);
+        console.log(`==================================================`);
+    });
+}
